@@ -64,9 +64,6 @@ int main(int argc, char **argv){
 	env.SetRaytracer(&scene);
 	env.SetGlobalSurfaceProperties(surface_type, 6894.76f * soil_strength);
 
-	glm::vec3 origin(0.0f, 0.0f, 0.f);
-	glm::quat relor(1.0f, 0.0f, 0.0f, 0.0f);
-
 	mavs::vehicle::Rp3dVehicle mavs_veh;
 	mavs_veh.Load(mavs_data_path+"/vehicles/rp3d_vehicles/"+rp3d_vehicle_file);
 	mavs_veh.SetPosition(initial_position.x, initial_position.y, initial_position.z);
@@ -76,8 +73,7 @@ int main(int argc, char **argv){
 	mavs::sensor::camera::RgbCamera camera;
 	camera.Initialize(256, 256, 0.0035, 0.0035, 0.0035);
 	camera.SetRenderShadows(false);
-	glm::vec3 cam_offset(-10.0, 0.0, 2.0);
-	camera.SetRelativePose(cam_offset, relor);
+	camera.SetRelativePose(glm::vec3(-10.0, 0.0, 2.0), glm::quat(1.0f, 0.0f, 0.0f, 0.0f));
 
 	double dt = 0.01;
 	rclcpp::Rate rate(1.0 / dt);
