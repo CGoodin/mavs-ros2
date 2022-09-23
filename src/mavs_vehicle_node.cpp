@@ -5,6 +5,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "nav_msgs/msg/odometry.hpp"
 #include "geometry_msgs/msg/twist.hpp"
+#include "geometry_msgs/msg/pose_array.hpp"
 #include "rosgraph_msgs/msg/clock.hpp"
 // package includes
 #include "mavs_ros_utils.h"
@@ -29,8 +30,9 @@ int main(int argc, char **argv){
 	rclcpp::init(argc, argv);
     auto n = std::make_shared<rclcpp::Node>("mavs_vehicle_node");
 
-	auto twist_sub = n->create_subscription<geometry_msgs::msg::Twist>("nature/cmd_vel", 1, TwistCallback);
-	auto odom_true = n->create_publisher<nav_msgs::msg::Odometry>("mavs/odometry_true", 10);
+	auto twist_sub = n->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 1, TwistCallback);
+	auto odom_true_pub = n->create_publisher<nav_msgs::msg::Odometry>("odometry_true", 10);
+	auto tire_poses_pub = n->create_publisher<geometry_msgs::msg::PoseArray>("tire_poses", 10);
 
 	// determine if sim time will be used
 	bool use_sim_time = n->get_parameter("use_sim_time").as_bool();
@@ -110,8 +112,27 @@ int main(int argc, char **argv){
 			camera.Display();
 		}
 
-		true_odom.header.stamp = n->now(); //ros::Time::now();
-		odom_true->publish(true_odom);
+		// publish the vehicle state as an odometry message
+		true_odom.header.stamp = n->now();
+		odom_true_pub->publish(true_odom);
+
+		// publish the tire poses as PoseArray Message
+		geometry_msgs::msg::PoseArray tire_poses;
+		tire_poses.header = true_odom.header;
+		for (int i=0;i<mavs_veh.GetNumTires();i++){
+			glm::vec3 tpos = mavs_veh.GetTirePosition(i);
+			glm::quat tori = mavs_veh.GetTireOrientation(i);
+			geometry_msgs::msg::Pose tpose;
+			tpose.position.x = tpos.x;
+			tpose.position.y = tpos.y;
+			tpose.position.z = tpos.z;
+			tpose.orientation.w = tori.w;
+			tpose.orientation.x = tori.x;
+			tpose.orientation.y = tori.y;
+			tpose.orientation.z = tori.z;
+			tire_poses.poses.push_back(tpose);
+		}
+		tire_poses_pub->publish(tire_poses);
 
 		//clock update
 		if (use_sim_time){

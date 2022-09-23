@@ -4,6 +4,7 @@
 //ros includes
 #include "rclcpp/rclcpp.hpp"
 #include "nav_msgs/msg/odometry.hpp"
+#include "geometry_msgs/msg/pose_array.hpp"
 #include "sensor_msgs/msg/image.hpp"
 // package includes
 #include "mavs_ros_utils.h"
@@ -14,9 +15,14 @@
 #include "sensors/mavs_sensors.h"
 
 nav_msgs::msg::Odometry pose;
+geometry_msgs::msg::PoseArray tire_poses;
 
 void OdomCallback(const nav_msgs::msg::Odometry::SharedPtr rcv_msg){
 	pose = *rcv_msg;
+}
+
+void TireCallback(const geometry_msgs::msg::PoseArray::SharedPtr rcv_msg){
+	tire_poses = *rcv_msg;
 }
 
 int main(int argc, char **argv){
@@ -24,8 +30,9 @@ int main(int argc, char **argv){
 	rclcpp::init(argc, argv);
     auto n = std::make_shared<rclcpp::Node>("mavs_camera_node");
 
-	auto odom_sub = n->create_subscription<nav_msgs::msg::Odometry>("mavs/odometry_true", 10, OdomCallback);
-	auto camera_pub = n->create_publisher<sensor_msgs::msg::Image>("mavs/camera", 10);
+	auto odom_sub = n->create_subscription<nav_msgs::msg::Odometry>("odometry_true", 10, OdomCallback);
+	auto tire_sub = n->create_subscription<geometry_msgs::msg::PoseArray>("tire_poses", 10, TireCallback);
+	auto camera_pub = n->create_publisher<sensor_msgs::msg::Image>("camera", 10);
 
 	// load parameters
 	std::string scene_file = mavs_ros_utils::GetStringParam(n, "scene_file", "cube_scene.json");
@@ -88,14 +95,27 @@ int main(int argc, char **argv){
 
 		glm::vec3 pos(pose.pose.pose.position.x, pose.pose.pose.position.y, pose.pose.pose.position.z);
 		glm::quat ori(pose.pose.pose.orientation.w, pose.pose.pose.orientation.x, pose.pose.pose.orientation.y, pose.pose.pose.orientation.z);
-
 		env.SetActorPosition(0, pos, ori, dt, true);
+
+		if (env.GetNumberOfActors()>=(int)(tire_poses.poses.size()+1)){
+			for (int i=0;i<(int)tire_poses.poses.size();i++){
+				glm::vec3 tpos(tire_poses.poses[i].position.x, tire_poses.poses[i].position.y, tire_poses.poses[i].position.z);
+				glm::quat tori(tire_poses.poses[i].orientation.w, tire_poses.poses[i].orientation.x, tire_poses.poses[i].orientation.y, tire_poses.poses[i].orientation.z);
+				env.SetActorPosition(i+1, tpos, tori, dt, true);
+			}
+		}
+
 		cam->SetPose(pos, ori);
 
 		cam->Update(&env, dt);
 		
 		if (display)cam->Display();
-		
+
+		sensor_msgs::msg::Image img;
+		mavs::Image mavs_img = cam->GetRosImage();
+		mavs_ros_utils::CopyFromMavsImage(img, mavs_img);
+		camera_pub->publish(img);
+
 		rate.sleep();
 
 		rclcpp::spin_some(n);

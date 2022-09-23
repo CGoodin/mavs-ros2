@@ -5,14 +5,16 @@ import launch.events
 
 def generate_launch_description():
 
+    scene_file = "cube_scene.json"
+    veh_file = "mrzr4_tires_low_gear.json"
     mavs_vehicle = launch_ros.actions.Node(
         package='mavs-ros2',
         namespace='mavs',
         executable='mavs_vehicle_node',
         name='mavs_vehicle_node',
         parameters=[
-            {'scene_file': "cube_scene.json"},
-            {'rp3d_vehicle_file': "l200.json"},
+            {'scene_file': scene_file},
+            {'rp3d_vehicle_file': veh_file},
             {'soil_strength': 250.0},
             {'surface_type': "dry"},
             {'Initial_X_Position': 0.0},
@@ -31,8 +33,8 @@ def generate_launch_description():
         executable='mavs_camera_node',
         name='mavs_camera_node',
         parameters=[
-            {'scene_file': "cube_scene.json"},
-            {'rp3d_vehicle_file': "l200.json"},
+            {'scene_file': scene_file},
+            {'rp3d_vehicle_file': veh_file},
             {'camera_type': "rgb"},
             {'num_horizontal_pix': 480},
             {'num_vertical_pix': 270},
