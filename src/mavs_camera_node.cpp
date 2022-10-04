@@ -15,14 +15,14 @@
 #include "sensors/mavs_sensors.h"
 
 nav_msgs::msg::Odometry pose;
-geometry_msgs::msg::PoseArray tire_poses;
+geometry_msgs::msg::PoseArray anim_poses;
 
 void OdomCallback(const nav_msgs::msg::Odometry::SharedPtr rcv_msg){
 	pose = *rcv_msg;
 }
 
-void TireCallback(const geometry_msgs::msg::PoseArray::SharedPtr rcv_msg){
-	tire_poses = *rcv_msg;
+void PosesCallback(const geometry_msgs::msg::PoseArray::SharedPtr rcv_msg){
+	anim_poses = *rcv_msg;
 }
 
 int main(int argc, char **argv){
@@ -31,12 +31,11 @@ int main(int argc, char **argv){
     auto n = std::make_shared<rclcpp::Node>("mavs_camera_node");
 
 	auto odom_sub = n->create_subscription<nav_msgs::msg::Odometry>("odometry_true", 10, OdomCallback);
-	auto tire_sub = n->create_subscription<geometry_msgs::msg::PoseArray>("tire_poses", 10, TireCallback);
+	auto anim_sub = n->create_subscription<geometry_msgs::msg::PoseArray>("all_poses_pub", 10, PosesCallback);
 	auto camera_pub = n->create_publisher<sensor_msgs::msg::Image>("camera", 10);
 
 	// load parameters
 	std::string scene_file = mavs_ros_utils::GetStringParam(n, "scene_file", "cube_scene.json");
-	std::string rp3d_vehicle_file = mavs_ros_utils::GetStringParam(n, "rp3d_vehicle_file", "l200.json");
 	// camera types are "rgb", "rccb", "fisheye", "nir", and "lwir"
 	std::string camera_type = mavs_ros_utils::GetStringParam(n, "camera_type", "rgb");
 	int nx = mavs_ros_utils::GetIntParam(n, "num_horizontal_pix", 256);
@@ -49,7 +48,8 @@ int main(int argc, char **argv){
 	bool render_shadows = mavs_ros_utils::GetBoolParam(n, "render_shadows", true);
 	bool display = mavs_ros_utils::GetBoolParam(n, "display", true);
 	float update_rate_hz = mavs_ros_utils::GetFloatParam(n, "update_rate_hz", 10.0f);
-
+	std::vector<std::string> vehicle_files = mavs_ros_utils::GetStringArrayParam(n, "vehicle_files", std::vector<std::string>(0));
+	std::cout<<"Loaded "<<vehicle_files.size()<<" vehicle files "<<std::endl;
 	mavs::sensor::camera::Camera *cam;
 	if (camera_type == "rgb"){
 		cam = new mavs::sensor::camera::RgbCamera;
@@ -82,11 +82,14 @@ int main(int argc, char **argv){
 	scene.TurnOffLabeling();
 	env.SetRaytracer(&scene);
 
-	mavs::vehicle::Rp3dVehicle mavs_veh;
-	mavs_veh.Load(mavs_data_path+"/vehicles/rp3d_vehicles/"+rp3d_vehicle_file);
-	mavs_veh.SetPosition(-10000.0f, -10000.0f, -10000.0f);
-	mavs_veh.SetOrientation(1.0f, 0.0f, 0.0f, 0.0f);
-	mavs_veh.Update(&env, 0.0, 0.0, 0.0, 0.00001);
+	for (int nv =0; nv<(int)vehicle_files.size();nv++){
+		mavs::vehicle::Rp3dVehicle mavs_veh;
+		std::cout<<"Loading vehilce file "<< (mavs_data_path+"/vehicles/rp3d_vehicles/"+vehicle_files[nv])<<std::endl;
+		mavs_veh.Load(mavs_data_path+"/vehicles/rp3d_vehicles/"+vehicle_files[nv]);
+		mavs_veh.SetPosition(-10000.0f, -10000.0f, -10000.0f);
+		mavs_veh.SetOrientation(1.0f, 0.0f, 0.0f, 0.0f);
+		mavs_veh.Update(&env, 0.0, 0.0, 0.0, 0.00001);
+	}
 
 	rclcpp::Rate rate(update_rate_hz);
 	float dt = 1.0f/update_rate_hz;
@@ -95,13 +98,13 @@ int main(int argc, char **argv){
 
 		glm::vec3 pos(pose.pose.pose.position.x, pose.pose.pose.position.y, pose.pose.pose.position.z);
 		glm::quat ori(pose.pose.pose.orientation.w, pose.pose.pose.orientation.x, pose.pose.pose.orientation.y, pose.pose.pose.orientation.z);
-		env.SetActorPosition(0, pos, ori, dt, true);
+		//env.SetActorPosition(0, pos, ori, dt, true);
 
-		if (env.GetNumberOfActors()>=(int)(tire_poses.poses.size()+1)){
-			for (int i=0;i<(int)tire_poses.poses.size();i++){
-				glm::vec3 tpos(tire_poses.poses[i].position.x, tire_poses.poses[i].position.y, tire_poses.poses[i].position.z);
-				glm::quat tori(tire_poses.poses[i].orientation.w, tire_poses.poses[i].orientation.x, tire_poses.poses[i].orientation.y, tire_poses.poses[i].orientation.z);
-				env.SetActorPosition(i+1, tpos, tori, dt, true);
+		if (env.GetNumberOfActors()>=(int)(anim_poses.poses.size())){
+			for (int i=0;i<(int)anim_poses.poses.size();i++){
+				glm::vec3 tpos(anim_poses.poses[i].position.x, anim_poses.poses[i].position.y, anim_poses.poses[i].position.z);
+				glm::quat tori(anim_poses.poses[i].orientation.w, anim_poses.poses[i].orientation.x, anim_poses.poses[i].orientation.y, anim_poses.poses[i].orientation.z);
+				env.SetActorPosition(i, tpos, tori, dt, true);
 			}
 		}
 

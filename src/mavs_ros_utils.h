@@ -158,6 +158,14 @@ inline int GetIntParam(rclcpp::Node::SharedPtr n, std::string param_name, int de
 	return val;
 }
 
+inline std::vector<std::string> GetStringArrayParam(rclcpp::Node::SharedPtr n, std::string param_name, std::vector<std::string> default_value){
+	n->declare_parameter(param_name, default_value);
+	std::vector<std::string> val = default_value;
+	if (n->has_parameter(param_name)){
+		val = n->get_parameter(param_name).as_string_array();
+	}
+	return val;
+}
 
 inline std::vector<float> GetFloatArrayParam(rclcpp::Node::SharedPtr n, std::string param_name, std::vector<float> default_value){
 	n->declare_parameter(param_name, default_value);

@@ -4,9 +4,16 @@ import launch.event_handlers
 import launch.events
 
 def generate_launch_description():
-
+    # some "global" parameters
     scene_file = "cube_scene.json"
     veh_file = "mrzr4_tires_low_gear.json"
+
+    env_params = {env_params:
+        {{"rain_rate": 10.0},
+        {"snow_rate": 0.0}}
+    }
+
+
     mavs_vehicle = launch_ros.actions.Node(
         package='mavs-ros2',
         namespace='mavs',
@@ -21,7 +28,8 @@ def generate_launch_description():
             {'Initial_Y_Position': 0.0},
             {'Initial_Heading': 0.0},
             {'debug_camera': True},
-            {'use_human_driver': True}
+            {'use_human_driver': True},
+            env_params
         ],
         output='screen',
         emulate_tty=True

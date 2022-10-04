@@ -32,7 +32,7 @@ int main(int argc, char **argv){
 
 	auto twist_sub = n->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 1, TwistCallback);
 	auto odom_true_pub = n->create_publisher<nav_msgs::msg::Odometry>("odometry_true", 10);
-	auto tire_poses_pub = n->create_publisher<geometry_msgs::msg::PoseArray>("tire_poses", 10);
+	auto anim_poses_pub = n->create_publisher<geometry_msgs::msg::PoseArray>("anim_poses", 10);
 
 	// determine if sim time will be used
 	bool use_sim_time = n->get_parameter("use_sim_time").as_bool();
@@ -51,7 +51,6 @@ int main(int argc, char **argv){
 	float heading_init = mavs_ros_utils::GetFloatParam(n, "Initial_Heading", 0.0f);
 	bool render_debug = mavs_ros_utils::GetBoolParam(n, "debug_camera", false);
 	bool use_human_driver = mavs_ros_utils::GetBoolParam(n, "use_human_driver", false);
-
 
 	glm::vec3 initial_position(x_init, y_init, 1.0f);
 	glm::quat initial_orientation(cos(0.5 * heading_init), 0.0f, 0.0f, sin(0.5 * heading_init));
@@ -117,8 +116,11 @@ int main(int argc, char **argv){
 		odom_true_pub->publish(true_odom);
 
 		// publish the tire poses as PoseArray Message
-		geometry_msgs::msg::PoseArray tire_poses;
-		tire_poses.header = true_odom.header;
+		geometry_msgs::msg::PoseArray anim_poses;
+		geometry_msgs::msg::Pose vpose;
+		vpose.position = true_odom.pose.pose.position;
+		vpose.orientation = true_odom.pose.pose.orientation;
+		anim_poses.poses.push_back(vpose);
 		for (int i=0;i<mavs_veh.GetNumTires();i++){
 			glm::vec3 tpos = mavs_veh.GetTirePosition(i);
 			glm::quat tori = mavs_veh.GetTireOrientation(i);
@@ -130,9 +132,11 @@ int main(int argc, char **argv){
 			tpose.orientation.x = tori.x;
 			tpose.orientation.y = tori.y;
 			tpose.orientation.z = tori.z;
-			tire_poses.poses.push_back(tpose);
+			anim_poses.poses.push_back(tpose);
 		}
-		tire_poses_pub->publish(tire_poses);
+		anim_poses.header.frame_id = n->get_namespace();
+		anim_poses.header.stamp = n->now();
+		anim_poses_pub->publish(anim_poses);
 
 		//clock update
 		if (use_sim_time){

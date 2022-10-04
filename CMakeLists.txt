@@ -49,9 +49,20 @@ target_link_libraries(mavs_camera_node
 )
 ament_target_dependencies(mavs_camera_node rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
 
+add_executable(mavs_pose_aggregator_node src/mavs_pose_aggregator_node.cpp src/mavs_ros_utils.cpp)
+target_link_libraries(mavs_pose_aggregator_node
+  X11
+  gomp
+  MAVS::mavs 
+  ${EMBREE_LIBRARY}
+)
+ament_target_dependencies(mavs_pose_aggregator_node rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
+
+
 install(TARGETS
   mavs_vehicle_node
   mavs_camera_node
+  mavs_pose_aggregator_node
   DESTINATION lib/${PROJECT_NAME})
 
 # Install launch files.
