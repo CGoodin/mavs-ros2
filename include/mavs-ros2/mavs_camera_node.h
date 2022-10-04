@@ -14,7 +14,7 @@
 class MavsCameraNode : public MavsSensorNode{
   public:
 	MavsCameraNode(): MavsSensorNode(){
-		std::cout<<"Creating camera node "<<std::endl;
+		//std::cout<<"Creating camera node "<<std::endl;
 		cam = NULL;
 		LoadCameraParams();
 
@@ -68,7 +68,7 @@ class MavsCameraNode : public MavsSensorNode{
 	rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr camera_pub; // = n->create_publisher<sensor_msgs::msg::Image>("camera", 10);
 
 	void TimerCallback(){
-        RCLCPP_INFO(this->get_logger(), "MAVS Camera class callback");
+        //RCLCPP_INFO(this->get_logger(), "MAVS Camera class callback");
 		MavsSensorNode::TimerCallback();
 
 		glm::vec3 pos(pose_.pose.pose.position.x, pose_.pose.pose.position.y, pose_.pose.pose.position.z);

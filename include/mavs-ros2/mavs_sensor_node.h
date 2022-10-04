@@ -16,7 +16,7 @@
 class MavsSensorNode : public MavsNode {
   public:
 	MavsSensorNode(): MavsNode(){
-		std::cout<<"Creating base sensor node "<<std::endl;
+		//std::cout<<"Creating base sensor node "<<std::endl;
 		odom_sub = this->create_subscription<nav_msgs::msg::Odometry>("odometry_true", 10, std::bind(&MavsSensorNode::OdomCallback, this, std::placeholders::_1));
 		anim_sub = this->create_subscription<geometry_msgs::msg::PoseArray>("all_poses_pub", 10, std::bind(&MavsSensorNode::PosesCallback, this, std::placeholders::_1));
 		
@@ -82,7 +82,7 @@ class MavsSensorNode : public MavsNode {
 	}
 
 	void TimerCallback(){
-        RCLCPP_INFO(this->get_logger(), "MAVS Sensor base class callback");
+        //RCLCPP_INFO(this->get_logger(), "MAVS Sensor base class callback");
 		if (env.GetNumberOfActors()>=(int)(anim_poses_.poses.size())){
 			for (int i=0;i<(int)anim_poses_.poses.size();i++){
 				glm::vec3 tpos(anim_poses_.poses[i].position.x, anim_poses_.poses[i].position.y, anim_poses_.poses[i].position.z);

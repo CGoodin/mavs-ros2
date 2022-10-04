@@ -8,6 +8,7 @@
 #include "geometry_msgs/msg/pose_array.hpp"
 #include "rosgraph_msgs/msg/clock.hpp"
 // package includes
+#include "mavs-ros2/mavs_vehicle_node.h"
 #include "mavs-ros2/mavs_ros_utils.h"
 // mavs includes
 #include "mavs_core/data_path.h"
@@ -15,7 +16,7 @@
 #include "raytracers/embree_tracer/embree_tracer.h"
 #include "sensors/mavs_sensors.h"
 
-float throttle = 0.0f;
+/*float throttle = 0.0f;
 float steering = 0.0f;
 float braking = 0.0f;
 
@@ -23,11 +24,14 @@ void TwistCallback(const geometry_msgs::msg::Twist::SharedPtr rcv_msg){
 	throttle = rcv_msg->linear.x;
 	braking = rcv_msg->linear.y;
 	steering = rcv_msg->angular.z;
-}
+}*/
 
 int main(int argc, char **argv){
 	//- Create the node and subscribers ---//
 	rclcpp::init(argc, argv);
+	rclcpp::spin(std::make_shared<MavsVehicleNode>());
+  	rclcpp::shutdown();
+	/*
     auto n = std::make_shared<rclcpp::Node>("mavs_vehicle_node");
 
 	auto twist_sub = n->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 1, TwistCallback);
@@ -154,6 +158,6 @@ int main(int argc, char **argv){
 		nsteps++;
 		rclcpp::spin_some(n);
 	} //while ros OK
-
+*/
 	return 0;
 }
