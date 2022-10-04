@@ -34,7 +34,11 @@ int main(int argc, char **argv){
 	rclcpp::init(argc, argv);
     auto n = std::make_shared<rclcpp::Node>("mavs_pose_aggregator_node");
 
-	int num_veh = mavs_ros_utils::GetIntParam(n, "num_vehicles", 1);
+	int num_veh = 1;
+	n->declare_parameter("num_vehicles", 1);
+	if (n->has_parameter("num_vehicles")){
+		num_veh = n->get_parameter("num_vehicles").as_int();
+	}
 
 	std::vector< rclcpp::Subscription<geometry_msgs::msg::PoseArray>::SharedPtr > anim_subs;
 	for (int nv = 0; nv<num_veh;nv++){

@@ -30,7 +30,7 @@ include_directories(
 )
 
 
-add_executable(mavs_vehicle_node src/mavs_vehicle_node.cpp src/mavs_ros_utils.cpp)
+add_executable(mavs_vehicle_node src/mavs_vehicle_node.cpp)
 target_link_libraries(mavs_vehicle_node
   X11
   gomp
@@ -40,7 +40,7 @@ target_link_libraries(mavs_vehicle_node
 ament_target_dependencies(mavs_vehicle_node rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
 
 
-add_executable(mavs_camera_node src/mavs_camera_node.cpp src/mavs_ros_utils.cpp)
+add_executable(mavs_camera_node src/mavs_camera_node.cpp)
 target_link_libraries(mavs_camera_node
   X11
   gomp
@@ -49,7 +49,7 @@ target_link_libraries(mavs_camera_node
 )
 ament_target_dependencies(mavs_camera_node rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
 
-add_executable(mavs_pose_aggregator_node src/mavs_pose_aggregator_node.cpp src/mavs_ros_utils.cpp)
+add_executable(mavs_pose_aggregator_node src/mavs_pose_aggregator_node.cpp)
 target_link_libraries(mavs_pose_aggregator_node
   X11
   gomp

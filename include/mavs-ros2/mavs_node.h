@@ -1,4 +1,7 @@
+#ifndef MAVS_NODE_H_
+#define MAVS_NODE_H_
 
+#include "rclcpp/rclcpp.hpp"
 
 class MavsNode : public rclcpp::Node{
   public:
@@ -66,5 +69,6 @@ class MavsNode : public rclcpp::Node{
 		}
 		return val;
 	}
-
 };
+
+#endif

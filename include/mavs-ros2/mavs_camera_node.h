@@ -1,10 +1,12 @@
+#ifndef MAVS_CAMERA_NODE_H_
+#define MAVS_CAMERA_NODE_H_
+// package includes
+#include "mavs-ros2/mavs_ros_utils.h"
+#include "mavs-ros2/mavs_sensor_node.h"
 //ros includes
 #include "rclcpp/rclcpp.hpp"
 #include "nav_msgs/msg/odometry.hpp"
 #include "geometry_msgs/msg/pose_array.hpp"
-// package includes
-#include "mavs-ros2/mavs_ros_utils.h"
-#include "mavs-ros2/mavs_sensor_node.h"
 // mavs includes
 #include "mavs_core/data_path.h"
 #include "vehicles/rp3d_veh/mavs_rp3d_veh.h"
@@ -87,3 +89,5 @@ class MavsCameraNode : public MavsSensorNode{
     }
 
 };
+
+#endif
