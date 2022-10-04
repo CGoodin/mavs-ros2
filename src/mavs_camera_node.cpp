@@ -7,7 +7,8 @@
 #include "geometry_msgs/msg/pose_array.hpp"
 #include "sensor_msgs/msg/image.hpp"
 // package includes
-#include "mavs_ros_utils.h"
+#include "mavs-ros2/mavs_ros_utils.h"
+#include "mavs-ros2/mavs_camera_node.h"
 // mavs includes
 #include "mavs_core/data_path.h"
 #include "vehicles/rp3d_veh/mavs_rp3d_veh.h"
@@ -26,8 +27,13 @@ void PosesCallback(const geometry_msgs::msg::PoseArray::SharedPtr rcv_msg){
 }
 
 int main(int argc, char **argv){
+
 	//- Create the node and subscribers ---//
 	rclcpp::init(argc, argv);
+	rclcpp::spin(std::make_shared<MavsCameraNode>());
+  	rclcpp::shutdown();
+
+/*
     auto n = std::make_shared<rclcpp::Node>("mavs_camera_node");
 
 	auto odom_sub = n->create_subscription<nav_msgs::msg::Odometry>("odometry_true", 10, OdomCallback);
@@ -49,7 +55,7 @@ int main(int argc, char **argv){
 	bool display = mavs_ros_utils::GetBoolParam(n, "display", true);
 	float update_rate_hz = mavs_ros_utils::GetFloatParam(n, "update_rate_hz", 10.0f);
 	std::vector<std::string> vehicle_files = mavs_ros_utils::GetStringArrayParam(n, "vehicle_files", std::vector<std::string>(0));
-	std::cout<<"Loaded "<<vehicle_files.size()<<" vehicle files "<<std::endl;
+
 	mavs::sensor::camera::Camera *cam;
 	if (camera_type == "rgb"){
 		cam = new mavs::sensor::camera::RgbCamera;
@@ -124,5 +130,7 @@ int main(int argc, char **argv){
 		rclcpp::spin_some(n);
 	} //while ros OK
 	delete cam;
+
+	*/
 	return 0;
 }
