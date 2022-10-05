@@ -137,6 +137,7 @@ private:
 
 		// publish the vehicle state as an odometry message
 		true_odom.header.stamp = this->now();
+		true_odom.header.frame_id = "odom";
 		odom_true_pub_->publish(true_odom);
 
 		// publish the tire poses as PoseArray Message

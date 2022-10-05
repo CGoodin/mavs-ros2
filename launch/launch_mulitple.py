@@ -30,6 +30,11 @@ def generate_launch_description():
     )
     nodes.append(mavs_aggregator)
 
+    tf_node = launch_ros.actions.Node(package = "tf2_ros", 
+                       executable = "static_transform_publisher",
+                       arguments = ["0", "0", "0", "0", "0", "0", "odom", "map"])
+    nodes.append(tf_node)
+
     for nv in range(num_vehicles):
         nvstr = str(nv).zfill(3)
         mavs_vehicle = launch_ros.actions.Node(
@@ -92,7 +97,8 @@ def generate_launch_description():
                 {'display': True},
                 {'update_rate_hz': 10.0},
                 {'vehicle_files': [veh_file]*num_vehicles},
-                {'lidar_type' : 'VLP-16'} #//Options are: HDL-32E', 'HDL-64E', 'M8','OS1', 'OS1-16', 'OS2', 'LMS-291', 'VLP-16', 'RS32
+                {'lidar_type' : 'OS2'}, #//Options are: HDL-32E', 'HDL-64E', 'M8','OS1', 'OS1-16', 'OS2', 'LMS-291', 'VLP-16', 'RS32
+                {'register_points' : True}
             ],
             remappings=[
                 (('/mavs'+nvstr+'/all_poses_pub'), '/mavs/all_poses_pub')
