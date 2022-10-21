@@ -8,11 +8,10 @@ def generate_launch_description():
     scene_file = "cube_scene.json"
     veh_file = "mrzr4_tires_low_gear.json"
 
-    env_params = {env_params:
-        {{"rain_rate": 10.0},
-        {"snow_rate": 0.0}}
-    }
-
+    env_params = {'env_params':
+	        {"rain_rate": 10.0,
+                "snow_rate": 0.0}
+            }
 
     mavs_vehicle = launch_ros.actions.Node(
         package='mavs-ros2',
@@ -53,7 +52,8 @@ def generate_launch_description():
             {'orientation': [1.0, 0.0, 0.0, 0.0]},
             {'render_shadows': True},
             {'display': True},
-            {'update_rate_hz': 5.0}
+            {'update_rate_hz': 5.0},
+            env_params
         ],
         output='screen',
         emulate_tty=True
