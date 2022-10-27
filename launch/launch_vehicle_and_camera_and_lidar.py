@@ -59,6 +59,26 @@ def generate_launch_description():
         emulate_tty=True
     )
 
+    mavs_lidar = launch_ros.actions.Node(
+            package='mavs-ros2',
+            namespace='mavs',
+            executable='mavs_lidar_node',
+            name='mavs_lidar_node',
+            parameters=[
+                {'scene_file': scene_file},
+                {'offset': [0.0,0.0,1.5]},
+                {'orientation': [1.0, 0.0, 0.0, 0.0]},
+                {'display': True},
+                {'update_rate_hz': 10.0},
+                {'vehicle_files': [veh_file]},
+                {'lidar_type' : 'OS2'}, #//Options are: HDL-32E', 'HDL-64E', 'M8','OS1', 'OS1-16', 'OS2', 'LMS-291', 'VLP-16', 'RS32
+                {'register_points' : True},
+                env_params
+            ],
+            output='screen',
+            emulate_tty=True
+        )
+
     mavs_aggregator = launch_ros.actions.Node(
         package='mavs-ros2',
         namespace='mavs',
@@ -77,5 +97,6 @@ def generate_launch_description():
     return LaunchDescription([
         mavs_vehicle,
         mavs_camera,
-         mavs_aggregator
+        mavs_lidar,
+        mavs_aggregator
     ])

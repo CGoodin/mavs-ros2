@@ -30,4 +30,7 @@
 *.exe
 *.out
 *.app
-launch/mavs_config.txt
+
+# custom
+*mavs_config.txt
+*__pycache__
