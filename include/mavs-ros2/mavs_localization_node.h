@@ -21,16 +21,7 @@ class MavsLocalizationNode : public MavsSensorNode{
 		dt_ = 1.0/update_rate_hz_;
 
 		srand( (unsigned)time( NULL ) );
-		float sx = (float)rand()/(float)RAND_MAX;
-		float sy = (float)rand()/(float)RAND_MAX;
 		
-		sx -= 0.5f;
-		sy -= 0.5f;
-		sx *= 2.0f;
-		sy *= 2.0f;
-		float sn = sqrtf(sx*sx + sy*sy);
-		ox_ = sx/sn;
-		oy_ = sy/sn;
 	}
 
 	~MavsLocalizationNode(){}
@@ -39,7 +30,6 @@ class MavsLocalizationNode : public MavsSensorNode{
 	// class member data
 	
 	float pose_error_;
-	float ox_, oy_;
 	rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_pub_;
 
 	// class member functions
@@ -53,9 +43,10 @@ class MavsLocalizationNode : public MavsSensorNode{
 
 		nav_msgs::msg::Odometry sim_pose = pose_;
 
-		float err_mag = pose_error_*(((float)rand()/(float)RAND_MAX) - 0.5f);
-		sim_pose.pose.pose.position.x += err_mag*ox_;
-		sim_pose.pose.pose.position.y += err_mag*oy_;
+		float sx = pose_error_*(((float)rand()/(float)RAND_MAX)-0.5f);
+		float sy = pose_error_*(((float)rand()/(float)RAND_MAX)-0.5f);
+		sim_pose.pose.pose.position.x += sx;
+		sim_pose.pose.pose.position.y += sy;
 
 		odom_pub_->publish(sim_pose);
     	}
