@@ -17,7 +17,7 @@ class MavsCameraNode : public MavsSensorNode{
   public:
 	MavsCameraNode(): MavsSensorNode(){
 		cam_ = NULL;
-
+                frame_num_ = 0;
 		LoadCameraParams();
 
 		camera_pub_ = this->create_publisher<sensor_msgs::msg::Image>("camera", 10);
@@ -33,7 +33,8 @@ class MavsCameraNode : public MavsSensorNode{
 	// class member data
 	mavs::sensor::camera::Camera *cam_;
 	rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr camera_pub_;
-
+        int frame_num_;
+        bool save_images_;
 	// class member functions
 	void LoadCameraParams(){
 		std::string camera_type = GetStringParam("camera_type", "rgb");
@@ -43,6 +44,7 @@ class MavsCameraNode : public MavsSensorNode{
 		float py = GetFloatParam("vertical_pixel_plane_size", 0.0035f);
 		float flen = GetFloatParam("focal_length", 0.0035f);
 		bool render_shadows = GetBoolParam("render_shadows", true);
+                save_images_ = GetBoolParam("save_images", false);
 		
 		if (camera_type == "rgb"){
 			cam_ = new mavs::sensor::camera::RgbCamera;
@@ -80,11 +82,15 @@ class MavsCameraNode : public MavsSensorNode{
 		cam_->Update(&env_, dt_);
 		
 		if (display_)cam_->Display();
-
+                if (save_images_){
+                    std::string fname = mavs::utils::ToString(frame_num_,5)+"_image.bmp";
+                    cam_->SaveImage(fname);
+                }
 		sensor_msgs::msg::Image img;
 		mavs::Image mavs_img = cam_->GetRosImage();
 		mavs_ros_utils::CopyFromMavsImage(img, mavs_img);
 		camera_pub_->publish(img);
+                frame_num_++;
     }
 
 };
