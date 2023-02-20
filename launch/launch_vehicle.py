@@ -26,6 +26,7 @@ def generate_launch_description():
             {'Initial_X_Position': 0.0},
             {'Initial_Y_Position': 0.0},
             {'Initial_Heading': 0.0},
+            {'dt': 0.01},
             {'debug_camera': True},
             {'use_human_driver': True},
             env_params

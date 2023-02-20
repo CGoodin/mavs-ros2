@@ -28,6 +28,7 @@ public:
 		LoadVehicleParams();
 
 		timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0 / (1.0/dt_))), std::bind(&MavsVehicleNode::TimerCallback, this));
+		render_steps_ = std::max(1,(int)(0.1f/dt_));
 	}
 
 	~MavsVehicleNode(){}
@@ -51,6 +52,7 @@ private:
 	mavs::vehicle::Rp3dVehicle mavs_veh_;
 	double dt_;
 	int nsteps_;
+	int render_steps_;
 	float elapsed_time_;
 
 	void TwistCallback(const geometry_msgs::msg::Twist::SharedPtr rcv_msg){
@@ -77,6 +79,7 @@ private:
 		float heading_init = GetFloatParam("Initial_Heading", 0.0f);
 		render_debug_ = GetBoolParam("debug_camera", false);
 		use_human_driver_ = GetBoolParam("use_human_driver", false);
+		dt_ = GetFloatParam("dt",0.01f);
 
 		glm::vec3 initial_position(x_init, y_init, 1.0f);
 		glm::quat initial_orientation(cos(0.5 * heading_init), 0.0f, 0.0f, sin(0.5 * heading_init));
@@ -128,7 +131,7 @@ private:
 
 		nav_msgs::msg::Odometry true_odom = mavs_ros_utils::CopyFromMavsVehicleState(veh_state);
 
-		if (render_debug_ && nsteps_ % 10 == 0){
+		if (render_debug_ && nsteps_ % render_steps_ == 0){
 			camera_.SetPose(veh_state);
 			camera_.Update(&env_, 0.1);
 			camera_.Display();
