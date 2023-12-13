@@ -29,6 +29,7 @@ include_directories(
  include
 )
 
+ament_export_include_directories(include)
 
 add_executable(mavs_vehicle_node src/mavs_vehicle_node.cpp)
 target_link_libraries(mavs_vehicle_node
@@ -78,18 +79,28 @@ target_link_libraries(mavs_pose_aggregator_node
 ament_target_dependencies(mavs_pose_aggregator_node rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
 
 
+#add_library(mavs-ros2 /include/mavs-ros2/mavs_node.h /include/mavs-ros2/mavs_ros_utils.h)
+
 install(TARGETS
   mavs_vehicle_node
   mavs_camera_node
   mavs_lidar_node
   mavs_localization_node
   mavs_pose_aggregator_node
-  DESTINATION lib/${PROJECT_NAME})
+  DESTINATION lib/${PROJECT_NAME}
+  INCLUDES DESTINATION include/${PROJECT_NAME}
+)
 
 # Install launch files.
 install(DIRECTORY
   launch
   DESTINATION share/${PROJECT_NAME}/
 )
+
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION include/${PROJECT_NAME}
+  FILES_MATCHING PATTERN "*.h"
+  PATTERN ".git" EXCLUDE)
+
 
 ament_package()
