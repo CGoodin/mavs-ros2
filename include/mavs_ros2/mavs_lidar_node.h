@@ -1,8 +1,8 @@
 #ifndef MAVS_LIDAR_NODE_H_
 #define MAVS_LIDAR_NODE_H_
 // package includes
-#include "mavs-ros2/mavs_ros_utils.h"
-#include "mavs-ros2/mavs_sensor_node.h"
+#include "mavs_ros2/mavs_ros_utils.h"
+#include "mavs_ros2/mavs_sensor_node.h"
 //ros includes
 #include "rclcpp/rclcpp.hpp"
 #include "nav_msgs/msg/odometry.hpp"

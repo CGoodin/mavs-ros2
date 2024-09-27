@@ -1,7 +1,7 @@
 #ifndef MAVS_NODE_H_
 #define MAVS_NODE_H_
 
-#include "rclcpp/rclcpp.hpp"
+#include <rclcpp/rclcpp.hpp>
 
 class MavsNode : public rclcpp::Node{
   public:

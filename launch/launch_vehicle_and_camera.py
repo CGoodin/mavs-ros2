@@ -14,7 +14,7 @@ def generate_launch_description():
             }
 
     mavs_vehicle = launch_ros.actions.Node(
-        package='mavs-ros2',
+        package='mavs_ros2',
         namespace='mavs',
         executable='mavs_vehicle_node',
         name='mavs_vehicle_node',
@@ -35,7 +35,7 @@ def generate_launch_description():
     )
 
     mavs_camera = launch_ros.actions.Node(
-        package='mavs-ros2',
+        package='mavs_ros2',
         namespace='mavs',
         executable='mavs_camera_node',
         name='mavs_camera_node',
@@ -60,7 +60,7 @@ def generate_launch_description():
     )
 
     mavs_aggregator = launch_ros.actions.Node(
-        package='mavs-ros2',
+        package='mavs_ros2',
         namespace='mavs',
         executable='mavs_pose_aggregator_node',
         name='mavs_aggregator_node',

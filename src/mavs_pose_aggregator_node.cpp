@@ -8,7 +8,7 @@
 #include "geometry_msgs/msg/pose_array.hpp"
 #include "sensor_msgs/msg/image.hpp"
 // package includes
-#include "mavs-ros2/mavs_ros_utils.h"
+#include "mavs_ros2/mavs_ros_utils.h"
 // mavs includes
 #include "mavs_core/data_path.h"
 #include "vehicles/rp3d_veh/mavs_rp3d_veh.h"

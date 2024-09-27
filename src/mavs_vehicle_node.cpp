@@ -1,5 +1,5 @@
 // package includes
-#include "mavs-ros2/mavs_vehicle_node.h"
+#include "mavs_ros2/mavs_vehicle_node.h"
 
 int main(int argc, char **argv){
 	rclcpp::init(argc, argv);

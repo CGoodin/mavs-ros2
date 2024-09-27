@@ -14,7 +14,7 @@ def generate_launch_description():
             }
 
     mavs_vehicle = launch_ros.actions.Node(
-        package='mavs-ros2',
+        package='mavs_ros2',
         namespace='mavs',
         executable='mavs_vehicle_node',
         name='mavs_vehicle_node',

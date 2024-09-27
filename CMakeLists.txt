@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(mavs-ros2)
+project(mavs_ros2)
 
 add_definitions(-DUSE_OMP)
 add_definitions(-DUSE_EMBREE)
@@ -25,21 +25,38 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(X11 REQUIRED)
 find_package(OpenMP)
 
-include_directories(
- include
-)
+# Include directories
+include_directories(include)
 
 ament_export_include_directories(include)
 
+# define a library target called my_value_converter_library
+add_library(mavs_ros2 src/mavs_ros_utils.cpp)
+ament_target_dependencies(mavs_ros2 rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
+
+# this line to exports the library
+ament_export_targets(mavs_ros2 HAS_LIBRARY_TARGET)
+
+# install the include/my_cpp_library directory to the install/include/my_cpp_library
+install(
+  TARGETS mavs_ros2
+  EXPORT mavs_ros2
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
+  INCLUDES DESTINATION include
+)
+
+# Add executables
 add_executable(mavs_vehicle_node src/mavs_vehicle_node.cpp)
 target_link_libraries(mavs_vehicle_node
   X11
   gomp
   MAVS::mavs 
   ${EMBREE_LIBRARY}
+  mavs_ros2
 )
 ament_target_dependencies(mavs_vehicle_node rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
-
 
 add_executable(mavs_camera_node src/mavs_camera_node.cpp)
 target_link_libraries(mavs_camera_node
@@ -47,6 +64,7 @@ target_link_libraries(mavs_camera_node
   gomp
   MAVS::mavs 
   ${EMBREE_LIBRARY}
+  mavs_ros2
 )
 ament_target_dependencies(mavs_camera_node rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
 
@@ -56,6 +74,7 @@ target_link_libraries(mavs_lidar_node
   gomp
   MAVS::mavs 
   ${EMBREE_LIBRARY}
+  mavs_ros2
 )
 ament_target_dependencies(mavs_lidar_node rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
 
@@ -65,6 +84,7 @@ target_link_libraries(mavs_localization_node
   gomp
   MAVS::mavs 
   ${EMBREE_LIBRARY}
+  mavs_ros2
 )
 ament_target_dependencies(mavs_localization_node rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
 
@@ -75,6 +95,7 @@ target_link_libraries(mavs_pose_aggregator_node
   gomp
   MAVS::mavs 
   ${EMBREE_LIBRARY}
+  mavs_ros2
 )
 ament_target_dependencies(mavs_pose_aggregator_node rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
 
@@ -88,7 +109,6 @@ install(TARGETS
   mavs_localization_node
   mavs_pose_aggregator_node
   DESTINATION lib/${PROJECT_NAME}
-  INCLUDES DESTINATION include/${PROJECT_NAME}
 )
 
 # Install launch files.
@@ -97,10 +117,18 @@ install(DIRECTORY
   DESTINATION share/${PROJECT_NAME}/
 )
 
+# Install header files
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION include/${PROJECT_NAME}
   FILES_MATCHING PATTERN "*.h"
   PATTERN ".git" EXCLUDE)
 
+# Install the export file
+install(
+  EXPORT mavs_ros2
+  FILE mavs_ros2Targets.cmake
+  NAMESPACE mavs_ros2::
+  DESTINATION share/${PROJECT_NAME}/cmake
+)
 
 ament_package()

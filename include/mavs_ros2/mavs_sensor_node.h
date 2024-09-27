@@ -1,7 +1,7 @@
 #ifndef MAVS_SENSOR_NODE_H_
 #define MAVS_SENSOR_NODE_H_
 // package includes
-#include "mavs-ros2/mavs_node.h"
+#include "mavs_ros2/mavs_node.h"
 //ros includes
 #include "rclcpp/rclcpp.hpp"
 #include "nav_msgs/msg/odometry.hpp"
