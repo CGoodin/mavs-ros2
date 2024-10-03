@@ -1,5 +1,5 @@
 // package includes
-#include "mavs_ros2/mavs_camera_node.h"
+#include "mavs-ros2/mavs_camera_node.h"
 
 int main(int argc, char **argv){
 
