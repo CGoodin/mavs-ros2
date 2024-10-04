@@ -51,7 +51,7 @@ void CImgToImage(cimg_library::CImg<T> *in_image, sensor_msgs::msg::Image &out_i
 	int n = 0;
 	for (int j =0; j <(int)out_image.height; j++){
 		//for (int i=out_image.width-1; i>=0; i--){
-		for (int i=0; i<out_image.width; i++){
+		for (int i=0; i<(int)out_image.width; i++){
 			for (int k = 0; k < 3; k++){
 				out_image.data[n] = (uint8_t)in_image->operator()(i,j,k);
 				n++;
@@ -88,7 +88,7 @@ void ImageToCImg(sensor_msgs::msg::Image &in_image, cimg_library::CImg<T> &out_i
  * Get a heading (yaw) from a ROS quaternion.
  * \param orientation The normalized ROS quaternion 
  */
-double GetHeadingFromOrientation(geometry_msgs::msg::Quaternion orientation){
+inline double GetHeadingFromOrientation(geometry_msgs::msg::Quaternion orientation){
     tf2::Quaternion q(
         orientation.x,
         orientation.y,
@@ -105,7 +105,7 @@ double GetHeadingFromOrientation(geometry_msgs::msg::Quaternion orientation){
  * \param pc The output ROS PointCloud2
  * \param mavs_pc The input MAVS PoinCloud2
  */
-sensor_msgs::msg::PointCloud2 CopyFromMavsPc2(mavs::PointCloud2 mavs_pc){
+inline sensor_msgs::msg::PointCloud2 CopyFromMavsPc2(mavs::PointCloud2 mavs_pc){
     sensor_msgs::msg::PointCloud2 pc;
 	pc.height = mavs_pc.height;
 	pc.width = mavs_pc.width;
@@ -136,7 +136,7 @@ sensor_msgs::msg::PointCloud2 CopyFromMavsPc2(mavs::PointCloud2 mavs_pc){
  * \param image The output ROS Image
  * \param mavs_image The input MAVS Image
  */
-void CopyFromMavsImage(sensor_msgs::msg::Image &image, mavs::Image &mavs_image){
+inline void CopyFromMavsImage(sensor_msgs::msg::Image &image, mavs::Image &mavs_image){
     image.height = mavs_image.height;
     image.width = mavs_image.width;
     image.encoding = mavs_image.encoding;
@@ -150,7 +150,7 @@ void CopyFromMavsImage(sensor_msgs::msg::Image &image, mavs::Image &mavs_image){
  * \param fix The output ROS NavSatFix
  * \param mavs_fix The input MAVS NavSatFix
  */
-void CopyFromMavsFix(sensor_msgs::msg::NavSatFix &fix, mavs::NavSatFix &mavs_fix){
+inline void CopyFromMavsFix(sensor_msgs::msg::NavSatFix &fix, mavs::NavSatFix &mavs_fix){
     fix.latitude = mavs_fix.latitude;
     fix.longitude = mavs_fix.longitude;
     fix.altitude = mavs_fix.altitude;
@@ -162,7 +162,7 @@ void CopyFromMavsFix(sensor_msgs::msg::NavSatFix &fix, mavs::NavSatFix &mavs_fix
  * Copy a MAVS Vehicle state to a ROS Odometry message
  * \param state The MAVS Vehicle State 
  */
-nav_msgs::msg::Odometry CopyFromMavsVehicleState(mavs::VehicleState state){
+inline nav_msgs::msg::Odometry CopyFromMavsVehicleState(mavs::VehicleState state){
 	nav_msgs::msg::Odometry odom;
 	odom.pose.pose.position.x = state.pose.position.x;
 	odom.pose.pose.position.y = state.pose.position.y;
@@ -185,7 +185,7 @@ nav_msgs::msg::Odometry CopyFromMavsVehicleState(mavs::VehicleState state){
  * \param odom The ROS output odometry message
  * \param mavs_odom The input MAVS odometry message
  */
-void CopyFromMavsOdometry(nav_msgs::msg::Odometry &odom, mavs::Odometry &mavs_odom){
+inline void CopyFromMavsOdometry(nav_msgs::msg::Odometry &odom, mavs::Odometry &mavs_odom){
 	odom.pose.pose.position.x = mavs_odom.pose.pose.position.x;
 	odom.pose.pose.position.y = mavs_odom.pose.pose.position.y;
 	odom.pose.pose.position.z = mavs_odom.pose.pose.position.z;
@@ -206,7 +206,7 @@ void CopyFromMavsOdometry(nav_msgs::msg::Odometry &odom, mavs::Odometry &mavs_od
  * \param grid The ROS output OccupancyGrid message
  * \param mavs_grid The input MAVS OccupancyGrid message
  */
-void CopyFromMavsGrid(nav_msgs::msg::OccupancyGrid &grid, mavs::OccupancyGrid &mavs_grid){
+inline void CopyFromMavsGrid(nav_msgs::msg::OccupancyGrid &grid, mavs::OccupancyGrid &mavs_grid){
     grid.info.width = mavs_grid.info.width;
     grid.info.height = mavs_grid.info.height;
     grid.info.resolution = mavs_grid.info.resolution;
@@ -230,7 +230,7 @@ void CopyFromMavsGrid(nav_msgs::msg::OccupancyGrid &grid, mavs::OccupancyGrid &m
  * \param x2 Second point on the line
  * \param x0 Test point 
  */
-double PointLineDistance(glm::dvec2 x1, glm::dvec2 x2, glm::dvec2 x0) {
+inline double PointLineDistance(glm::dvec2 x1, glm::dvec2 x2, glm::dvec2 x0) {
 	glm::dvec3 x01(x0.x - x1.x, x0.y - x1.y, 0.0);
 	glm::dvec3 x02(x0.x - x2.x, x0.y - x2.y, 0.0);
 	glm::dvec2 x21 = x2 - x1;
@@ -244,7 +244,7 @@ double PointLineDistance(glm::dvec2 x1, glm::dvec2 x2, glm::dvec2 x0) {
  * \param ep2 Second endpoint of the segment
  * \param p The test point 
  */
-double PointToSegmentDistance(glm::dvec2 ep1, glm::dvec2 ep2, glm::dvec2 p) {
+inline double PointToSegmentDistance(glm::dvec2 ep1, glm::dvec2 ep2, glm::dvec2 p) {
 	glm::dvec2 v21 = ep2 - ep1;
 	glm::dvec2 pv1 = p - ep1;
 	if (glm::dot(v21, pv1) <= 0.0) {
