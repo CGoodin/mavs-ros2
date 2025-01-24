@@ -43,16 +43,17 @@ def generate_launch_description():
             {'scene_file': scene_file},
             {'vehicle_files': [veh_file]},
             {'camera_type': "rgb"},
-            {'num_horizontal_pix': 480},
-            {'num_vertical_pix': 270},
-            {'horizontal_pixel_plane_size': 0.006222},
-            {'vertical_pixel_plane_size': 0.0035},
-            {'focal_length': 0.0035},
-            {'offset': [-10.0,0.0,1.0]},
+            {'num_horizontal_pix': 320}, #1280
+            {'num_vertical_pix': 200}, # 800
+            {'horizontal_pixel_plane_size': 0.00384},
+            {'vertical_pixel_plane_size': 0.0024},
+            {'focal_length': 0.00235},
+            {'baseline': 0.075},
+            {'offset': [1.5,0.0,0.5]},
             {'orientation': [1.0, 0.0, 0.0, 0.0]},
             {'render_shadows': True},
             {'display': True},
-            {'update_rate_hz': 5.0},
+            {'update_rate_hz': 10.0},
             env_params
         ],
         output='screen',
@@ -73,9 +74,22 @@ def generate_launch_description():
         output='screen',
         emulate_tty=True
     )
+    
+    stereo_image_proc_node = launch_ros.actions.Node(
+        package='stereo_image_proc',
+        executable='disparity_node',
+        output='screen',
+        emulate_tty = True,
+        # Add any necessary parameters here
+        remappings=[('left/image_rect', 'mavs/left/image_raw'),
+                    ('right/image_rect', 'mavs/right/image_raw'),
+                    ('left/camera_info', 'mavs/left/camara_info'),
+                    ('right/camera_info', 'mavs/right/camara_info')]
+    )
 
     return LaunchDescription([
         mavs_vehicle,
         mavs_depth_camera,
-        mavs_aggregator
+        mavs_aggregator,
+        stereo_image_proc_node
     ])

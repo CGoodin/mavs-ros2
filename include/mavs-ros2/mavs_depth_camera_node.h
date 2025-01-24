@@ -6,6 +6,7 @@
 //ros includes
 #include "rclcpp/rclcpp.hpp"
 #include "nav_msgs/msg/odometry.hpp"
+#include "sensor_msgs/msg/camera_info.hpp"
 #include "geometry_msgs/msg/pose_array.hpp"
 // mavs includes
 #include "mavs_core/data_path.h"
@@ -20,8 +21,11 @@ class MavsDepthCameraNode : public MavsSensorNode{
         frame_num_ = 0;
 		LoadCameraParams();
 
-		left_camera_pub_ = this->create_publisher<sensor_msgs::msg::Image>("left/image_raw", 10);
-		right_camera_pub_ = this->create_publisher<sensor_msgs::msg::Image>("right/image_raw", 10);
+		left_image_pub_ = this->create_publisher<sensor_msgs::msg::Image>("left/image_raw", 10);
+		right_image_pub_ = this->create_publisher<sensor_msgs::msg::Image>("right/image_raw", 10);
+
+		left_camera_info_pub_ = this->create_publisher<sensor_msgs::msg::CameraInfo>("left/camera_info", 10);
+		right_camera_info_pub_ = this->create_publisher<sensor_msgs::msg::CameraInfo>("right/camera_info", 10);
 
 		timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsDepthCameraNode::TimerCallback, this));
 	}
@@ -33,7 +37,9 @@ class MavsDepthCameraNode : public MavsSensorNode{
   private:
 	// class member data
 	mavs::sensor::camera::RgbCamera left_cam_, right_cam_;
-	rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr left_camera_pub_, right_camera_pub_;
+	rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr left_image_pub_, right_image_pub_;
+	rclcpp::Publisher<sensor_msgs::msg::CameraInfo>::SharedPtr left_camera_info_pub_, right_camera_info_pub_;
+	sensor_msgs::msg::CameraInfo left_cam_info_, right_cam_info_;
     int frame_num_;
     bool save_images_;
 
@@ -57,6 +63,22 @@ class MavsDepthCameraNode : public MavsSensorNode{
 		right_cam_.SetRelativePose(glm::vec3(offset_[0], offset_[1] - 0.5 * baseline, offset_[2]), glm::quat(relor_[0], relor_[1], relor_[2], relor_[3]));
 		right_cam_.SetRenderShadows(render_shadows);
 		right_cam_.SetName("Right Camera");
+
+		left_cam_info_.height = ny;
+		left_cam_info_.width = nx;
+		left_cam_info_.d = { 0.0, 0.0, 0.0, 0.0, 0.0 };
+		left_cam_info_.r = { 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0 };
+		left_cam_info_.k = { flen, px, 0.0, 0.0, flen, py, 0.0, 0.0, 1.0 };
+		left_cam_info_.p = { flen, 0.0, px, 0.0, 0.0, flen, py, 0.5*baseline, 0.0, 0.0, 1.0, 0.0};
+		left_cam_info_.distortion_model = "plumb_bob";
+
+		right_cam_info_.height = ny;
+		right_cam_info_.width = nx;
+		right_cam_info_.d = { 0.0, 0.0, 0.0, 0.0, 0.0 };
+		right_cam_info_.r = { 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0 };
+		right_cam_info_.k = { flen, px, 0.0, 0.0, flen, py, 0.0, 0.0, 1.0 };
+		right_cam_info_.p = { flen, 0.0, px, 0.0, 0.0, flen, py, -0.5 * baseline, 0.0, 0.0, 1.0, 0.0 };
+		right_cam_info_.distortion_model = "plumb_bob";
 	}
 
 	void TimerCallback(){
@@ -85,11 +107,14 @@ class MavsDepthCameraNode : public MavsSensorNode{
 		sensor_msgs::msg::Image left_img;
 		mavs::Image left_mavs_img = left_cam_.GetRosImage();
 		mavs_ros_utils::CopyFromMavsImage(left_img, left_mavs_img);
-		left_camera_pub_->publish(left_img);
+		left_image_pub_->publish(left_img);
 		sensor_msgs::msg::Image right_img;
 		mavs::Image right_mavs_img = right_cam_.GetRosImage();
 		mavs_ros_utils::CopyFromMavsImage(right_img, right_mavs_img);
-		right_camera_pub_->publish(right_img);
+		right_image_pub_->publish(right_img);
+
+		left_camera_info_pub_->publish(left_cam_info_);
+		right_camera_info_pub_->publish(right_cam_info_);
 
         frame_num_++;
     }
