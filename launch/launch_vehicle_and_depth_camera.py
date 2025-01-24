@@ -41,7 +41,7 @@ def generate_launch_description():
         name='mavs_depth_camera_node',
         parameters=[
             {'scene_file': scene_file},
-             {'vehicle_files': [veh_file]},
+            {'vehicle_files': [veh_file]},
             {'camera_type': "rgb"},
             {'num_horizontal_pix': 480},
             {'num_vertical_pix': 270},
@@ -77,5 +77,5 @@ def generate_launch_description():
     return LaunchDescription([
         mavs_vehicle,
         mavs_depth_camera,
-         mavs_aggregator
+        mavs_aggregator
     ])
