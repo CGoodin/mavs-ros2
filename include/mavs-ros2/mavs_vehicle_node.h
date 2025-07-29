@@ -4,6 +4,7 @@
 // ros includes
 #include "rclcpp/rclcpp.hpp"
 #include "nav_msgs/msg/odometry.hpp"
+#include "sensor_msgs/msg/imu.hpp"
 #include "geometry_msgs/msg/pose_array.hpp"
 #include "rosgraph_msgs/msg/clock.hpp"
 #include "geometry_msgs/msg/twist.hpp"
@@ -24,6 +25,7 @@ public:
 		twist_sub_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 1, std::bind(&MavsVehicleNode::TwistCallback, this, std::placeholders::_1));
 		odom_true_pub_ = this->create_publisher<nav_msgs::msg::Odometry>("odometry_true", 10);
 		anim_poses_pub_ = this->create_publisher<geometry_msgs::msg::PoseArray>("anim_poses", 10);
+		imu_pub_ = this->create_publisher<sensor_msgs::msg::Imu>("mavs_imu", 100);
 
 		LoadVehicleParams();
 
@@ -36,6 +38,7 @@ public:
 private:
 	rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr twist_sub_;
 	rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_true_pub_;
+	rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr imu_pub_;
 	rclcpp::Publisher<geometry_msgs::msg::PoseArray>::SharedPtr anim_poses_pub_;
 	rclcpp::Publisher<rosgraph_msgs::msg::Clock>::SharedPtr clock_pub_;
 	
@@ -49,6 +52,7 @@ private:
 	bool use_human_driver_;
 	bool use_sim_time_;
 	mavs::sensor::camera::RgbCamera camera_;
+	mavs::sensor::imu::ImuSimple imu_;
 	mavs::vehicle::Rp3dVehicle mavs_veh_;
 	double dt_;
 	int nsteps_;
@@ -101,6 +105,11 @@ private:
 		camera_.Initialize(256, 256, 0.0035, 0.0035, 0.0035);
 		camera_.SetRenderShadows(false);
 		camera_.SetRelativePose(glm::vec3(-10.0, 0.0, 2.0), glm::quat(1.0f, 0.0f, 0.0f, 0.0f));
+
+		// imu settings
+		//imu_.SetGyroNoise(0.0f, 0.03f);
+		//imu_.SetAccelerometerNoise(0.0f, 0.1f);
+		//imu_.SetMagnetometerNoise(0.0f, 0.01f);
 	}
 
 	void UpdateHumanDrivingCommands(){
@@ -128,6 +137,29 @@ private:
 
 		mavs_veh_.Update(&env_, throttle_, steering_, -braking_, dt_);
 		mavs::VehicleState veh_state = mavs_veh_.GetState();
+
+		// update imu
+		imu_.SetPose(veh_state);
+		imu_.Update(&env_, dt_);
+		glm::quat ori = imu_.GetPose().quaternion; // GetDeadReckoningOrientation();
+		glm::vec3 angvel = imu_.GetAngularVelocity();
+		glm::vec3 linacc = imu_.GetAcceleration();
+
+		// publish the imu message
+		sensor_msgs::msg::Imu imu_msg;
+		imu_msg.orientation.w = ori.w;
+		imu_msg.orientation.x = ori.x;
+		imu_msg.orientation.y = ori.y;
+		imu_msg.orientation.z = ori.z;
+		imu_msg.angular_velocity.x = angvel.x;
+		imu_msg.angular_velocity.y = angvel.y;
+		imu_msg.angular_velocity.z = angvel.z;
+		imu_msg.linear_acceleration.x = linacc.x;
+		imu_msg.linear_acceleration.y = linacc.y;
+		imu_msg.linear_acceleration.z = linacc.z;
+		imu_msg.header.stamp = this->now();
+		imu_msg.header.frame_id = "imu_link";
+		imu_pub_->publish(imu_msg);
 
 		nav_msgs::msg::Odometry true_odom = mavs_ros_utils::CopyFromMavsVehicleState(veh_state);
 
