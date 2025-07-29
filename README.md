@@ -14,9 +14,10 @@ MAVS is a stand-alone library that can be built on Windows or Linux/Unix. The MA
 
 ## Installation
 To use the MAVS-ROS2 package, you will need to 
-1. Install [MAVS](https://www.cavs.msstate.edu/capabilities/mavs_request.php) 
-2. Install [ROS2](https://docs.ros.org/en/rolling/Installation.html) 
-3. Have a working [ROS2 workspace](https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
+1. Install RadarMsgs package(https://github.com/ros-perception/radar_msgs)
+2. Install [MAVS](https://www.cavs.msstate.edu/capabilities/mavs_request.php) 
+3. Install [ROS2](https://docs.ros.org/en/rolling/Installation.html) 
+4. Have a working [ROS2 workspace](https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
 
 After this, assuming your ROS-2 workspace is located in *~/ros2_ws/*, the MAVS-ROS2 package can be installed with the following steps:
 ```bash

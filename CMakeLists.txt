@@ -15,6 +15,7 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(radar_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
@@ -86,7 +87,7 @@ target_link_libraries(mavs_radar_node
   ${EMBREE_LIBRARY}
   mavs-ros2
 )
-ament_target_dependencies(mavs_radar_node rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
+ament_target_dependencies(mavs_radar_node rclcpp std_msgs geometry_msgs radar_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
 
 
 add_executable(mavs_localization_node src/mavs_localization_node.cpp)
