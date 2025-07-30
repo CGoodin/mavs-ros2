@@ -17,7 +17,7 @@
 class MavsRadarNode : public MavsSensorNode{
   public:
 	MavsRadarNode(): MavsSensorNode(){
-		radar_ = NULL;
+		//radar_ = NULL;
 
 		LoadRadarParams();
 
@@ -29,12 +29,12 @@ class MavsRadarNode : public MavsSensorNode{
 	}
 
 	~MavsRadarNode(){
-		if (radar_) delete radar_;
+		//if (radar_) delete radar_;
 	}
 
   private:
 	// class member data
-	mavs::sensor::radar::Radar *radar_;
+	mavs::sensor::radar::Radar radar_;
 	rclcpp::Publisher<radar_msgs::msg::RadarScan>::SharedPtr radar_pub_;
 	bool register_points_;
 
@@ -76,7 +76,7 @@ class MavsRadarNode : public MavsSensorNode{
 			lidar_ = new mavs::sensor::lidar::OusterOS2;
 		}
 		*/
-		radar_->SetRelativePose(glm::vec3(offset_[0], offset_[1], offset_[2]), glm::quat(relor_[0], relor_[1], relor_[2], relor_[3]));
+		radar_.SetRelativePose(glm::vec3(offset_[0], offset_[1], offset_[2]), glm::quat(relor_[0], relor_[1], relor_[2], relor_[3]));
 		
 	}
 
@@ -87,14 +87,14 @@ class MavsRadarNode : public MavsSensorNode{
 		glm::vec3 pos(pose_.pose.pose.position.x, pose_.pose.pose.position.y, pose_.pose.pose.position.z);
 		glm::quat ori(pose_.pose.pose.orientation.w, pose_.pose.pose.orientation.x, pose_.pose.pose.orientation.y, pose_.pose.pose.orientation.z);
 
-		radar_->SetPose(pos, ori);
+		radar_.SetPose(pos, ori);
 
-		radar_->Update(&env_, dt_);
+		radar_.Update(&env_, dt_);
 		
-		if (display_)radar_->Display();
+		if (display_)radar_.Display();
 
 		// get the radar returns from mavs and publish them 
-		std::vector<mavs::RadarTarget> mavs_targets = radar_->GetDetectedTargets();
+		std::vector<mavs::RadarTarget> mavs_targets = radar_.GetDetectedTargets();
 		radar_msgs::msg::RadarScan scan;
 		for (int i = 0; i < (int)mavs_targets.size(); i++) {
 			radar_msgs::msg::RadarReturn radret;
