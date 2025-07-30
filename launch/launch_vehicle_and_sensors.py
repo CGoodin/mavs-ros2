@@ -97,6 +97,25 @@ def generate_launch_description():
             emulate_tty=True
         )
 
+    mavs_gps = launch_ros.actions.Node(
+            package='mavs-ros2',
+            namespace='mavs',
+            executable='mavs_gps_node',
+            name='mavs_gps_node',
+            parameters=[
+                {'scene_file': scene_file},
+                {'offset': [2.0,0.0,0.5]},
+                {'orientation': [1.0, 0.0, 0.0, 0.0]},
+                {'display': True},
+                {'gps_type': "dual band"},
+                {'update_rate_hz': 1.0},
+                {'vehicle_files': [veh_file]},
+                env_params
+            ],
+            output='screen',
+            emulate_tty=True
+        )
+
     mavs_aggregator = launch_ros.actions.Node(
         package='mavs-ros2',
         namespace='mavs',
@@ -117,5 +136,6 @@ def generate_launch_description():
         mavs_camera,
         mavs_lidar,
         mavs_radar,
+        mavs_gps,
         mavs_aggregator
     ])

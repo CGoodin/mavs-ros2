@@ -25,7 +25,7 @@ public:
 		twist_sub_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 1, std::bind(&MavsVehicleNode::TwistCallback, this, std::placeholders::_1));
 		odom_true_pub_ = this->create_publisher<nav_msgs::msg::Odometry>("odometry_true", 10);
 		anim_poses_pub_ = this->create_publisher<geometry_msgs::msg::PoseArray>("anim_poses", 10);
-		imu_pub_ = this->create_publisher<sensor_msgs::msg::Imu>("mavs_imu", 100);
+		imu_pub_ = this->create_publisher<sensor_msgs::msg::Imu>("imu", 100);
 
 		LoadVehicleParams();
 

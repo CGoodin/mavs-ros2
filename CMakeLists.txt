@@ -89,6 +89,16 @@ target_link_libraries(mavs_radar_node
 )
 ament_target_dependencies(mavs_radar_node rclcpp std_msgs geometry_msgs radar_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
 
+add_executable(mavs_gps_node src/mavs_gps_node.cpp)
+target_link_libraries(mavs_gps_node
+  X11
+  gomp
+  MAVS::mavs 
+  ${EMBREE_LIBRARY}
+  mavs-ros2
+)
+ament_target_dependencies(mavs_gps_node rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
+
 
 add_executable(mavs_localization_node src/mavs_localization_node.cpp)
 target_link_libraries(mavs_localization_node
@@ -119,6 +129,7 @@ install(TARGETS
   mavs_camera_node
   mavs_lidar_node
   mavs_radar_node
+  mavs_gps_node
   mavs_localization_node
   mavs_pose_aggregator_node
   DESTINATION lib/${PROJECT_NAME}
