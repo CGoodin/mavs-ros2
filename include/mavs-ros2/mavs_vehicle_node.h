@@ -51,6 +51,7 @@ private:
 	bool render_debug_;
 	bool use_human_driver_;
 	bool use_sim_time_;
+	bool publish_imu_;
 	mavs::sensor::camera::RgbCamera camera_;
 	mavs::sensor::imu::ImuSimple imu_;
 	mavs::vehicle::Rp3dVehicle mavs_veh_;
@@ -107,9 +108,16 @@ private:
 		camera_.SetRelativePose(glm::vec3(-10.0, 0.0, 2.0), glm::quat(1.0f, 0.0f, 0.0f, 0.0f));
 
 		// imu settings
-		//imu_.SetGyroNoise(0.0f, 0.03f);
-		//imu_.SetAccelerometerNoise(0.0f, 0.1f);
-		//imu_.SetMagnetometerNoise(0.0f, 0.01f);
+		publish_imu_ = GetBoolParam("publish_imu", false);
+		float gyro_noise_off = GetFloatParam("imu_gyro_noise_offset", 0.0f);
+		float gyro_noise_mag = GetFloatParam("imu_gyro_noise_magnitude", 0.0f);
+		imu_.SetGyroNoise(gyro_noise_off, gyro_noise_mag);
+		float accel_noise_off = GetFloatParam("imu_accel_noise_offset", 0.0f);
+		float accel_noise_mag = GetFloatParam("imu_accel_noise_magnitude", 0.0f);
+		imu_.SetAccelerometerNoise(accel_noise_off, accel_noise_mag);
+		float magnet_noise_off = GetFloatParam("imu_magnet_noise_offset", 0.0f);
+		float magnet_noise_mag = GetFloatParam("imu_magnet_noise_magnitude", 0.0f);
+		imu_.SetMagnetometerNoise(magnet_noise_off, magnet_noise_mag);
 	}
 
 	void UpdateHumanDrivingCommands(){
@@ -139,27 +147,29 @@ private:
 		mavs::VehicleState veh_state = mavs_veh_.GetState();
 
 		// update imu
-		imu_.SetPose(veh_state);
-		imu_.Update(&env_, dt_);
-		glm::quat ori = imu_.GetPose().quaternion; // GetDeadReckoningOrientation();
-		glm::vec3 angvel = imu_.GetAngularVelocity();
-		glm::vec3 linacc = imu_.GetAcceleration();
+		if (publish_imu_) {
+			imu_.SetPose(veh_state);
+			imu_.Update(&env_, dt_);
+			glm::quat ori = imu_.GetDeadReckoningOrientation();
+			glm::vec3 angvel = imu_.GetAngularVelocity();
+			glm::vec3 linacc = imu_.GetAcceleration();
 
-		// publish the imu message
-		sensor_msgs::msg::Imu imu_msg;
-		imu_msg.orientation.w = ori.w;
-		imu_msg.orientation.x = ori.x;
-		imu_msg.orientation.y = ori.y;
-		imu_msg.orientation.z = ori.z;
-		imu_msg.angular_velocity.x = angvel.x;
-		imu_msg.angular_velocity.y = angvel.y;
-		imu_msg.angular_velocity.z = angvel.z;
-		imu_msg.linear_acceleration.x = linacc.x;
-		imu_msg.linear_acceleration.y = linacc.y;
-		imu_msg.linear_acceleration.z = linacc.z;
-		imu_msg.header.stamp = this->now();
-		imu_msg.header.frame_id = "imu_link";
-		imu_pub_->publish(imu_msg);
+			// publish the imu message
+			sensor_msgs::msg::Imu imu_msg;
+			imu_msg.orientation.w = ori.w;
+			imu_msg.orientation.x = ori.x;
+			imu_msg.orientation.y = ori.y;
+			imu_msg.orientation.z = ori.z;
+			imu_msg.angular_velocity.x = angvel.x;
+			imu_msg.angular_velocity.y = angvel.y;
+			imu_msg.angular_velocity.z = angvel.z;
+			imu_msg.linear_acceleration.x = linacc.x;
+			imu_msg.linear_acceleration.y = linacc.y;
+			imu_msg.linear_acceleration.z = linacc.z;
+			imu_msg.header.stamp = this->now();
+			imu_msg.header.frame_id = "imu_link";
+			imu_pub_->publish(imu_msg);
+		}
 
 		nav_msgs::msg::Odometry true_odom = mavs_ros_utils::CopyFromMavsVehicleState(veh_state);
 

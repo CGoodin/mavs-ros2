@@ -28,6 +28,7 @@ def generate_launch_description():
             {'Initial_Heading': 0.0},
             {'debug_camera': True},
             {'use_human_driver': True},
+            {'publish_imu': False},
             env_params
         ],
         output='screen',

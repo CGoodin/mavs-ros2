@@ -29,6 +29,7 @@ def generate_launch_description():
             {'dt': 0.01},
             {'debug_camera': True},
             {'use_human_driver': True},
+            {'publish_imu': False},
             env_params
         ],
         output='screen',

@@ -28,6 +28,13 @@ def generate_launch_description():
             {'Initial_Heading': 0.0},
             {'debug_camera': True},
             {'use_human_driver': True},
+            {'publish_imu': True},
+            {'imu_gyro_noise_offset': 0.0},
+            {'imu_gyro_noise_magnitude': 0.1},
+            {'imu_accel_noise_offset': 0.0},
+            {'imu_accel_noise_magnitude': 0.3},
+            {'imu_magnet_noise_offset': 0.0},
+            {'imu_magnet_noise_magnitude': 0.0},
             env_params
         ],
         output='screen',
