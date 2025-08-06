@@ -1,0 +1,16 @@
+[0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+[0m
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:6:10:[m[K [01;31m[Kfatal error: [m[Knlohmann/json.hpp: No such file or directory
+    6 | #include [01;31m[K<nlohmann/json.hpp>[m[K  // For JSON output (make sure you have this library)
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/mavs_vehicle_node_scene_creator.dir/build.make:79: CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:363: CMakeFiles/mavs_vehicle_node_scene_creator.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,21 @@
+[0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+[0m
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:[m[K In member function ‘[01m[Kstd::vector<float> MavsVehicleNode::RunSimulation()[m[K’:
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:168:11:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kdesired_speed[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  168 |     float [01;35m[Kdesired_speed[m[K = 2.0f;
+      |           [01;35m[K^~~~~~~~~~~~~[m[K
+/usr/bin/ld: CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o: in function `MavsVehicleNode::MavsVehicleNode()':
+mavs_vehicle_node_scene_creator.cpp:(.text+0x824): undefined reference to `MavsVehicleNode::TwistCallback(std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > >)'
+/usr/bin/ld: CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o: in function `MavsVehicleNode::PrepareSimulationParams()':
+mavs_vehicle_node_scene_creator.cpp:(.text+0x15d3): undefined reference to `MavsVehicleNode::LoadVehicleAndScene()'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/mavs_vehicle_node_scene_creator.dir/build.make:251: mavs_vehicle_node_scene_creator] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:363: CMakeFiles/mavs_vehicle_node_scene_creator.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

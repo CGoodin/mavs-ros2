@@ -1,0 +1,139 @@
+[0.071s] Invoking command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake /home/jdj688/mavs_ros2/src/mavs-ros2 -DCMAKE_INSTALL_PREFIX=/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2
+[0.133s] [0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.133s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.133s]   CMake.
+[0.133s] 
+[0.133s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.133s]   to tell CMake that the project requires at least <min> but has been updated
+[0.133s]   to work with policies introduced by <max> or earlier.
+[0.133s] 
+[0.133s] [0m
+[0.247s] -- The C compiler identification is GNU 11.4.0
+[0.369s] -- The CXX compiler identification is GNU 11.4.0
+[0.388s] -- Detecting C compiler ABI info
+[0.815s] -- Detecting C compiler ABI info - done
+[0.838s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.838s] -- Detecting C compile features
+[0.838s] -- Detecting C compile features - done
+[0.874s] -- Detecting CXX compiler ABI info
+[1.299s] -- Detecting CXX compiler ABI info - done
+[1.321s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.321s] -- Detecting CXX compile features
+[1.321s] -- Detecting CXX compile features - done
+[1.363s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.492s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter
+[3.076s] -- Found OpenMP_C: -fopenmp (found version "4.5")
+[3.511s] -- Found OpenMP_CXX: -fopenmp (found version "4.5")
+[3.511s] -- Found OpenMP: TRUE (found version "4.5")
+[3.531s] -- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80")
+[3.646s] -- Found X11: /usr/include
+[3.646s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+[4.075s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+[4.075s] -- Looking for gethostbyname
+[4.493s] -- Looking for gethostbyname - found
+[4.493s] -- Looking for connect
+[4.909s] -- Looking for connect - found
+[4.909s] -- Looking for remove
+[5.318s] -- Looking for remove - found
+[5.318s] -- Looking for shmat
+[5.730s] -- Looking for shmat - found
+[5.730s] -- Looking for IceConnectionNumber in ICE
+[6.140s] -- Looking for IceConnectionNumber in ICE - found
+[6.159s] -- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+[6.269s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[6.287s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[6.309s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[6.337s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[6.372s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[6.496s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[6.508s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[6.581s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[6.612s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[7.023s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[7.024s] -- Found Threads: TRUE
+[7.125s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[7.152s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[7.186s] -- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)
+[7.218s] -- Found tf2: 0.25.15 (/opt/ros/humble/share/tf2/cmake)
+[7.245s] -- Found tf2_ros: 0.25.15 (/opt/ros/humble/share/tf2_ros/cmake)
+[7.444s] -- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+[7.481s] -- Found tf2_geometry_msgs: 0.25.15 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[7.525s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[7.526s] -- Found Eigen3: TRUE (found version "3.4.0")
+[7.526s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[7.584s] -- Found OpenMP_C: -fopenmp (found version "4.5")
+[7.585s] -- Found OpenMP_CXX: -fopenmp (found version "4.5")
+[7.948s] -- Configuring done (7.9s)
+[8.946s] -- Generating done (1.0s)
+[9.121s] -- Build files have been written to: /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2
+[9.131s] Invoked command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake /home/jdj688/mavs_ros2/src/mavs-ros2 -DCMAKE_INSTALL_PREFIX=/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2
+[9.147s] Invoking command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96
+[9.253s] [  8%] [32mBuilding CXX object CMakeFiles/mavs-ros2.dir/src/mavs_ros_utils.cpp.o[0m
+[15.040s] [ 16%] [32m[1mLinking CXX static library libmavs-ros2.a[0m
+[15.138s] [ 16%] Built target mavs-ros2
+[15.209s] [ 41%] [32mBuilding CXX object CMakeFiles/mavs_camera_node.dir/src/mavs_camera_node.cpp.o[0m
+[15.218s] [ 58%] [32mBuilding CXX object CMakeFiles/mavs_pose_aggregator_node.dir/src/mavs_pose_aggregator_node.cpp.o[0m
+[15.218s] [ 58%] [32mBuilding CXX object CMakeFiles/mavs_vehicle_node.dir/src/mavs_vehicle_node.cpp.o[0m
+[15.218s] [ 58%] [32mBuilding CXX object CMakeFiles/mavs_lidar_node.dir/src/mavs_lidar_node.cpp.o[0m
+[15.220s] [ 58%] [32mBuilding CXX object CMakeFiles/mavs_localization_node.dir/src/mavs_localization_node.cpp.o[0m
+[27.289s] [ 66%] [32m[1mLinking CXX executable mavs_pose_aggregator_node[0m
+[27.953s] [ 66%] Built target mavs_pose_aggregator_node
+[29.706s] [ 75%] [32m[1mLinking CXX executable mavs_lidar_node[0m
+[30.219s] [ 83%] [32m[1mLinking CXX executable mavs_vehicle_node[0m
+[30.244s] [ 91%] [32m[1mLinking CXX executable mavs_localization_node[0m
+[30.544s] [100%] [32m[1mLinking CXX executable mavs_camera_node[0m
+[30.732s] [100%] Built target mavs_lidar_node
+[31.044s] [100%] Built target mavs_vehicle_node
+[31.186s] [100%] Built target mavs_localization_node
+[31.463s] [100%] Built target mavs_camera_node
+[31.496s] Invoked command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96
+[31.519s] Invoking command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --install /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2
+[31.528s] -- Install configuration: ""
+[31.543s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/library_path.sh
+[31.560s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/library_path.dsv
+[31.586s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/libmavs-ros2.a
+[31.619s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_vehicle_node
+[31.747s] -- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_vehicle_node" to ""
+[31.750s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_camera_node
+[31.843s] -- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_camera_node" to ""
+[31.846s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_lidar_node
+[31.991s] -- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_lidar_node" to ""
+[31.994s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_localization_node
+[32.075s] -- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_localization_node" to ""
+[32.079s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_pose_aggregator_node
+[32.189s] -- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_pose_aggregator_node" to ""
+[32.191s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch
+[32.202s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/launch_vehicle.py
+[32.225s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/launch_vehicle_and_camera.py
+[32.246s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/launch_vehicle_and_camera_and_lidar.py
+[32.268s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/mavs_config.txt
+[32.288s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2
+[32.301s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_camera_node.h
+[32.321s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_lidar_node.h
+[32.342s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_localization_node.h
+[32.363s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_node.h
+[32.382s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_ros_utils.h
+[32.402s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_sensor_node.h
+[32.421s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_vehicle_node.h
+[32.451s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Targets.cmake
+[32.473s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Targets-noconfig.cmake
+[32.507s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/ament_index/resource_index/package_run_dependencies/mavs-ros2
+[32.538s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/ament_index/resource_index/parent_prefix_path/mavs-ros2
+[32.559s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/ament_prefix_path.sh
+[32.575s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/ament_prefix_path.dsv
+[32.595s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/path.sh
+[32.611s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/path.dsv
+[32.631s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.bash
+[32.652s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.sh
+[32.675s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.zsh
+[32.695s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.dsv
+[32.714s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.dsv
+[32.744s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/ament_index/resource_index/packages/mavs-ros2
+[32.763s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Export.cmake
+[32.786s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Export-noconfig.cmake
+[32.806s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/ament_cmake_export_include_directories-extras.cmake
+[32.825s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/ament_cmake_export_targets-extras.cmake
+[32.845s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Config.cmake
+[32.867s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Config-version.cmake
+[32.888s] -- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.xml
+[32.913s] Invoked command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --install /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2

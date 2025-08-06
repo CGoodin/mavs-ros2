@@ -1,0 +1,2 @@
+Invoking command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96
+Invoked command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96

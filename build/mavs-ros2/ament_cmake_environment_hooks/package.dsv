@@ -1,0 +1,4 @@
+source;share/mavs-ros2/local_setup.bash
+source;share/mavs-ros2/local_setup.dsv
+source;share/mavs-ros2/local_setup.sh
+source;share/mavs-ros2/local_setup.zsh

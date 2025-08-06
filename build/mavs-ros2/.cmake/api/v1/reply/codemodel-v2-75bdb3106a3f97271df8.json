@@ -1,0 +1,133 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-582243504f969bab3889.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "mavs-ros2",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "mavs-ros2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mavs-ros2-6cd2fb90766ec7c9e8dd.json",
+					"name" : "mavs-ros2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mavs-ros2_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mavs-ros2_uninstall-112d8d1f9a94c0cefb58.json",
+					"name" : "mavs-ros2_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mavs_camera_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mavs_camera_node-e49b5ad1b159d3bb88ca.json",
+					"name" : "mavs_camera_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mavs_lidar_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mavs_lidar_node-88b96d6512f4f88d56c0.json",
+					"name" : "mavs_lidar_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mavs_localization_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mavs_localization_node-68d40e24c8e674631b96.json",
+					"name" : "mavs_localization_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mavs_pose_aggregator_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mavs_pose_aggregator_node-5f5aebe4be1377da2bf4.json",
+					"name" : "mavs_pose_aggregator_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mavs_vehicle_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mavs_vehicle_node-d28689d077c7ef1d710c.json",
+					"name" : "mavs_vehicle_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mavs_vehicle_node_scene_creator::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mavs_vehicle_node_scene_creator-40a99484eebdb48b1942.json",
+					"name" : "mavs_vehicle_node_scene_creator",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-c4787b2829f3450ba69f.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2",
+		"source" : "/home/jdj688/mavs_ros2/src/mavs-ros2"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

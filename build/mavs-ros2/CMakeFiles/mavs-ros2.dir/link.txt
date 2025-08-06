@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmavs-ros2.a "CMakeFiles/mavs-ros2.dir/src/mavs_ros_utils.cpp.o"
+/usr/bin/ranlib libmavs-ros2.a

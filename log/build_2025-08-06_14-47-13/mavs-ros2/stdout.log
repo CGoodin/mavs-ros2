@@ -1,0 +1,7 @@
+[ 14%] Built target mavs-ros2
+[ 85%] Built target mavs_localization_node
+[ 85%] Built target mavs_camera_node
+[ 85%] Built target mavs_lidar_node
+[ 85%] Built target mavs_vehicle_node
+[ 85%] Built target mavs_pose_aggregator_node
+[ 92%] [32mBuilding CXX object CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o[0m

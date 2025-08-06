@@ -1,0 +1,42 @@
+[0.097s] Invoking command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96
+[0.193s] [0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.193s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.193s]   CMake.
+[0.193s] 
+[0.193s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.193s]   to tell CMake that the project requires at least <min> but has been updated
+[0.193s]   to work with policies introduced by <max> or earlier.
+[0.194s] 
+[0.194s] [0m
+[0.223s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.548s] -- Found OpenMP_C: -fopenmp (found version "4.5")
+[0.549s] -- Found OpenMP_CXX: -fopenmp (found version "4.5")
+[0.793s] -- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+[0.842s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.848s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.859s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.875s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.900s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.969s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.972s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[1.008s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[1.091s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.116s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.146s] -- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)
+[1.168s] -- Found tf2: 0.25.15 (/opt/ros/humble/share/tf2/cmake)
+[1.176s] -- Found tf2_ros: 0.25.15 (/opt/ros/humble/share/tf2_ros/cmake)
+[1.319s] -- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+[1.352s] -- Found tf2_geometry_msgs: 0.25.15 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[1.361s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.362s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.552s] -- Found OpenMP_C: -fopenmp (found version "4.5")
+[1.552s] -- Found OpenMP_CXX: -fopenmp (found version "4.5")
+[1.610s] [31mCMake Error at /opt/ros/humble/share/ament_cmake_target_dependencies/cmake/ament_target_dependencies.cmake:42 (message):
+[1.610s]   ament_target_dependencies() the first argument must be a valid target name
+[1.610s] Call Stack (most recent call first):
+[1.611s]   CMakeLists.txt:130 (ament_target_dependencies)
+[1.611s] 
+[1.611s] [0m
+[1.611s] -- Configuring incomplete, errors occurred!
+[1.659s] gmake: *** [Makefile:513: cmake_check_build_system] Error 1
+[1.661s] Invoked command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96

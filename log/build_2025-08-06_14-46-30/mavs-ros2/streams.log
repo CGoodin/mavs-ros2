@@ -1,0 +1,16 @@
+[0.149s] Invoking command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96
+[0.367s] [ 14%] Built target mavs-ros2
+[0.532s] [ 57%] Built target mavs_vehicle_node
+[0.577s] [ 85%] Built target mavs_localization_node
+[0.577s] [ 85%] Built target mavs_lidar_node
+[0.578s] [ 85%] Built target mavs_pose_aggregator_node
+[0.580s] [ 85%] Built target mavs_camera_node
+[0.705s] [ 92%] [32mBuilding CXX object CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o[0m
+[6.256s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:[m[K In member function ‘[01m[Kvoid MavsVehicleNode::LoadVehicleAndScene()[m[K’:
+[6.256s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:68:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kmavs::data_path[m[K’ has not been declared
+[6.256s]    68 |     std::string data_path = mavs::[01;31m[Kdata_path[m[K::GetDataPath();
+[6.256s]       |                                   [01;31m[K^~~~~~~~~[m[K
+[13.120s] gmake[2]: *** [CMakeFiles/mavs_vehicle_node_scene_creator.dir/build.make:79: CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o] Error 1
+[13.122s] gmake[1]: *** [CMakeFiles/Makefile2:363: CMakeFiles/mavs_vehicle_node_scene_creator.dir/all] Error 2
+[13.123s] gmake: *** [Makefile:146: all] Error 2
+[13.125s] Invoked command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96

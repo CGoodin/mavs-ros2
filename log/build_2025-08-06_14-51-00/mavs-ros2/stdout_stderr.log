@@ -1,0 +1,60 @@
+[ 14%] Built target mavs-ros2
+[ 78%] Built target mavs_pose_aggregator_node
+[ 78%] Built target mavs_camera_node
+[ 92%] Built target mavs_localization_node
+[ 92%] Built target mavs_lidar_node
+[ 92%] Built target mavs_vehicle_node
+[ 92%] [32mBuilding CXX object CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o[0m
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:[m[K In member function ‘[01m[Kstd::vector<float> MavsVehicleNode::RunSimulation()[m[K’:
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:187:11:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kdesired_speed[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  187 |     float [01;35m[Kdesired_speed[m[K = 2.0f;
+      |           [01;35m[K^~~~~~~~~~~~~[m[K
+[100%] [32m[1mLinking CXX executable mavs_vehicle_node_scene_creator[0m
+[100%] Built target mavs_vehicle_node_scene_creator
+-- Install configuration: ""
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/library_path.sh
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/library_path.dsv
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/libmavs-ros2.a
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_vehicle_node
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_camera_node
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_lidar_node
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_localization_node
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_pose_aggregator_node
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_vehicle_node_scene_creator
+-- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_vehicle_node_scene_creator" to ""
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/launch_vehicle.py
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/launch_vehicle_and_camera.py
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/launch_vehicle_and_camera_and_lidar.py
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/mavs_config.txt
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/scene_creator_launch.py
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_camera_node.h
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_lidar_node.h
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_localization_node.h
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_node.h
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_ros_utils.h
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_sensor_node.h
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_vehicle_node.h
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Targets.cmake
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Targets-noconfig.cmake
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/ament_index/resource_index/package_run_dependencies/mavs-ros2
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/ament_index/resource_index/parent_prefix_path/mavs-ros2
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/ament_prefix_path.sh
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/path.sh
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/path.dsv
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.bash
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.sh
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.zsh
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.dsv
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.dsv
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/ament_index/resource_index/packages/mavs-ros2
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Export.cmake
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Export-noconfig.cmake
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Config.cmake
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Config-version.cmake
+-- Up-to-date: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.xml

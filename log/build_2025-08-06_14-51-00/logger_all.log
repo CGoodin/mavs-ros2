@@ -1,0 +1,107 @@
+[0.131s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.131s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=96, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fba1906f250>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fba1919c670>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fba1919c670>>)
+[0.327s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.328s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.328s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.328s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.328s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.328s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.328s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/jdj688/mavs_ros2/src/mavs-ros2'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.364s] DEBUG:colcon.colcon_core.package_identification:Package '.' with type 'ros.ament_cmake' and name 'mavs-ros2'
+[0.365s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.365s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.365s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.365s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.365s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.382s] Level 5:colcon.colcon_core.verb:set package 'mavs-ros2' build argument 'cmake_args' from command line to 'None'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'mavs-ros2' build argument 'cmake_target' from command line to 'None'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'mavs-ros2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'mavs-ros2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'mavs-ros2' build argument 'cmake_clean_first' from command line to 'False'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'mavs-ros2' build argument 'cmake_force_configure' from command line to 'False'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'mavs-ros2' build argument 'ament_cmake_args' from command line to 'None'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'mavs-ros2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'mavs-ros2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.383s] DEBUG:colcon.colcon_core.verb:Building package 'mavs-ros2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2', 'merge_install': False, 'path': '/home/jdj688/mavs_ros2/src/mavs-ros2', 'symlink_install': False, 'test_result_base': None}
+[0.383s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.384s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.384s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jdj688/mavs_ros2/src/mavs-ros2' with build type 'ament_cmake'
+[0.384s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jdj688/mavs_ros2/src/mavs-ros2'
+[0.385s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.386s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.386s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.402s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.402s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.402s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.402s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.402s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.402s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.552s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96
+[21.931s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96
+[21.969s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --install /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2
+[22.621s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mavs-ros2)
+[22.622s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --install /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2
+[22.624s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2' for CMake module files
+[22.640s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2' for CMake config files
+[22.657s] Level 1:colcon.colcon_core.shell:create_environment_hook('mavs-ros2', 'cmake_prefix_path')
+[22.658s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/hook/cmake_prefix_path.ps1'
+[22.667s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/hook/cmake_prefix_path.dsv'
+[22.678s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/hook/cmake_prefix_path.sh'
+[22.694s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib'
+[22.694s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/bin'
+[22.694s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/pkgconfig/mavs-ros2.pc'
+[22.696s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/python3.10/site-packages'
+[22.696s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/bin'
+[22.696s] INFO:colcon.colcon_core.shell:Creating package script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.ps1'
+[22.708s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.dsv'
+[22.720s] INFO:colcon.colcon_core.shell:Creating package script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.sh'
+[22.730s] INFO:colcon.colcon_core.shell:Creating package script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.bash'
+[22.739s] INFO:colcon.colcon_core.shell:Creating package script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.zsh'
+[22.751s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/colcon-core/packages/mavs-ros2)
+[22.765s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mavs-ros2)
+[22.765s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2' for CMake module files
+[22.769s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2' for CMake config files
+[22.788s] Level 1:colcon.colcon_core.shell:create_environment_hook('mavs-ros2', 'cmake_prefix_path')
+[22.789s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/hook/cmake_prefix_path.ps1'
+[22.802s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/hook/cmake_prefix_path.dsv'
+[22.812s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/hook/cmake_prefix_path.sh'
+[22.823s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib'
+[22.825s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/bin'
+[22.825s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/pkgconfig/mavs-ros2.pc'
+[22.826s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/python3.10/site-packages'
+[22.826s] Level 1:colcon.colcon_core.environment:checking '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/bin'
+[22.826s] INFO:colcon.colcon_core.shell:Creating package script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.ps1'
+[22.835s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.dsv'
+[22.844s] INFO:colcon.colcon_core.shell:Creating package script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.sh'
+[22.853s] INFO:colcon.colcon_core.shell:Creating package script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.bash'
+[22.862s] INFO:colcon.colcon_core.shell:Creating package script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.zsh'
+[22.872s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/colcon-core/packages/mavs-ros2)
+[22.877s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[22.877s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[22.877s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[22.877s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[22.932s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[22.932s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[22.932s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[22.932s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[22.932s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.FileNotFound: Failed to connect to socket /run/user/9880/bus: No such file or directory
+[22.933s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[22.933s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/local_setup.ps1'
+[22.946s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jdj688/mavs_ros2/src/mavs-ros2/install/_local_setup_util_ps1.py'
+[22.959s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/setup.ps1'
+[22.987s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/local_setup.sh'
+[23.004s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jdj688/mavs_ros2/src/mavs-ros2/install/_local_setup_util_sh.py'
+[23.019s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/setup.sh'
+[23.047s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/local_setup.bash'
+[23.059s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/setup.bash'
+[23.080s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/local_setup.zsh'
+[23.091s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jdj688/mavs_ros2/src/mavs-ros2/install/setup.zsh'

@@ -1,0 +1,14 @@
+[ 14%] Built target mavs-ros2
+[ 85%] Built target mavs_localization_node
+[ 85%] Built target mavs_camera_node
+[ 85%] Built target mavs_lidar_node
+[ 85%] Built target mavs_vehicle_node
+[ 85%] Built target mavs_pose_aggregator_node
+[ 92%] [32mBuilding CXX object CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o[0m
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:[m[K In member function ‘[01m[Kvoid MavsVehicleNode::LoadVehicleAndScene()[m[K’:
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:68:29:[m[K [01;31m[Kerror: [m[K‘[01m[KGetDataPath[m[K’ was not declared in this scope
+   68 |     std::string data_path = [01;31m[KGetDataPath[m[K();
+      |                             [01;31m[K^~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/mavs_vehicle_node_scene_creator.dir/build.make:79: CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:363: CMakeFiles/mavs_vehicle_node_scene_creator.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

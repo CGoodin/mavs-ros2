@@ -1,0 +1,133 @@
+[0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+[0m
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter
+-- Found OpenMP_C: -fopenmp (found version "4.5")
+-- Found OpenMP_CXX: -fopenmp (found version "4.5")
+-- Found OpenMP: TRUE (found version "4.5")
+-- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80")
+-- Found X11: /usr/include
+-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+-- Looking for gethostbyname
+-- Looking for gethostbyname - found
+-- Looking for connect
+-- Looking for connect - found
+-- Looking for remove
+-- Looking for remove - found
+-- Looking for shmat
+-- Looking for shmat - found
+-- Looking for IceConnectionNumber in ICE
+-- Looking for IceConnectionNumber in ICE - found
+-- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+-- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+-- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)
+-- Found tf2: 0.25.15 (/opt/ros/humble/share/tf2/cmake)
+-- Found tf2_ros: 0.25.15 (/opt/ros/humble/share/tf2_ros/cmake)
+-- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+-- Found tf2_geometry_msgs: 0.25.15 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+-- Found Eigen3: TRUE (found version "3.4.0")
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found OpenMP_C: -fopenmp (found version "4.5")
+-- Found OpenMP_CXX: -fopenmp (found version "4.5")
+-- Configuring done (7.9s)
+-- Generating done (1.0s)
+-- Build files have been written to: /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2
+[  8%] [32mBuilding CXX object CMakeFiles/mavs-ros2.dir/src/mavs_ros_utils.cpp.o[0m
+[ 16%] [32m[1mLinking CXX static library libmavs-ros2.a[0m
+[ 16%] Built target mavs-ros2
+[ 41%] [32mBuilding CXX object CMakeFiles/mavs_camera_node.dir/src/mavs_camera_node.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/mavs_pose_aggregator_node.dir/src/mavs_pose_aggregator_node.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/mavs_vehicle_node.dir/src/mavs_vehicle_node.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/mavs_lidar_node.dir/src/mavs_lidar_node.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/mavs_localization_node.dir/src/mavs_localization_node.cpp.o[0m
+[ 66%] [32m[1mLinking CXX executable mavs_pose_aggregator_node[0m
+[ 66%] Built target mavs_pose_aggregator_node
+[ 75%] [32m[1mLinking CXX executable mavs_lidar_node[0m
+[ 83%] [32m[1mLinking CXX executable mavs_vehicle_node[0m
+[ 91%] [32m[1mLinking CXX executable mavs_localization_node[0m
+[100%] [32m[1mLinking CXX executable mavs_camera_node[0m
+[100%] Built target mavs_lidar_node
+[100%] Built target mavs_vehicle_node
+[100%] Built target mavs_localization_node
+[100%] Built target mavs_camera_node
+-- Install configuration: ""
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/library_path.sh
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/library_path.dsv
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/libmavs-ros2.a
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_vehicle_node
+-- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_vehicle_node" to ""
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_camera_node
+-- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_camera_node" to ""
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_lidar_node
+-- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_lidar_node" to ""
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_localization_node
+-- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_localization_node" to ""
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_pose_aggregator_node
+-- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_pose_aggregator_node" to ""
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/launch_vehicle.py
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/launch_vehicle_and_camera.py
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/launch_vehicle_and_camera_and_lidar.py
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/mavs_config.txt
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_camera_node.h
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_lidar_node.h
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_localization_node.h
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_node.h
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_ros_utils.h
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_sensor_node.h
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_vehicle_node.h
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Targets.cmake
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Targets-noconfig.cmake
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/ament_index/resource_index/package_run_dependencies/mavs-ros2
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/ament_index/resource_index/parent_prefix_path/mavs-ros2
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/ament_prefix_path.sh
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/ament_prefix_path.dsv
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/path.sh
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/path.dsv
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.bash
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.sh
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.zsh
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.dsv
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.dsv
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/ament_index/resource_index/packages/mavs-ros2
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Export.cmake
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Export-noconfig.cmake
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Config.cmake
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Config-version.cmake
+-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.xml

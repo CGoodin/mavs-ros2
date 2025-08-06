@@ -1,0 +1,72 @@
+[ 14%] Built target mavs-ros2
+[ 21%] [32mBuilding CXX object CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o[0m
+[ 71%] Built target mavs_pose_aggregator_node
+[ 92%] Built target mavs_lidar_node
+[ 92%] Built target mavs_vehicle_node
+[ 92%] Built target mavs_camera_node
+[ 92%] Built target mavs_localization_node
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:12:1:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[KMavsVehicleNode::MavsVehicleNode()[m[K’
+   12 | [01;31m[KMavsVehicleNode[m[K::MavsVehicleNode() : MavsNode()
+      | [01;31m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:26:5:[m[K [01;36m[Knote: [m[K‘[01m[KMavsVehicleNode::MavsVehicleNode()[m[K’ previously defined here
+   26 |     [01;36m[KMavsVehicleNode[m[K() : MavsNode()
+      |     [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:56:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid MavsVehicleNode::PrepareSimulationParams()[m[K’
+   56 | void [01;31m[KMavsVehicleNode[m[K::PrepareSimulationParams()
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:56:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid MavsVehicleNode::PrepareSimulationParams()[m[K’
+In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:23:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+   23 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:90:20:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kstd::vector<float> MavsVehicleNode::GenerateRange(float, float, float)[m[K’
+   90 | std::vector<float> [01;31m[KMavsVehicleNode[m[K::GenerateRange(float start, float end, float step)
+      |                    [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:90:20:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kstd::vector<float> MavsVehicleNode::GenerateRange(float, float, float)[m[K’
+In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:23:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+   23 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:98:6:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[Kvoid MavsVehicleNode::TimerCallback()[m[K’
+   98 | void [01;31m[KMavsVehicleNode[m[K::TimerCallback()
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:135:10:[m[K [01;36m[Knote: [m[K‘[01m[Kvoid MavsVehicleNode::TimerCallback()[m[K’ previously defined here
+  135 |     void [01;36m[KTimerCallback[m[K()
+      |          [01;36m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:132:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid MavsVehicleNode::SetupTerrain(float, float, float)[m[K’
+  132 | void [01;31m[KMavsVehicleNode[m[K::SetupTerrain(float top_width, float base_width, float depth)
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:132:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid MavsVehicleNode::SetupTerrain(float, float, float)[m[K’
+In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:23:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+   23 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:143:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid MavsVehicleNode::ResetVehicleState()[m[K’
+  143 | void [01;31m[KMavsVehicleNode[m[K::ResetVehicleState()
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:143:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid MavsVehicleNode::ResetVehicleState()[m[K’
+In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:23:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+   23 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:160:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid MavsVehicleNode::RunSimulation()[m[K’
+  160 | void [01;31m[KMavsVehicleNode[m[K::RunSimulation()
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:160:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid MavsVehicleNode::RunSimulation()[m[K’
+In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:23:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+   23 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:201:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid MavsVehicleNode::LogResults(const std::vector<float>&)[m[K’
+  201 | void [01;31m[KMavsVehicleNode[m[K::LogResults(const std::vector<float>& speeds)
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:201:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid MavsVehicleNode::LogResults(const std::vector<float>&)[m[K’
+In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:23:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+   23 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/mavs_vehicle_node_scene_creator.dir/build.make:79: CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:363: CMakeFiles/mavs_vehicle_node_scene_creator.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

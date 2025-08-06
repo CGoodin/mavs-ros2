@@ -1,0 +1,137 @@
+[0.136s] Invoking command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96
+[0.352s] [ 14%] Built target mavs-ros2
+[0.450s] [ 42%] Built target mavs_camera_node
+[0.452s] [ 42%] Built target mavs_vehicle_node
+[0.562s] [ 57%] Built target mavs_pose_aggregator_node
+[0.592s] [ 64%] [32mBuilding CXX object CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o[0m
+[0.665s] [ 78%] Built target mavs_localization_node
+[0.773s] [ 92%] Built target mavs_lidar_node
+[6.097s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:[m[K In constructor ‘[01m[KMavsVehicleNode::MavsVehicleNode()[m[K’:
+[6.097s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:27:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmode_[m[K’ was not declared in this scope; did you mean ‘[01m[Kmode_t[m[K’?
+[6.097s]    27 |     [01;31m[Kmode_[m[K = GetStringParam("mode", "automated"); // "manual" or "automated"
+[6.097s]       |     [01;31m[K^~~~~[m[K
+[6.098s]       |     [32m[Kmode_t[m[K
+[6.117s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:28:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kiterations_[m[K’ was not declared in this scope
+[6.117s]    28 |     [01;31m[Kiterations_[m[K = GetIntParam("iterations", 100);
+[6.117s]       |     [01;31m[K^~~~~~~~~~~[m[K
+[6.135s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:29:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kditch_depth_start_[m[K’ was not declared in this scope
+[6.135s]    29 |     [01;31m[Kditch_depth_start_[m[K = GetFloatParam("ditch_depth_start", 0.0f);
+[6.136s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[6.151s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:30:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kditch_width_start_[m[K’ was not declared in this scope
+[6.151s]    30 |     [01;31m[Kditch_width_start_[m[K = GetFloatParam("ditch_width_start", 2.5f);
+[6.151s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[6.161s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:31:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kresults_path_[m[K’ was not declared in this scope
+[6.162s]    31 |     [01;31m[Kresults_path_[m[K = GetStringParam("results_path", "/tmp/mavs_results");
+[6.162s]       |     [01;31m[K^~~~~~~~~~~~~[m[K
+[6.194s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:[m[K In member function ‘[01m[Kvoid MavsVehicleNode::PrepareSimulationParams()[m[K’:
+[6.195s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:59:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kditch_depths_[m[K’ was not declared in this scope
+[6.195s]    59 |     [01;31m[Kditch_depths_[m[K = GenerateRange(0.0f, 4.0f, 0.2f);
+[6.195s]       |     [01;31m[K^~~~~~~~~~~~~[m[K
+[6.209s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:60:5:[m[K [01;31m[Kerror: [m[K‘[01m[Ktop_widths_[m[K’ was not declared in this scope
+[6.209s]    60 |     [01;31m[Ktop_widths_[m[K = GenerateRange(2.5f, 9.0f, 0.5f);
+[6.209s]       |     [01;31m[K^~~~~~~~~~~[m[K
+[6.215s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:62:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kmode_[m[K’ was not declared in this scope; did you mean ‘[01m[Kmode_t[m[K’?
+[6.215s]    62 |     if ([01;31m[Kmode_[m[K == "manual") {
+[6.215s]       |         [01;31m[K^~~~~[m[K
+[6.215s]       |         [32m[Kmode_t[m[K
+[6.232s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:64:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kselected_depths_[m[K’ was not declared in this scope
+[6.232s]    64 |         [01;31m[Kselected_depths_[m[K.clear();
+[6.233s]       |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[6.246s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:65:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kselected_widths_[m[K’ was not declared in this scope
+[6.246s]    65 |         [01;31m[Kselected_widths_[m[K.clear();
+[6.247s]       |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[6.262s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:67:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kditch_depth_start_[m[K’ was not declared in this scope
+[6.262s]    67 |             if (d >= [01;31m[Kditch_depth_start_[m[K)
+[6.262s]       |                      [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[6.285s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:71:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kditch_width_start_[m[K’ was not declared in this scope
+[6.285s]    71 |             if (w >= [01;31m[Kditch_width_start_[m[K)
+[6.285s]       |                      [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[6.304s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:74:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kmax_iterations_[m[K’ was not declared in this scope
+[6.304s]    74 |         [01;31m[Kmax_iterations_[m[K = iterations_;
+[6.304s]       |         [01;31m[K^~~~~~~~~~~~~~~[m[K
+[6.318s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:74:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kiterations_[m[K’ was not declared in this scope
+[6.318s]    74 |         max_iterations_ = [01;31m[Kiterations_[m[K;
+[6.318s]       |                           [01;31m[K^~~~~~~~~~~[m[K
+[6.334s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:77:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kselected_depths_[m[K’ was not declared in this scope
+[6.334s]    77 |         [01;31m[Kselected_depths_[m[K = ditch_depths_;
+[6.334s]       |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[6.348s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:78:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kselected_widths_[m[K’ was not declared in this scope
+[6.348s]    78 |         [01;31m[Kselected_widths_[m[K = top_widths_;
+[6.348s]       |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[6.360s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:79:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kmax_iterations_[m[K’ was not declared in this scope
+[6.360s]    79 |         [01;31m[Kmax_iterations_[m[K = std::min(iterations_, (int)(selected_depths_.size() * selected_widths_.size()));
+[6.360s]       |         [01;31m[K^~~~~~~~~~~~~~~[m[K
+[6.372s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:79:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kiterations_[m[K’ was not declared in this scope
+[6.372s]    79 |         max_iterations_ = std::min([01;31m[Kiterations_[m[K, (int)(selected_depths_.size() * selected_widths_.size()));
+[6.373s]       |                                    [01;31m[K^~~~~~~~~~~[m[K
+[6.396s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:82:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_iteration_[m[K’ was not declared in this scope
+[6.396s]    82 |     [01;31m[Kcurrent_iteration_[m[K = 0;
+[6.396s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[6.412s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:83:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kdepth_index_[m[K’ was not declared in this scope
+[6.412s]    83 |     [01;31m[Kdepth_index_[m[K = 0;
+[6.412s]       |     [01;31m[K^~~~~~~~~~~~[m[K
+[6.426s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:84:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kwidth_index_[m[K’ was not declared in this scope
+[6.426s]    84 |     [01;31m[Kwidth_index_[m[K = 0;
+[6.426s]       |     [01;31m[K^~~~~~~~~~~~[m[K
+[6.442s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:[m[K In member function ‘[01m[Kvoid MavsVehicleNode::TimerCallback()[m[K’:
+[6.442s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:100:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_iteration_[m[K’ was not declared in this scope
+[6.442s]   100 |     if ([01;31m[Kcurrent_iteration_[m[K >= max_iterations_) {
+[6.442s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[6.454s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:100:31:[m[K [01;31m[Kerror: [m[K‘[01m[Kmax_iterations_[m[K’ was not declared in this scope
+[6.454s]   100 |     if (current_iteration_ >= [01;31m[Kmax_iterations_[m[K) {
+[6.454s]       |                               [01;31m[K^~~~~~~~~~~~~~~[m[K
+[6.471s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:106:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kselected_depths_[m[K’ was not declared in this scope
+[6.471s]   106 |     float current_depth = [01;31m[Kselected_depths_[m[K[depth_index_];
+[6.471s]       |                           [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[6.487s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:106:44:[m[K [01;31m[Kerror: [m[K‘[01m[Kdepth_index_[m[K’ was not declared in this scope
+[6.487s]   106 |     float current_depth = selected_depths_[[01;31m[Kdepth_index_[m[K];
+[6.487s]       |                                            [01;31m[K^~~~~~~~~~~~[m[K
+[6.509s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:107:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kselected_widths_[m[K’ was not declared in this scope
+[6.509s]   107 |     float current_width = [01;31m[Kselected_widths_[m[K[width_index_];
+[6.509s]       |                           [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[6.524s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:107:44:[m[K [01;31m[Kerror: [m[K‘[01m[Kwidth_index_[m[K’ was not declared in this scope
+[6.524s]   107 |     float current_width = selected_widths_[[01;31m[Kwidth_index_[m[K];
+[6.524s]       |                                            [01;31m[K^~~~~~~~~~~~[m[K
+[6.524s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:114:53:[m[K [01;31m[Kerror: [m[Kconversion from ‘[01m[Kvoid[m[K’ to non-scalar type ‘[01m[Kstd::vector<float>[m[K’ requested
+[6.524s]   114 |     std::vector<float> speed_history = [01;31m[KRunSimulation()[m[K;
+[6.524s]       |                                        [01;31m[K~~~~~~~~~~~~~^~[m[K
+[6.524s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:117:15:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KMavsVehicleNode::LogResults(float&, float&, std::vector<float>&)[m[K’
+[6.524s]   117 |     [01;31m[KLogResults(current_depth, current_width, speed_history)[m[K;
+[6.524s]       |     [01;31m[K~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[6.526s] In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[6.526s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:67:10:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid MavsVehicleNode::LogResults(const std::vector<float>&)[m[K’
+[6.526s]    67 |     void [01;36m[KLogResults[m[K(const std::vector<float>& speeds);
+[6.526s]       |          [01;36m[K^~~~~~~~~~[m[K
+[6.526s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:67:10:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 3 provided
+[6.542s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:120:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_iteration_[m[K’ was not declared in this scope
+[6.542s]   120 |     [01;31m[Kcurrent_iteration_[m[K++;
+[6.542s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[6.542s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:[m[K In member function ‘[01m[Kvoid MavsVehicleNode::SetupTerrain(float, float, float)[m[K’:
+[6.542s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:134:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass mavs::terraingen::TerrainCreator[m[K’ has no member named ‘[01m[KAddTrapezoidalFeature[m[K’
+[6.542s]   134 |     terrain.[01;31m[KAddTrapezoidalFeature[m[K(top_width, base_width, depth, 20.0f);
+[6.542s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[6.544s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:[m[K At global scope:
+[6.544s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:159:20:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kstd::vector<float> MavsVehicleNode::RunSimulation()[m[K’
+[6.545s]   159 | std::vector<float> [01;31m[KMavsVehicleNode[m[K::RunSimulation()
+[6.545s]       |                    [01;31m[K^~~~~~~~~~~~~~~[m[K
+[6.545s] In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[6.545s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:66:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvoid MavsVehicleNode::RunSimulation()[m[K’
+[6.545s]    66 |     void [01;36m[KRunSimulation[m[K();
+[6.545s]       |          [01;36m[K^~~~~~~~~~~~~[m[K
+[6.545s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:25:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+[6.545s]    25 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+[6.545s]       |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[6.545s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:201:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid MavsVehicleNode::LogResults(float, float, const std::vector<float>&)[m[K’
+[6.545s]   201 | void [01;31m[KMavsVehicleNode[m[K::LogResults(float ditch_depth, float ditch_width, const std::vector<float>& speeds)
+[6.545s]       |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[6.545s] In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[6.545s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:67:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvoid MavsVehicleNode::LogResults(const std::vector<float>&)[m[K’
+[6.545s]    67 |     void [01;36m[KLogResults[m[K(const std::vector<float>& speeds);
+[6.545s]       |          [01;36m[K^~~~~~~~~~[m[K
+[6.545s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:25:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+[6.545s]    25 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+[6.545s]       |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[13.473s] gmake[2]: *** [CMakeFiles/mavs_vehicle_node_scene_creator.dir/build.make:79: CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o] Error 1
+[13.474s] gmake[1]: *** [CMakeFiles/Makefile2:363: CMakeFiles/mavs_vehicle_node_scene_creator.dir/all] Error 2
+[13.474s] gmake: *** [Makefile:146: all] Error 2
+[13.477s] Invoked command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96

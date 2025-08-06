@@ -1,0 +1,74 @@
+[0.159s] Invoking command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96
+[0.402s] [ 14%] Built target mavs-ros2
+[0.528s] [ 21%] [32mBuilding CXX object CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o[0m
+[0.580s] [ 71%] Built target mavs_pose_aggregator_node
+[0.596s] [ 92%] Built target mavs_lidar_node
+[0.596s] [ 92%] Built target mavs_vehicle_node
+[0.596s] [ 92%] Built target mavs_camera_node
+[0.597s] [ 92%] Built target mavs_localization_node
+[5.898s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:12:1:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[KMavsVehicleNode::MavsVehicleNode()[m[K’
+[5.898s]    12 | [01;31m[KMavsVehicleNode[m[K::MavsVehicleNode() : MavsNode()
+[5.899s]       | [01;31m[K^~~~~~~~~~~~~~~[m[K
+[5.899s] In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[5.899s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:26:5:[m[K [01;36m[Knote: [m[K‘[01m[KMavsVehicleNode::MavsVehicleNode()[m[K’ previously defined here
+[5.899s]    26 |     [01;36m[KMavsVehicleNode[m[K() : MavsNode()
+[5.899s]       |     [01;36m[K^~~~~~~~~~~~~~~[m[K
+[5.899s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:56:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid MavsVehicleNode::PrepareSimulationParams()[m[K’
+[5.899s]    56 | void [01;31m[KMavsVehicleNode[m[K::PrepareSimulationParams()
+[5.899s]       |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[5.899s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:56:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid MavsVehicleNode::PrepareSimulationParams()[m[K’
+[5.899s] In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[5.899s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:23:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+[5.899s]    23 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+[5.899s]       |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[5.899s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:90:20:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kstd::vector<float> MavsVehicleNode::GenerateRange(float, float, float)[m[K’
+[5.899s]    90 | std::vector<float> [01;31m[KMavsVehicleNode[m[K::GenerateRange(float start, float end, float step)
+[5.899s]       |                    [01;31m[K^~~~~~~~~~~~~~~[m[K
+[5.899s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:90:20:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kstd::vector<float> MavsVehicleNode::GenerateRange(float, float, float)[m[K’
+[5.899s] In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[5.899s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:23:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+[5.899s]    23 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+[5.899s]       |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[5.899s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:98:6:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[Kvoid MavsVehicleNode::TimerCallback()[m[K’
+[5.899s]    98 | void [01;31m[KMavsVehicleNode[m[K::TimerCallback()
+[5.899s]       |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[5.899s] In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[5.900s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:135:10:[m[K [01;36m[Knote: [m[K‘[01m[Kvoid MavsVehicleNode::TimerCallback()[m[K’ previously defined here
+[5.900s]   135 |     void [01;36m[KTimerCallback[m[K()
+[5.900s]       |          [01;36m[K^~~~~~~~~~~~~[m[K
+[5.900s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:132:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid MavsVehicleNode::SetupTerrain(float, float, float)[m[K’
+[5.900s]   132 | void [01;31m[KMavsVehicleNode[m[K::SetupTerrain(float top_width, float base_width, float depth)
+[5.900s]       |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[5.900s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:132:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid MavsVehicleNode::SetupTerrain(float, float, float)[m[K’
+[5.900s] In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[5.900s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:23:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+[5.900s]    23 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+[5.900s]       |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[5.900s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:143:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid MavsVehicleNode::ResetVehicleState()[m[K’
+[5.900s]   143 | void [01;31m[KMavsVehicleNode[m[K::ResetVehicleState()
+[5.900s]       |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[5.900s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:143:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid MavsVehicleNode::ResetVehicleState()[m[K’
+[5.900s] In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[5.900s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:23:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+[5.900s]    23 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+[5.900s]       |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[5.900s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:160:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid MavsVehicleNode::RunSimulation()[m[K’
+[5.900s]   160 | void [01;31m[KMavsVehicleNode[m[K::RunSimulation()
+[5.900s]       |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[5.900s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:160:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid MavsVehicleNode::RunSimulation()[m[K’
+[5.900s] In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[5.900s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:23:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+[5.901s]    23 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+[5.901s]       |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[5.901s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:201:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid MavsVehicleNode::LogResults(const std::vector<float>&)[m[K’
+[5.901s]   201 | void [01;31m[KMavsVehicleNode[m[K::LogResults(const std::vector<float>& speeds)
+[5.901s]       |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[5.901s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:201:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid MavsVehicleNode::LogResults(const std::vector<float>&)[m[K’
+[5.901s] In file included from [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:1[m[K:
+[5.901s] [01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/include/mavs-ros2/mavs_vehicle_node_scene_creator.h:23:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass MavsVehicleNode[m[K’ defined here
+[5.901s]    23 | class [01;36m[KMavsVehicleNode[m[K : public MavsNode
+[5.901s]       |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[12.692s] gmake[2]: *** [CMakeFiles/mavs_vehicle_node_scene_creator.dir/build.make:79: CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o] Error 1
+[12.692s] gmake[1]: *** [CMakeFiles/Makefile2:363: CMakeFiles/mavs_vehicle_node_scene_creator.dir/all] Error 2
+[12.692s] gmake: *** [Makefile:146: all] Error 2
+[12.695s] Invoked command in '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.centos.org/ PS1=Singularity> /usr/bin/cmake --build /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2 -- -j96 -l96

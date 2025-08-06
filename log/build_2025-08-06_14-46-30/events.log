@@ -1,0 +1,156 @@
+[0.000000] (-) TimerEvent: {}
+[0.000115] (mavs-ros2) JobQueued: {'identifier': 'mavs-ros2', 'dependencies': OrderedDict()}
+[0.000140] (mavs-ros2) JobStarted: {'identifier': 'mavs-ros2'}
+[0.080307] (mavs-ros2) JobProgress: {'identifier': 'mavs-ros2', 'progress': 'cmake'}
+[0.095494] (-) TimerEvent: {}
+[0.102518] (mavs-ros2) JobProgress: {'identifier': 'mavs-ros2', 'progress': 'build'}
+[0.107396] (mavs-ros2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2', '--', '-j96', '-l96'], 'cwd': '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2', 'env': OrderedDict([('LESSOPEN', '||/usr/bin/lesspipe.sh %s'), ('HISTFILESIZE', '0'), ('LMOD_DIR', '/apps/other/lmod/lmod/libexec'), ('USER', 'jdj688'), ('SSH_CLIENT', '130.18.14.251 60942 22'), ('__LMOD_REF_COUNT_CMAKE_PREFIX_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic:1;/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp:1;/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih:1;/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp:1'), ('HOSTNAME', 'mavs-2.hpc.msstate.edu'), ('XDG_SESSION_TYPE', 'tty'), ('LMOD_PKG', '/apps/other/lmod/lmod'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/lib:/usr/lib:/usr/local/lib:/.singularity.d/libs'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jdj688'), ('__LMOD_REF_COUNT_GOPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic:1'), ('OLDPWD', '/home/jdj688/mavs_ros2/src'), ('SSH_TTY', '/dev/pts/9'), ('USER_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/bin:/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp/bin:/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/bin:/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/bin:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/bin:/usr/sbin:/usr/bin:/apps/sbin:/apps/bin:/home/jdj688/mavs/install/lib64:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin'), ('__LMOD_REF_COUNT_PKG_CONFIG_PATH', '/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/lib/pkgconfig:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/lib/pkgconfig:1'), ('ROS_PYTHON_VERSION', '3'), ('PS1', 'Singularity>'), ('_LMFILES_', '/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/pcre2/10.39.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/zlib/1.2.13.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/perl/5.36.0.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/git/2.38.1.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/go/1.18.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/apptainer/1.0.2.lua'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/9880/bus'), ('APPTAINER_ENVIRONMENT', '/.singularity.d/env/91-environment.sh'), ('__LMOD_REF_COUNT_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/bin:1;/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp/bin:1;/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/bin:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/bin:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/bin:1;/usr/sbin:1;/usr/bin:1;/apps/sbin:1;/apps/bin:1;/home/jdj688/mavs/install/lib64:1'), ('LMOD_sys', 'Linux'), ('LMOD_SHELL_PRGM', 'bash'), ('DEBUGINFOD_URLS', 'https://debuginfod.centos.org/'), ('which_declare', 'declare -f'), ('COLCON_PREFIX_PATH', '/home/jdj688/mavs_ros2/install:/home/jdj688/mavs_ros2/src/nature/install:/home/jdj688/mavs_ros2/src/mavs-ros2/install'), ('ROS_DISTRO', 'humble'), ('SINGULARITY_ENVIRONMENT', '/.singularity.d/env/91-environment.sh'), ('LOGNAME', 'jdj688'), ('LMOD_VERSION', '8.7.14'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/lib/pkgconfig:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/lib/pkgconfig'), ('PERL_ROOT', '/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '925'), ('PCRE2_ROOT', '/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp'), ('ZLIB_ROOT', '/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignoredups'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('APPTAINER_COMMAND', 'shell'), ('LMOD_SETTARG_FULL_SUPPORT', 'no'), ('__LMOD_REF_COUNT_LD_LIBRARY_PATH', '/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp/lib:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/lib:1;/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/lib:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/lib:1;/home/jdj688/.local/lib:1;/usr/lib64:1;/usr/lib:1;/home/jdj688/mavs/install/lib64:1'), ('XDG_RUNTIME_DIR', '/run/user/9880'), ('DISPLAY', 'localhost:12.0'), ('LMOD_SYSTEM_NAME', 'desktop-rh9.x'), ('HISTSIZE', '100'), ('APPTAINER_APPNAME', ''), ('LANG', 'en_US.UTF-8'), ('LMOD_ROOT', '/apps/other/lmod'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('AMENT_PREFIX_PATH', '/home/jdj688/mavs_ros2/src/nature/install/nature:/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('MODULEPATH_ROOT', '/apps/other/modulefiles'), ('GOPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic'), ('GO_ROOT', '/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp'), ('GIT_ROOT', '/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e'), ('APPTAINER_CONTAINER', '/scratch/cgoodin/containers/mavs-ros2-ctg.sif'), ('APPTAINER_BIND', '/home/jdj688/mavs_ros2,/cavs,/cci,/ccs,/gri,/hpc,/igbb,/ngi'), ('LMOD_CMD', '/apps/other/lmod/lmod/libexec/lmod'), ('_ModuleTable_Sz_', '6'), ('SINGULARITY_CONTAINER', '/scratch/cgoodin/containers/mavs-ros2-ctg.sif'), ('BASH_ENV', '/apps/other/lmod/lmod/init/bash'), ('SINGULARITY_BIND', '/home/jdj688/mavs_ros2,/cavs,/cci,/ccs,/gri,/hpc,/igbb,/ngi'), ('_ModuleTable001_', 'X01vZHVsZVRhYmxlXyA9IHsKTVR2ZXJzaW9uID0gMywKY19yZWJ1aWxkVGltZSA9IGZhbHNlLApjX3Nob3J0VGltZSA9IGZhbHNlLApkZXB0aFQgPSB7fSwKZmFtaWx5ID0ge30sCm1UID0gewphcHB0YWluZXIgPSB7CmZuID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL2FwcHRhaW5lci8xLjAuMi5sdWEiLApmdWxsTmFtZSA9ICJhcHB0YWluZXIvMS4wLjIiLApsb2FkT3JkZXIgPSA2LApwcm9wVCA9IHt9LApzdGFja0RlcHRoID0gMCwKc3RhdHVzID0gImFjdGl2ZSIsCnVzZXJOYW1lID0gImFwcHRhaW5lciIsCndWID0gIjAwMDAwMDAwMS4wMDAwMDAwMDAuMDAwMDAwMDAyLip6ZmluYWwiLAp9LApnaXQgPSB7CmZu'), ('_ModuleTable002_', 'ID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL2dpdC8yLjM4LjEubHVhIiwKZnVsbE5hbWUgPSAiZ2l0LzIuMzguMSIsCmxvYWRPcmRlciA9IDQsCnByb3BUID0ge30sCnJlZl9jb3VudCA9IDEsCnN0YWNrRGVwdGggPSAyLApzdGF0dXMgPSAiYWN0aXZlIiwKdXNlck5hbWUgPSAiZ2l0LzIuMzguMSIsCndWID0gIjAwMDAwMDAwMi4wMDAwMDAwMzguMDAwMDAwMDAxLip6ZmluYWwiLAp9LApnbyA9IHsKZm4gPSAiL2FwcHMvc3BhY2stbWFuYWdlZC9tb2R1bGVmaWxlcy9saW51eC1yb2NreTkteDg2XzY0L0NvcmUvZ28vMS4xOC5sdWEiLApmdWxsTmFtZSA9ICJnby8xLjE4IiwKbG9hZE9yZGVyID0gNSwKcHJvcFQgPSB7'), ('PWD', '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2'), ('LOADEDMODULES', 'pcre2/10.39:zlib/1.2.13:perl/5.36.0:git/2.38.1:go/1.18:apptainer/1.0.2'), ('APPTAINER_NAME', 'mavs-ros2-ctg.sif'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '130.18.14.251 60942 130.18.14.170 22'), ('_ModuleTable003_', 'fSwKcmVmX2NvdW50ID0gMSwKc3RhY2tEZXB0aCA9IDEsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJnby8xLjE4IiwKd1YgPSAiMDAwMDAwMDAxLjAwMDAwMDAxOC4qemZpbmFsIiwKfSwKcGNyZTIgPSB7CmZuID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL3BjcmUyLzEwLjM5Lmx1YSIsCmZ1bGxOYW1lID0gInBjcmUyLzEwLjM5IiwKbG9hZE9yZGVyID0gMSwKcHJvcFQgPSB7fSwKcmVmX2NvdW50ID0gMSwKc3RhY2tEZXB0aCA9IDMsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJwY3JlMi8xMC4zOSIsCndWID0gIjAwMDAwMDAxMC4wMDAwMDAwMzkuKnpmaW5hbCIsCn0sCnBlcmwgPSB7CmZu'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('_ModuleTable004_', 'ID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL3BlcmwvNS4zNi4wLmx1YSIsCmZ1bGxOYW1lID0gInBlcmwvNS4zNi4wIiwKbG9hZE9yZGVyID0gMywKcHJvcFQgPSB7fSwKcmVmX2NvdW50ID0gMSwKc3RhY2tEZXB0aCA9IDMsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJwZXJsLzUuMzYuMCIsCndWID0gIjAwMDAwMDAwNS4wMDAwMDAwMzYuKnpmaW5hbCIsCn0sCnpsaWIgPSB7CmZuID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL3psaWIvMS4yLjEzLmx1YSIsCmZ1bGxOYW1lID0gInpsaWIvMS4yLjEzIiwKbG9hZE9yZGVyID0gMiwKcHJvcFQg'), ('SINGULARITY_NAME', 'mavs-ros2-ctg.sif'), ('_ModuleTable005_', 'PSB7fSwKcmVmX2NvdW50ID0gMiwKc3RhY2tEZXB0aCA9IDQsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJ6bGliLzEuMi4xMyIsCndWID0gIjAwMDAwMDAwMS4wMDAwMDAwMDIuMDAwMDAwMDEzLip6ZmluYWwiLAp9LAp9LAptcGF0aEEgPSB7CiIvYXBwcy9zcGFjay1tYW5hZ2VkL21vZHVsZWZpbGVzL2xpbnV4LXJvY2t5OS14ODZfNjQvQ29yZSIKLCAiL2FwcHMvb3RoZXIvbW9kdWxlZmlsZXMiLCAiL2FwcHMvY29udGFpbmVycy9tb2R1bGVmaWxlcyIsICIvYXBwcy9saWNlbnNlZC9tb2R1bGVmaWxlcyIsCn0sCnN5c3RlbUJhc2VNUEFUSCA9ICIvYXBwcy9zcGFjay1tYW5hZ2VkL21vZHVsZWZpbGVzL2xpbnV4LXJvY2t5OS14ODZfNjQvQ29yZTovYXBwcy9vdGhl'), ('CONTAINERS', '/apps/containers/'), ('COLCON', '1'), ('__LMOD_REF_COUNT_MODULEPATH', '/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core:1;/apps/other/modulefiles:1;/apps/containers/modulefiles:1;/apps/licensed/modulefiles:1'), ('MANPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/share/man:/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/share/man:/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/man:/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/share/man:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/share/man:/apps/other/lmod/lmod/share/man:/usr/share/man:/apps/share/man:/apps/man'), ('_ModuleTable006_', 'ci9tb2R1bGVmaWxlczovYXBwcy9jb250YWluZXJzL21vZHVsZWZpbGVzOi9hcHBzL2xpY2Vuc2VkL21vZHVsZWZpbGVzIiwKfQo='), ('__LMOD_REF_COUNT_MANPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/share/man:1;/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/share/man:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/man:1;/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/share/man:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/share/man:1;/apps/other/lmod/lmod/share/man:1;/usr/share/man:1;/apps/share/man:1;/apps/man:1'), ('MODULEPATH', '/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core:/apps/other/modulefiles:/apps/containers/modulefiles:/apps/licensed/modulefiles'), ('MODULESHOME', '/apps/other/lmod/lmod'), ('CMAKE_PREFIX_PATH', '/home/jdj688/mavs_ros2/src/nature/install/nature:/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2:/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic:/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp:/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e:/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih:/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp:/opt/ros/humble')]), 'shell': False}
+[0.195634] (-) TimerEvent: {}
+[0.295873] (-) TimerEvent: {}
+[0.367126] (mavs-ros2) StdoutLine: {'line': b'[ 14%] Built target mavs-ros2\n'}
+[0.396009] (-) TimerEvent: {}
+[0.496246] (-) TimerEvent: {}
+[0.532341] (mavs-ros2) StdoutLine: {'line': b'[ 57%] Built target mavs_vehicle_node\n'}
+[0.577017] (mavs-ros2) StdoutLine: {'line': b'[ 85%] Built target mavs_localization_node\n'}
+[0.577246] (mavs-ros2) StdoutLine: {'line': b'[ 85%] Built target mavs_lidar_node\n'}
+[0.577859] (mavs-ros2) StdoutLine: {'line': b'[ 85%] Built target mavs_pose_aggregator_node\n'}
+[0.580483] (mavs-ros2) StdoutLine: {'line': b'[ 85%] Built target mavs_camera_node\n'}
+[0.596375] (-) TimerEvent: {}
+[0.696606] (-) TimerEvent: {}
+[0.705277] (mavs-ros2) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding CXX object CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o\x1b[0m\n'}
+[0.796754] (-) TimerEvent: {}
+[0.897025] (-) TimerEvent: {}
+[0.997323] (-) TimerEvent: {}
+[1.097634] (-) TimerEvent: {}
+[1.197971] (-) TimerEvent: {}
+[1.298302] (-) TimerEvent: {}
+[1.398633] (-) TimerEvent: {}
+[1.498965] (-) TimerEvent: {}
+[1.599312] (-) TimerEvent: {}
+[1.699661] (-) TimerEvent: {}
+[1.799989] (-) TimerEvent: {}
+[1.900323] (-) TimerEvent: {}
+[2.000672] (-) TimerEvent: {}
+[2.101022] (-) TimerEvent: {}
+[2.201362] (-) TimerEvent: {}
+[2.301702] (-) TimerEvent: {}
+[2.402036] (-) TimerEvent: {}
+[2.502345] (-) TimerEvent: {}
+[2.602602] (-) TimerEvent: {}
+[2.702851] (-) TimerEvent: {}
+[2.803092] (-) TimerEvent: {}
+[2.903349] (-) TimerEvent: {}
+[3.003592] (-) TimerEvent: {}
+[3.103841] (-) TimerEvent: {}
+[3.204084] (-) TimerEvent: {}
+[3.304337] (-) TimerEvent: {}
+[3.404588] (-) TimerEvent: {}
+[3.504773] (-) TimerEvent: {}
+[3.605016] (-) TimerEvent: {}
+[3.705261] (-) TimerEvent: {}
+[3.805513] (-) TimerEvent: {}
+[3.905760] (-) TimerEvent: {}
+[4.005998] (-) TimerEvent: {}
+[4.106185] (-) TimerEvent: {}
+[4.206441] (-) TimerEvent: {}
+[4.306687] (-) TimerEvent: {}
+[4.406932] (-) TimerEvent: {}
+[4.507177] (-) TimerEvent: {}
+[4.607436] (-) TimerEvent: {}
+[4.707846] (-) TimerEvent: {}
+[4.808237] (-) TimerEvent: {}
+[4.908486] (-) TimerEvent: {}
+[5.008667] (-) TimerEvent: {}
+[5.108936] (-) TimerEvent: {}
+[5.209186] (-) TimerEvent: {}
+[5.309431] (-) TimerEvent: {}
+[5.409676] (-) TimerEvent: {}
+[5.509921] (-) TimerEvent: {}
+[5.610171] (-) TimerEvent: {}
+[5.710410] (-) TimerEvent: {}
+[5.810660] (-) TimerEvent: {}
+[5.910904] (-) TimerEvent: {}
+[6.011140] (-) TimerEvent: {}
+[6.111388] (-) TimerEvent: {}
+[6.211630] (-) TimerEvent: {}
+[6.255833] (mavs-ros2) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid MavsVehicleNode::LoadVehicleAndScene()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[6.256005] (mavs-ros2) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:68:35:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kmavs::data_path\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[6.256085] (mavs-ros2) StderrLine: {'line': b'   68 |     std::string data_path = mavs::\x1b[01;31m\x1b[Kdata_path\x1b[m\x1b[K::GetDataPath();\n'}
+[6.256163] (mavs-ros2) StderrLine: {'line': b'      |                                   \x1b[01;31m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[6.311771] (-) TimerEvent: {}
+[6.412046] (-) TimerEvent: {}
+[6.512517] (-) TimerEvent: {}
+[6.612950] (-) TimerEvent: {}
+[6.713406] (-) TimerEvent: {}
+[6.813841] (-) TimerEvent: {}
+[6.914300] (-) TimerEvent: {}
+[7.014627] (-) TimerEvent: {}
+[7.114874] (-) TimerEvent: {}
+[7.215116] (-) TimerEvent: {}
+[7.315363] (-) TimerEvent: {}
+[7.415608] (-) TimerEvent: {}
+[7.515854] (-) TimerEvent: {}
+[7.616097] (-) TimerEvent: {}
+[7.716343] (-) TimerEvent: {}
+[7.816602] (-) TimerEvent: {}
+[7.917016] (-) TimerEvent: {}
+[8.017449] (-) TimerEvent: {}
+[8.117865] (-) TimerEvent: {}
+[8.218286] (-) TimerEvent: {}
+[8.318718] (-) TimerEvent: {}
+[8.419176] (-) TimerEvent: {}
+[8.519611] (-) TimerEvent: {}
+[8.620045] (-) TimerEvent: {}
+[8.720389] (-) TimerEvent: {}
+[8.820832] (-) TimerEvent: {}
+[8.921285] (-) TimerEvent: {}
+[9.021675] (-) TimerEvent: {}
+[9.121933] (-) TimerEvent: {}
+[9.222362] (-) TimerEvent: {}
+[9.322742] (-) TimerEvent: {}
+[9.423173] (-) TimerEvent: {}
+[9.523592] (-) TimerEvent: {}
+[9.623893] (-) TimerEvent: {}
+[9.724186] (-) TimerEvent: {}
+[9.824475] (-) TimerEvent: {}
+[9.924727] (-) TimerEvent: {}
+[10.024966] (-) TimerEvent: {}
+[10.125220] (-) TimerEvent: {}
+[10.225464] (-) TimerEvent: {}
+[10.325721] (-) TimerEvent: {}
+[10.425961] (-) TimerEvent: {}
+[10.526206] (-) TimerEvent: {}
+[10.626635] (-) TimerEvent: {}
+[10.727072] (-) TimerEvent: {}
+[10.827462] (-) TimerEvent: {}
+[10.927838] (-) TimerEvent: {}
+[11.028114] (-) TimerEvent: {}
+[11.128420] (-) TimerEvent: {}
+[11.228778] (-) TimerEvent: {}
+[11.329216] (-) TimerEvent: {}
+[11.429655] (-) TimerEvent: {}
+[11.530090] (-) TimerEvent: {}
+[11.630542] (-) TimerEvent: {}
+[11.730848] (-) TimerEvent: {}
+[11.831314] (-) TimerEvent: {}
+[11.931755] (-) TimerEvent: {}
+[12.032229] (-) TimerEvent: {}
+[12.132505] (-) TimerEvent: {}
+[12.232932] (-) TimerEvent: {}
+[12.333345] (-) TimerEvent: {}
+[12.433580] (-) TimerEvent: {}
+[12.533890] (-) TimerEvent: {}
+[12.634372] (-) TimerEvent: {}
+[12.734627] (-) TimerEvent: {}
+[12.834885] (-) TimerEvent: {}
+[12.935391] (-) TimerEvent: {}
+[13.035741] (-) TimerEvent: {}
+[13.120007] (mavs-ros2) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/mavs_vehicle_node_scene_creator.dir/build.make:79: CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o] Error 1\n'}
+[13.122203] (mavs-ros2) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:363: CMakeFiles/mavs_vehicle_node_scene_creator.dir/all] Error 2\n'}
+[13.122697] (mavs-ros2) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[13.124721] (mavs-ros2) CommandEnded: {'returncode': 2}
+[13.135803] (-) TimerEvent: {}
+[13.235998] (-) TimerEvent: {}
+[13.328034] (mavs-ros2) JobEnded: {'identifier': 'mavs-ros2', 'rc': 2}
+[13.360756] (-) TimerEvent: {}
+[13.360889] (-) EventReactorShutdown: {}

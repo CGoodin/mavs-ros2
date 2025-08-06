@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

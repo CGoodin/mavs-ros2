@@ -1,0 +1,477 @@
+[0.000000] (-) TimerEvent: {}
+[0.000158] (mavs-ros2) JobQueued: {'identifier': 'mavs-ros2', 'dependencies': OrderedDict()}
+[0.000201] (mavs-ros2) JobStarted: {'identifier': 'mavs-ros2'}
+[0.023682] (mavs-ros2) JobProgress: {'identifier': 'mavs-ros2', 'progress': 'cmake'}
+[0.049480] (mavs-ros2) Command: {'cmd': ['/usr/bin/cmake', '/home/jdj688/mavs_ros2/src/mavs-ros2', '-DCMAKE_INSTALL_PREFIX=/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2'], 'cwd': '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2', 'env': OrderedDict([('LESSOPEN', '||/usr/bin/lesspipe.sh %s'), ('HISTFILESIZE', '0'), ('LMOD_DIR', '/apps/other/lmod/lmod/libexec'), ('USER', 'jdj688'), ('SSH_CLIENT', '130.18.14.251 60942 22'), ('__LMOD_REF_COUNT_CMAKE_PREFIX_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic:1;/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp:1;/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih:1;/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp:1'), ('HOSTNAME', 'mavs-2.hpc.msstate.edu'), ('XDG_SESSION_TYPE', 'tty'), ('LMOD_PKG', '/apps/other/lmod/lmod'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/lib:/usr/lib:/usr/local/lib:/.singularity.d/libs'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jdj688'), ('__LMOD_REF_COUNT_GOPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic:1'), ('OLDPWD', '/home/jdj688/mavs_ros2/src'), ('SSH_TTY', '/dev/pts/9'), ('USER_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/bin:/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp/bin:/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/bin:/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/bin:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/bin:/usr/sbin:/usr/bin:/apps/sbin:/apps/bin:/home/jdj688/mavs/install/lib64:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin'), ('__LMOD_REF_COUNT_PKG_CONFIG_PATH', '/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/lib/pkgconfig:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/lib/pkgconfig:1'), ('ROS_PYTHON_VERSION', '3'), ('PS1', 'Singularity>'), ('_LMFILES_', '/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/pcre2/10.39.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/zlib/1.2.13.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/perl/5.36.0.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/git/2.38.1.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/go/1.18.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/apptainer/1.0.2.lua'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/9880/bus'), ('APPTAINER_ENVIRONMENT', '/.singularity.d/env/91-environment.sh'), ('__LMOD_REF_COUNT_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/bin:1;/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp/bin:1;/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/bin:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/bin:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/bin:1;/usr/sbin:1;/usr/bin:1;/apps/sbin:1;/apps/bin:1;/home/jdj688/mavs/install/lib64:1'), ('LMOD_sys', 'Linux'), ('LMOD_SHELL_PRGM', 'bash'), ('DEBUGINFOD_URLS', 'https://debuginfod.centos.org/'), ('which_declare', 'declare -f'), ('ROS_DISTRO', 'humble'), ('SINGULARITY_ENVIRONMENT', '/.singularity.d/env/91-environment.sh'), ('LOGNAME', 'jdj688'), ('LMOD_VERSION', '8.7.14'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/lib/pkgconfig:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/lib/pkgconfig'), ('PERL_ROOT', '/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '925'), ('PCRE2_ROOT', '/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp'), ('ZLIB_ROOT', '/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignoredups'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('APPTAINER_COMMAND', 'shell'), ('LMOD_SETTARG_FULL_SUPPORT', 'no'), ('__LMOD_REF_COUNT_LD_LIBRARY_PATH', '/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp/lib:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/lib:1;/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/lib:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/lib:1;/home/jdj688/.local/lib:1;/usr/lib64:1;/usr/lib:1;/home/jdj688/mavs/install/lib64:1'), ('XDG_RUNTIME_DIR', '/run/user/9880'), ('DISPLAY', 'localhost:12.0'), ('LMOD_SYSTEM_NAME', 'desktop-rh9.x'), ('HISTSIZE', '100'), ('APPTAINER_APPNAME', ''), ('LANG', 'en_US.UTF-8'), ('LMOD_ROOT', '/apps/other/lmod'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('MODULEPATH_ROOT', '/apps/other/modulefiles'), ('GOPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic'), ('GO_ROOT', '/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp'), ('GIT_ROOT', '/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e'), ('APPTAINER_CONTAINER', '/scratch/cgoodin/containers/mavs-ros2-ctg.sif'), ('APPTAINER_BIND', '/home/jdj688/mavs_ros2,/cavs,/cci,/ccs,/gri,/hpc,/igbb,/ngi'), ('LMOD_CMD', '/apps/other/lmod/lmod/libexec/lmod'), ('_ModuleTable_Sz_', '6'), ('SINGULARITY_CONTAINER', '/scratch/cgoodin/containers/mavs-ros2-ctg.sif'), ('BASH_ENV', '/apps/other/lmod/lmod/init/bash'), ('SINGULARITY_BIND', '/home/jdj688/mavs_ros2,/cavs,/cci,/ccs,/gri,/hpc,/igbb,/ngi'), ('_ModuleTable001_', 'X01vZHVsZVRhYmxlXyA9IHsKTVR2ZXJzaW9uID0gMywKY19yZWJ1aWxkVGltZSA9IGZhbHNlLApjX3Nob3J0VGltZSA9IGZhbHNlLApkZXB0aFQgPSB7fSwKZmFtaWx5ID0ge30sCm1UID0gewphcHB0YWluZXIgPSB7CmZuID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL2FwcHRhaW5lci8xLjAuMi5sdWEiLApmdWxsTmFtZSA9ICJhcHB0YWluZXIvMS4wLjIiLApsb2FkT3JkZXIgPSA2LApwcm9wVCA9IHt9LApzdGFja0RlcHRoID0gMCwKc3RhdHVzID0gImFjdGl2ZSIsCnVzZXJOYW1lID0gImFwcHRhaW5lciIsCndWID0gIjAwMDAwMDAwMS4wMDAwMDAwMDAuMDAwMDAwMDAyLip6ZmluYWwiLAp9LApnaXQgPSB7CmZu'), ('_ModuleTable002_', 'ID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL2dpdC8yLjM4LjEubHVhIiwKZnVsbE5hbWUgPSAiZ2l0LzIuMzguMSIsCmxvYWRPcmRlciA9IDQsCnByb3BUID0ge30sCnJlZl9jb3VudCA9IDEsCnN0YWNrRGVwdGggPSAyLApzdGF0dXMgPSAiYWN0aXZlIiwKdXNlck5hbWUgPSAiZ2l0LzIuMzguMSIsCndWID0gIjAwMDAwMDAwMi4wMDAwMDAwMzguMDAwMDAwMDAxLip6ZmluYWwiLAp9LApnbyA9IHsKZm4gPSAiL2FwcHMvc3BhY2stbWFuYWdlZC9tb2R1bGVmaWxlcy9saW51eC1yb2NreTkteDg2XzY0L0NvcmUvZ28vMS4xOC5sdWEiLApmdWxsTmFtZSA9ICJnby8xLjE4IiwKbG9hZE9yZGVyID0gNSwKcHJvcFQgPSB7'), ('PWD', '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2'), ('LOADEDMODULES', 'pcre2/10.39:zlib/1.2.13:perl/5.36.0:git/2.38.1:go/1.18:apptainer/1.0.2'), ('APPTAINER_NAME', 'mavs-ros2-ctg.sif'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '130.18.14.251 60942 130.18.14.170 22'), ('_ModuleTable003_', 'fSwKcmVmX2NvdW50ID0gMSwKc3RhY2tEZXB0aCA9IDEsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJnby8xLjE4IiwKd1YgPSAiMDAwMDAwMDAxLjAwMDAwMDAxOC4qemZpbmFsIiwKfSwKcGNyZTIgPSB7CmZuID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL3BjcmUyLzEwLjM5Lmx1YSIsCmZ1bGxOYW1lID0gInBjcmUyLzEwLjM5IiwKbG9hZE9yZGVyID0gMSwKcHJvcFQgPSB7fSwKcmVmX2NvdW50ID0gMSwKc3RhY2tEZXB0aCA9IDMsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJwY3JlMi8xMC4zOSIsCndWID0gIjAwMDAwMDAxMC4wMDAwMDAwMzkuKnpmaW5hbCIsCn0sCnBlcmwgPSB7CmZu'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('_ModuleTable004_', 'ID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL3BlcmwvNS4zNi4wLmx1YSIsCmZ1bGxOYW1lID0gInBlcmwvNS4zNi4wIiwKbG9hZE9yZGVyID0gMywKcHJvcFQgPSB7fSwKcmVmX2NvdW50ID0gMSwKc3RhY2tEZXB0aCA9IDMsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJwZXJsLzUuMzYuMCIsCndWID0gIjAwMDAwMDAwNS4wMDAwMDAwMzYuKnpmaW5hbCIsCn0sCnpsaWIgPSB7CmZuID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL3psaWIvMS4yLjEzLmx1YSIsCmZ1bGxOYW1lID0gInpsaWIvMS4yLjEzIiwKbG9hZE9yZGVyID0gMiwKcHJvcFQg'), ('SINGULARITY_NAME', 'mavs-ros2-ctg.sif'), ('_ModuleTable005_', 'PSB7fSwKcmVmX2NvdW50ID0gMiwKc3RhY2tEZXB0aCA9IDQsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJ6bGliLzEuMi4xMyIsCndWID0gIjAwMDAwMDAwMS4wMDAwMDAwMDIuMDAwMDAwMDEzLip6ZmluYWwiLAp9LAp9LAptcGF0aEEgPSB7CiIvYXBwcy9zcGFjay1tYW5hZ2VkL21vZHVsZWZpbGVzL2xpbnV4LXJvY2t5OS14ODZfNjQvQ29yZSIKLCAiL2FwcHMvb3RoZXIvbW9kdWxlZmlsZXMiLCAiL2FwcHMvY29udGFpbmVycy9tb2R1bGVmaWxlcyIsICIvYXBwcy9saWNlbnNlZC9tb2R1bGVmaWxlcyIsCn0sCnN5c3RlbUJhc2VNUEFUSCA9ICIvYXBwcy9zcGFjay1tYW5hZ2VkL21vZHVsZWZpbGVzL2xpbnV4LXJvY2t5OS14ODZfNjQvQ29yZTovYXBwcy9vdGhl'), ('CONTAINERS', '/apps/containers/'), ('COLCON', '1'), ('__LMOD_REF_COUNT_MODULEPATH', '/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core:1;/apps/other/modulefiles:1;/apps/containers/modulefiles:1;/apps/licensed/modulefiles:1'), ('MANPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/share/man:/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/share/man:/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/man:/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/share/man:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/share/man:/apps/other/lmod/lmod/share/man:/usr/share/man:/apps/share/man:/apps/man'), ('_ModuleTable006_', 'ci9tb2R1bGVmaWxlczovYXBwcy9jb250YWluZXJzL21vZHVsZWZpbGVzOi9hcHBzL2xpY2Vuc2VkL21vZHVsZWZpbGVzIiwKfQo='), ('__LMOD_REF_COUNT_MANPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/share/man:1;/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/share/man:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/man:1;/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/share/man:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/share/man:1;/apps/other/lmod/lmod/share/man:1;/usr/share/man:1;/apps/share/man:1;/apps/man:1'), ('MODULEPATH', '/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core:/apps/other/modulefiles:/apps/containers/modulefiles:/apps/licensed/modulefiles'), ('MODULESHOME', '/apps/other/lmod/lmod'), ('CMAKE_PREFIX_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic:/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp:/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e:/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih:/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp:/opt/ros/humble')]), 'shell': False}
+[0.097083] (-) TimerEvent: {}
+[0.132650] (mavs-ros2) StderrLine: {'line': b'\x1b[0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):\n'}
+[0.132842] (mavs-ros2) StderrLine: {'line': b'  Compatibility with CMake < 3.10 will be removed from a future version of\n'}
+[0.132909] (mavs-ros2) StderrLine: {'line': b'  CMake.\n'}
+[0.132957] (mavs-ros2) StderrLine: {'line': b'\n'}
+[0.133002] (mavs-ros2) StderrLine: {'line': b'  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax\n'}
+[0.133048] (mavs-ros2) StderrLine: {'line': b'  to tell CMake that the project requires at least <min> but has been updated\n'}
+[0.133094] (mavs-ros2) StderrLine: {'line': b'  to work with policies introduced by <max> or earlier.\n'}
+[0.133141] (mavs-ros2) StderrLine: {'line': b'\n'}
+[0.133184] (mavs-ros2) StderrLine: {'line': b'\x1b[0m\n'}
+[0.197262] (-) TimerEvent: {}
+[0.247312] (mavs-ros2) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.297383] (-) TimerEvent: {}
+[0.369605] (mavs-ros2) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.388319] (mavs-ros2) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.397567] (-) TimerEvent: {}
+[0.497873] (-) TimerEvent: {}
+[0.598272] (-) TimerEvent: {}
+[0.698644] (-) TimerEvent: {}
+[0.798919] (-) TimerEvent: {}
+[0.814522] (mavs-ros2) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.837683] (mavs-ros2) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.837869] (mavs-ros2) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.838198] (mavs-ros2) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.874308] (mavs-ros2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.899076] (-) TimerEvent: {}
+[0.999478] (-) TimerEvent: {}
+[1.099879] (-) TimerEvent: {}
+[1.200176] (-) TimerEvent: {}
+[1.298511] (mavs-ros2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.300272] (-) TimerEvent: {}
+[1.320768] (mavs-ros2) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.320981] (mavs-ros2) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.321473] (mavs-ros2) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.363248] (mavs-ros2) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[1.400407] (-) TimerEvent: {}
+[1.492486] (mavs-ros2) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter\n'}
+[1.500579] (-) TimerEvent: {}
+[1.601010] (-) TimerEvent: {}
+[1.701295] (-) TimerEvent: {}
+[1.801552] (-) TimerEvent: {}
+[1.901888] (-) TimerEvent: {}
+[2.002296] (-) TimerEvent: {}
+[2.102671] (-) TimerEvent: {}
+[2.202954] (-) TimerEvent: {}
+[2.303359] (-) TimerEvent: {}
+[2.403762] (-) TimerEvent: {}
+[2.504153] (-) TimerEvent: {}
+[2.604428] (-) TimerEvent: {}
+[2.704713] (-) TimerEvent: {}
+[2.804988] (-) TimerEvent: {}
+[2.905351] (-) TimerEvent: {}
+[3.005613] (-) TimerEvent: {}
+[3.075625] (mavs-ros2) StdoutLine: {'line': b'-- Found OpenMP_C: -fopenmp (found version "4.5")\n'}
+[3.105730] (-) TimerEvent: {}
+[3.205990] (-) TimerEvent: {}
+[3.306396] (-) TimerEvent: {}
+[3.406773] (-) TimerEvent: {}
+[3.507069] (-) TimerEvent: {}
+[3.511017] (mavs-ros2) StdoutLine: {'line': b'-- Found OpenMP_CXX: -fopenmp (found version "4.5")\n'}
+[3.511221] (mavs-ros2) StdoutLine: {'line': b'-- Found OpenMP: TRUE (found version "4.5")\n'}
+[3.531035] (mavs-ros2) StdoutLine: {'line': b'-- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80")\n'}
+[3.607194] (-) TimerEvent: {}
+[3.646156] (mavs-ros2) StdoutLine: {'line': b'-- Found X11: /usr/include\n'}
+[3.646285] (mavs-ros2) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so\n'}
+[3.707388] (-) TimerEvent: {}
+[3.807661] (-) TimerEvent: {}
+[3.908065] (-) TimerEvent: {}
+[4.008328] (-) TimerEvent: {}
+[4.075147] (mavs-ros2) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found\n'}
+[4.075270] (mavs-ros2) StdoutLine: {'line': b'-- Looking for gethostbyname\n'}
+[4.108481] (-) TimerEvent: {}
+[4.208888] (-) TimerEvent: {}
+[4.309291] (-) TimerEvent: {}
+[4.409701] (-) TimerEvent: {}
+[4.492981] (mavs-ros2) StdoutLine: {'line': b'-- Looking for gethostbyname - found\n'}
+[4.493167] (mavs-ros2) StdoutLine: {'line': b'-- Looking for connect\n'}
+[4.509866] (-) TimerEvent: {}
+[4.610265] (-) TimerEvent: {}
+[4.710607] (-) TimerEvent: {}
+[4.811036] (-) TimerEvent: {}
+[4.909150] (mavs-ros2) StdoutLine: {'line': b'-- Looking for connect - found\n'}
+[4.909286] (mavs-ros2) StdoutLine: {'line': b'-- Looking for remove\n'}
+[4.911188] (-) TimerEvent: {}
+[5.011595] (-) TimerEvent: {}
+[5.112019] (-) TimerEvent: {}
+[5.212425] (-) TimerEvent: {}
+[5.312860] (-) TimerEvent: {}
+[5.318056] (mavs-ros2) StdoutLine: {'line': b'-- Looking for remove - found\n'}
+[5.318184] (mavs-ros2) StdoutLine: {'line': b'-- Looking for shmat\n'}
+[5.413019] (-) TimerEvent: {}
+[5.513423] (-) TimerEvent: {}
+[5.613845] (-) TimerEvent: {}
+[5.714185] (-) TimerEvent: {}
+[5.729952] (mavs-ros2) StdoutLine: {'line': b'-- Looking for shmat - found\n'}
+[5.730072] (mavs-ros2) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE\n'}
+[5.814344] (-) TimerEvent: {}
+[5.914749] (-) TimerEvent: {}
+[6.015130] (-) TimerEvent: {}
+[6.115398] (-) TimerEvent: {}
+[6.139745] (mavs-ros2) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE - found\n'}
+[6.159287] (mavs-ros2) StdoutLine: {'line': b'-- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[6.215555] (-) TimerEvent: {}
+[6.268805] (mavs-ros2) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[6.287630] (mavs-ros2) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[6.309171] (mavs-ros2) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[6.315713] (-) TimerEvent: {}
+[6.336740] (mavs-ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[6.372614] (mavs-ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[6.415872] (-) TimerEvent: {}
+[6.496472] (mavs-ros2) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[6.507915] (mavs-ros2) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)\n'}
+[6.516032] (-) TimerEvent: {}
+[6.581005] (mavs-ros2) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[6.611831] (mavs-ros2) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[6.616172] (-) TimerEvent: {}
+[6.716423] (-) TimerEvent: {}
+[6.816767] (-) TimerEvent: {}
+[6.917201] (-) TimerEvent: {}
+[7.017626] (-) TimerEvent: {}
+[7.022928] (mavs-ros2) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[7.023852] (mavs-ros2) StdoutLine: {'line': b'-- Found Threads: TRUE\n'}
+[7.117782] (-) TimerEvent: {}
+[7.124649] (mavs-ros2) StdoutLine: {'line': b'-- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[7.152245] (mavs-ros2) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[7.185772] (mavs-ros2) StdoutLine: {'line': b'-- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)\n'}
+[7.217906] (-) TimerEvent: {}
+[7.218506] (mavs-ros2) StdoutLine: {'line': b'-- Found tf2: 0.25.15 (/opt/ros/humble/share/tf2/cmake)\n'}
+[7.244932] (mavs-ros2) StdoutLine: {'line': b'-- Found tf2_ros: 0.25.15 (/opt/ros/humble/share/tf2_ros/cmake)\n'}
+[7.318078] (-) TimerEvent: {}
+[7.418450] (-) TimerEvent: {}
+[7.444201] (mavs-ros2) StdoutLine: {'line': b'-- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)\n'}
+[7.481475] (mavs-ros2) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.25.15 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)\n'}
+[7.518584] (-) TimerEvent: {}
+[7.525135] (mavs-ros2) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[7.526351] (mavs-ros2) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0")\n'}
+[7.526435] (mavs-ros2) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[7.584560] (mavs-ros2) StdoutLine: {'line': b'-- Found OpenMP_C: -fopenmp (found version "4.5")\n'}
+[7.584688] (mavs-ros2) StdoutLine: {'line': b'-- Found OpenMP_CXX: -fopenmp (found version "4.5")\n'}
+[7.618715] (-) TimerEvent: {}
+[7.718972] (-) TimerEvent: {}
+[7.819391] (-) TimerEvent: {}
+[7.919796] (-) TimerEvent: {}
+[7.948611] (mavs-ros2) StdoutLine: {'line': b'-- Configuring done (7.9s)\n'}
+[8.019980] (-) TimerEvent: {}
+[8.120378] (-) TimerEvent: {}
+[8.220757] (-) TimerEvent: {}
+[8.321015] (-) TimerEvent: {}
+[8.421344] (-) TimerEvent: {}
+[8.521745] (-) TimerEvent: {}
+[8.622157] (-) TimerEvent: {}
+[8.722568] (-) TimerEvent: {}
+[8.822968] (-) TimerEvent: {}
+[8.923369] (-) TimerEvent: {}
+[8.946036] (mavs-ros2) StdoutLine: {'line': b'-- Generating done (1.0s)\n'}
+[9.023535] (-) TimerEvent: {}
+[9.120749] (mavs-ros2) StdoutLine: {'line': b'-- Build files have been written to: /home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2\n'}
+[9.123654] (-) TimerEvent: {}
+[9.131087] (mavs-ros2) CommandEnded: {'returncode': 0}
+[9.134297] (mavs-ros2) JobProgress: {'identifier': 'mavs-ros2', 'progress': 'build'}
+[9.137639] (mavs-ros2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2', '--', '-j96', '-l96'], 'cwd': '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2', 'env': OrderedDict([('LESSOPEN', '||/usr/bin/lesspipe.sh %s'), ('HISTFILESIZE', '0'), ('LMOD_DIR', '/apps/other/lmod/lmod/libexec'), ('USER', 'jdj688'), ('SSH_CLIENT', '130.18.14.251 60942 22'), ('__LMOD_REF_COUNT_CMAKE_PREFIX_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic:1;/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp:1;/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih:1;/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp:1'), ('HOSTNAME', 'mavs-2.hpc.msstate.edu'), ('XDG_SESSION_TYPE', 'tty'), ('LMOD_PKG', '/apps/other/lmod/lmod'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/lib:/usr/lib:/usr/local/lib:/.singularity.d/libs'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jdj688'), ('__LMOD_REF_COUNT_GOPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic:1'), ('OLDPWD', '/home/jdj688/mavs_ros2/src'), ('SSH_TTY', '/dev/pts/9'), ('USER_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/bin:/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp/bin:/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/bin:/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/bin:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/bin:/usr/sbin:/usr/bin:/apps/sbin:/apps/bin:/home/jdj688/mavs/install/lib64:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin'), ('__LMOD_REF_COUNT_PKG_CONFIG_PATH', '/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/lib/pkgconfig:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/lib/pkgconfig:1'), ('ROS_PYTHON_VERSION', '3'), ('PS1', 'Singularity>'), ('_LMFILES_', '/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/pcre2/10.39.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/zlib/1.2.13.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/perl/5.36.0.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/git/2.38.1.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/go/1.18.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/apptainer/1.0.2.lua'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/9880/bus'), ('APPTAINER_ENVIRONMENT', '/.singularity.d/env/91-environment.sh'), ('__LMOD_REF_COUNT_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/bin:1;/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp/bin:1;/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/bin:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/bin:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/bin:1;/usr/sbin:1;/usr/bin:1;/apps/sbin:1;/apps/bin:1;/home/jdj688/mavs/install/lib64:1'), ('LMOD_sys', 'Linux'), ('LMOD_SHELL_PRGM', 'bash'), ('DEBUGINFOD_URLS', 'https://debuginfod.centos.org/'), ('which_declare', 'declare -f'), ('ROS_DISTRO', 'humble'), ('SINGULARITY_ENVIRONMENT', '/.singularity.d/env/91-environment.sh'), ('LOGNAME', 'jdj688'), ('LMOD_VERSION', '8.7.14'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/lib/pkgconfig:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/lib/pkgconfig'), ('PERL_ROOT', '/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '925'), ('PCRE2_ROOT', '/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp'), ('ZLIB_ROOT', '/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignoredups'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('APPTAINER_COMMAND', 'shell'), ('LMOD_SETTARG_FULL_SUPPORT', 'no'), ('__LMOD_REF_COUNT_LD_LIBRARY_PATH', '/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp/lib:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/lib:1;/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/lib:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/lib:1;/home/jdj688/.local/lib:1;/usr/lib64:1;/usr/lib:1;/home/jdj688/mavs/install/lib64:1'), ('XDG_RUNTIME_DIR', '/run/user/9880'), ('DISPLAY', 'localhost:12.0'), ('LMOD_SYSTEM_NAME', 'desktop-rh9.x'), ('HISTSIZE', '100'), ('APPTAINER_APPNAME', ''), ('LANG', 'en_US.UTF-8'), ('LMOD_ROOT', '/apps/other/lmod'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('MODULEPATH_ROOT', '/apps/other/modulefiles'), ('GOPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic'), ('GO_ROOT', '/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp'), ('GIT_ROOT', '/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e'), ('APPTAINER_CONTAINER', '/scratch/cgoodin/containers/mavs-ros2-ctg.sif'), ('APPTAINER_BIND', '/home/jdj688/mavs_ros2,/cavs,/cci,/ccs,/gri,/hpc,/igbb,/ngi'), ('LMOD_CMD', '/apps/other/lmod/lmod/libexec/lmod'), ('_ModuleTable_Sz_', '6'), ('SINGULARITY_CONTAINER', '/scratch/cgoodin/containers/mavs-ros2-ctg.sif'), ('BASH_ENV', '/apps/other/lmod/lmod/init/bash'), ('SINGULARITY_BIND', '/home/jdj688/mavs_ros2,/cavs,/cci,/ccs,/gri,/hpc,/igbb,/ngi'), ('_ModuleTable001_', 'X01vZHVsZVRhYmxlXyA9IHsKTVR2ZXJzaW9uID0gMywKY19yZWJ1aWxkVGltZSA9IGZhbHNlLApjX3Nob3J0VGltZSA9IGZhbHNlLApkZXB0aFQgPSB7fSwKZmFtaWx5ID0ge30sCm1UID0gewphcHB0YWluZXIgPSB7CmZuID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL2FwcHRhaW5lci8xLjAuMi5sdWEiLApmdWxsTmFtZSA9ICJhcHB0YWluZXIvMS4wLjIiLApsb2FkT3JkZXIgPSA2LApwcm9wVCA9IHt9LApzdGFja0RlcHRoID0gMCwKc3RhdHVzID0gImFjdGl2ZSIsCnVzZXJOYW1lID0gImFwcHRhaW5lciIsCndWID0gIjAwMDAwMDAwMS4wMDAwMDAwMDAuMDAwMDAwMDAyLip6ZmluYWwiLAp9LApnaXQgPSB7CmZu'), ('_ModuleTable002_', 'ID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL2dpdC8yLjM4LjEubHVhIiwKZnVsbE5hbWUgPSAiZ2l0LzIuMzguMSIsCmxvYWRPcmRlciA9IDQsCnByb3BUID0ge30sCnJlZl9jb3VudCA9IDEsCnN0YWNrRGVwdGggPSAyLApzdGF0dXMgPSAiYWN0aXZlIiwKdXNlck5hbWUgPSAiZ2l0LzIuMzguMSIsCndWID0gIjAwMDAwMDAwMi4wMDAwMDAwMzguMDAwMDAwMDAxLip6ZmluYWwiLAp9LApnbyA9IHsKZm4gPSAiL2FwcHMvc3BhY2stbWFuYWdlZC9tb2R1bGVmaWxlcy9saW51eC1yb2NreTkteDg2XzY0L0NvcmUvZ28vMS4xOC5sdWEiLApmdWxsTmFtZSA9ICJnby8xLjE4IiwKbG9hZE9yZGVyID0gNSwKcHJvcFQgPSB7'), ('PWD', '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2'), ('LOADEDMODULES', 'pcre2/10.39:zlib/1.2.13:perl/5.36.0:git/2.38.1:go/1.18:apptainer/1.0.2'), ('APPTAINER_NAME', 'mavs-ros2-ctg.sif'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '130.18.14.251 60942 130.18.14.170 22'), ('_ModuleTable003_', 'fSwKcmVmX2NvdW50ID0gMSwKc3RhY2tEZXB0aCA9IDEsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJnby8xLjE4IiwKd1YgPSAiMDAwMDAwMDAxLjAwMDAwMDAxOC4qemZpbmFsIiwKfSwKcGNyZTIgPSB7CmZuID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL3BjcmUyLzEwLjM5Lmx1YSIsCmZ1bGxOYW1lID0gInBjcmUyLzEwLjM5IiwKbG9hZE9yZGVyID0gMSwKcHJvcFQgPSB7fSwKcmVmX2NvdW50ID0gMSwKc3RhY2tEZXB0aCA9IDMsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJwY3JlMi8xMC4zOSIsCndWID0gIjAwMDAwMDAxMC4wMDAwMDAwMzkuKnpmaW5hbCIsCn0sCnBlcmwgPSB7CmZu'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('_ModuleTable004_', 'ID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL3BlcmwvNS4zNi4wLmx1YSIsCmZ1bGxOYW1lID0gInBlcmwvNS4zNi4wIiwKbG9hZE9yZGVyID0gMywKcHJvcFQgPSB7fSwKcmVmX2NvdW50ID0gMSwKc3RhY2tEZXB0aCA9IDMsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJwZXJsLzUuMzYuMCIsCndWID0gIjAwMDAwMDAwNS4wMDAwMDAwMzYuKnpmaW5hbCIsCn0sCnpsaWIgPSB7CmZuID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL3psaWIvMS4yLjEzLmx1YSIsCmZ1bGxOYW1lID0gInpsaWIvMS4yLjEzIiwKbG9hZE9yZGVyID0gMiwKcHJvcFQg'), ('SINGULARITY_NAME', 'mavs-ros2-ctg.sif'), ('_ModuleTable005_', 'PSB7fSwKcmVmX2NvdW50ID0gMiwKc3RhY2tEZXB0aCA9IDQsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJ6bGliLzEuMi4xMyIsCndWID0gIjAwMDAwMDAwMS4wMDAwMDAwMDIuMDAwMDAwMDEzLip6ZmluYWwiLAp9LAp9LAptcGF0aEEgPSB7CiIvYXBwcy9zcGFjay1tYW5hZ2VkL21vZHVsZWZpbGVzL2xpbnV4LXJvY2t5OS14ODZfNjQvQ29yZSIKLCAiL2FwcHMvb3RoZXIvbW9kdWxlZmlsZXMiLCAiL2FwcHMvY29udGFpbmVycy9tb2R1bGVmaWxlcyIsICIvYXBwcy9saWNlbnNlZC9tb2R1bGVmaWxlcyIsCn0sCnN5c3RlbUJhc2VNUEFUSCA9ICIvYXBwcy9zcGFjay1tYW5hZ2VkL21vZHVsZWZpbGVzL2xpbnV4LXJvY2t5OS14ODZfNjQvQ29yZTovYXBwcy9vdGhl'), ('CONTAINERS', '/apps/containers/'), ('COLCON', '1'), ('__LMOD_REF_COUNT_MODULEPATH', '/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core:1;/apps/other/modulefiles:1;/apps/containers/modulefiles:1;/apps/licensed/modulefiles:1'), ('MANPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/share/man:/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/share/man:/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/man:/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/share/man:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/share/man:/apps/other/lmod/lmod/share/man:/usr/share/man:/apps/share/man:/apps/man'), ('_ModuleTable006_', 'ci9tb2R1bGVmaWxlczovYXBwcy9jb250YWluZXJzL21vZHVsZWZpbGVzOi9hcHBzL2xpY2Vuc2VkL21vZHVsZWZpbGVzIiwKfQo='), ('__LMOD_REF_COUNT_MANPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/share/man:1;/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/share/man:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/man:1;/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/share/man:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/share/man:1;/apps/other/lmod/lmod/share/man:1;/usr/share/man:1;/apps/share/man:1;/apps/man:1'), ('MODULEPATH', '/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core:/apps/other/modulefiles:/apps/containers/modulefiles:/apps/licensed/modulefiles'), ('MODULESHOME', '/apps/other/lmod/lmod'), ('CMAKE_PREFIX_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic:/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp:/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e:/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih:/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp:/opt/ros/humble')]), 'shell': False}
+[9.223847] (-) TimerEvent: {}
+[9.253394] (mavs-ros2) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding CXX object CMakeFiles/mavs-ros2.dir/src/mavs_ros_utils.cpp.o\x1b[0m\n'}
+[9.323967] (-) TimerEvent: {}
+[9.424189] (-) TimerEvent: {}
+[9.524414] (-) TimerEvent: {}
+[9.624640] (-) TimerEvent: {}
+[9.724870] (-) TimerEvent: {}
+[9.825089] (-) TimerEvent: {}
+[9.925314] (-) TimerEvent: {}
+[10.025547] (-) TimerEvent: {}
+[10.125818] (-) TimerEvent: {}
+[10.226134] (-) TimerEvent: {}
+[10.326439] (-) TimerEvent: {}
+[10.426741] (-) TimerEvent: {}
+[10.527052] (-) TimerEvent: {}
+[10.627357] (-) TimerEvent: {}
+[10.727679] (-) TimerEvent: {}
+[10.828018] (-) TimerEvent: {}
+[10.928347] (-) TimerEvent: {}
+[11.028683] (-) TimerEvent: {}
+[11.129021] (-) TimerEvent: {}
+[11.229342] (-) TimerEvent: {}
+[11.329689] (-) TimerEvent: {}
+[11.430010] (-) TimerEvent: {}
+[11.530301] (-) TimerEvent: {}
+[11.630627] (-) TimerEvent: {}
+[11.730943] (-) TimerEvent: {}
+[11.831276] (-) TimerEvent: {}
+[11.931586] (-) TimerEvent: {}
+[12.031881] (-) TimerEvent: {}
+[12.132178] (-) TimerEvent: {}
+[12.232454] (-) TimerEvent: {}
+[12.332707] (-) TimerEvent: {}
+[12.433019] (-) TimerEvent: {}
+[12.533341] (-) TimerEvent: {}
+[12.633634] (-) TimerEvent: {}
+[12.733937] (-) TimerEvent: {}
+[12.834246] (-) TimerEvent: {}
+[12.934507] (-) TimerEvent: {}
+[13.034758] (-) TimerEvent: {}
+[13.135035] (-) TimerEvent: {}
+[13.235320] (-) TimerEvent: {}
+[13.335604] (-) TimerEvent: {}
+[13.435886] (-) TimerEvent: {}
+[13.536166] (-) TimerEvent: {}
+[13.636447] (-) TimerEvent: {}
+[13.736729] (-) TimerEvent: {}
+[13.837052] (-) TimerEvent: {}
+[13.937318] (-) TimerEvent: {}
+[14.037581] (-) TimerEvent: {}
+[14.137875] (-) TimerEvent: {}
+[14.238153] (-) TimerEvent: {}
+[14.338424] (-) TimerEvent: {}
+[14.438683] (-) TimerEvent: {}
+[14.538947] (-) TimerEvent: {}
+[14.639208] (-) TimerEvent: {}
+[14.739467] (-) TimerEvent: {}
+[14.839742] (-) TimerEvent: {}
+[14.940065] (-) TimerEvent: {}
+[15.039836] (mavs-ros2) StdoutLine: {'line': b'[ 16%] \x1b[32m\x1b[1mLinking CXX static library libmavs-ros2.a\x1b[0m\n'}
+[15.040123] (-) TimerEvent: {}
+[15.138224] (mavs-ros2) StdoutLine: {'line': b'[ 16%] Built target mavs-ros2\n'}
+[15.140285] (-) TimerEvent: {}
+[15.209099] (mavs-ros2) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/mavs_camera_node.dir/src/mavs_camera_node.cpp.o\x1b[0m\n'}
+[15.217667] (mavs-ros2) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/mavs_pose_aggregator_node.dir/src/mavs_pose_aggregator_node.cpp.o\x1b[0m\n'}
+[15.217768] (mavs-ros2) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/mavs_vehicle_node.dir/src/mavs_vehicle_node.cpp.o\x1b[0m\n'}
+[15.217840] (mavs-ros2) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/mavs_lidar_node.dir/src/mavs_lidar_node.cpp.o\x1b[0m\n'}
+[15.219710] (mavs-ros2) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/mavs_localization_node.dir/src/mavs_localization_node.cpp.o\x1b[0m\n'}
+[15.240421] (-) TimerEvent: {}
+[15.340663] (-) TimerEvent: {}
+[15.440923] (-) TimerEvent: {}
+[15.541155] (-) TimerEvent: {}
+[15.641409] (-) TimerEvent: {}
+[15.741682] (-) TimerEvent: {}
+[15.841947] (-) TimerEvent: {}
+[15.942267] (-) TimerEvent: {}
+[16.042603] (-) TimerEvent: {}
+[16.142952] (-) TimerEvent: {}
+[16.243293] (-) TimerEvent: {}
+[16.343634] (-) TimerEvent: {}
+[16.443965] (-) TimerEvent: {}
+[16.544306] (-) TimerEvent: {}
+[16.644647] (-) TimerEvent: {}
+[16.744993] (-) TimerEvent: {}
+[16.845337] (-) TimerEvent: {}
+[16.945685] (-) TimerEvent: {}
+[17.046045] (-) TimerEvent: {}
+[17.146394] (-) TimerEvent: {}
+[17.246740] (-) TimerEvent: {}
+[17.347092] (-) TimerEvent: {}
+[17.447446] (-) TimerEvent: {}
+[17.547790] (-) TimerEvent: {}
+[17.648146] (-) TimerEvent: {}
+[17.748495] (-) TimerEvent: {}
+[17.848842] (-) TimerEvent: {}
+[17.949190] (-) TimerEvent: {}
+[18.049542] (-) TimerEvent: {}
+[18.149883] (-) TimerEvent: {}
+[18.250221] (-) TimerEvent: {}
+[18.350564] (-) TimerEvent: {}
+[18.450911] (-) TimerEvent: {}
+[18.551266] (-) TimerEvent: {}
+[18.651625] (-) TimerEvent: {}
+[18.751974] (-) TimerEvent: {}
+[18.852325] (-) TimerEvent: {}
+[18.952672] (-) TimerEvent: {}
+[19.053028] (-) TimerEvent: {}
+[19.153379] (-) TimerEvent: {}
+[19.253732] (-) TimerEvent: {}
+[19.354087] (-) TimerEvent: {}
+[19.454439] (-) TimerEvent: {}
+[19.554788] (-) TimerEvent: {}
+[19.655144] (-) TimerEvent: {}
+[19.755480] (-) TimerEvent: {}
+[19.855837] (-) TimerEvent: {}
+[19.956183] (-) TimerEvent: {}
+[20.056527] (-) TimerEvent: {}
+[20.156871] (-) TimerEvent: {}
+[20.257214] (-) TimerEvent: {}
+[20.357564] (-) TimerEvent: {}
+[20.457919] (-) TimerEvent: {}
+[20.558268] (-) TimerEvent: {}
+[20.658625] (-) TimerEvent: {}
+[20.758971] (-) TimerEvent: {}
+[20.859315] (-) TimerEvent: {}
+[20.959672] (-) TimerEvent: {}
+[21.060021] (-) TimerEvent: {}
+[21.160369] (-) TimerEvent: {}
+[21.260714] (-) TimerEvent: {}
+[21.361068] (-) TimerEvent: {}
+[21.461419] (-) TimerEvent: {}
+[21.561767] (-) TimerEvent: {}
+[21.662117] (-) TimerEvent: {}
+[21.762466] (-) TimerEvent: {}
+[21.862820] (-) TimerEvent: {}
+[21.963168] (-) TimerEvent: {}
+[22.063519] (-) TimerEvent: {}
+[22.163874] (-) TimerEvent: {}
+[22.264225] (-) TimerEvent: {}
+[22.364574] (-) TimerEvent: {}
+[22.464923] (-) TimerEvent: {}
+[22.565279] (-) TimerEvent: {}
+[22.665635] (-) TimerEvent: {}
+[22.765994] (-) TimerEvent: {}
+[22.866340] (-) TimerEvent: {}
+[22.966688] (-) TimerEvent: {}
+[23.067037] (-) TimerEvent: {}
+[23.167381] (-) TimerEvent: {}
+[23.267719] (-) TimerEvent: {}
+[23.368084] (-) TimerEvent: {}
+[23.468438] (-) TimerEvent: {}
+[23.568780] (-) TimerEvent: {}
+[23.669131] (-) TimerEvent: {}
+[23.769469] (-) TimerEvent: {}
+[23.869820] (-) TimerEvent: {}
+[23.970162] (-) TimerEvent: {}
+[24.070510] (-) TimerEvent: {}
+[24.170878] (-) TimerEvent: {}
+[24.271223] (-) TimerEvent: {}
+[24.371567] (-) TimerEvent: {}
+[24.471908] (-) TimerEvent: {}
+[24.572258] (-) TimerEvent: {}
+[24.672606] (-) TimerEvent: {}
+[24.772960] (-) TimerEvent: {}
+[24.873304] (-) TimerEvent: {}
+[24.973655] (-) TimerEvent: {}
+[25.074026] (-) TimerEvent: {}
+[25.174375] (-) TimerEvent: {}
+[25.274723] (-) TimerEvent: {}
+[25.375078] (-) TimerEvent: {}
+[25.475426] (-) TimerEvent: {}
+[25.575770] (-) TimerEvent: {}
+[25.676113] (-) TimerEvent: {}
+[25.776444] (-) TimerEvent: {}
+[25.876766] (-) TimerEvent: {}
+[25.977107] (-) TimerEvent: {}
+[26.077449] (-) TimerEvent: {}
+[26.177792] (-) TimerEvent: {}
+[26.278142] (-) TimerEvent: {}
+[26.378490] (-) TimerEvent: {}
+[26.478841] (-) TimerEvent: {}
+[26.579167] (-) TimerEvent: {}
+[26.679490] (-) TimerEvent: {}
+[26.779827] (-) TimerEvent: {}
+[26.880144] (-) TimerEvent: {}
+[26.980463] (-) TimerEvent: {}
+[27.080783] (-) TimerEvent: {}
+[27.181103] (-) TimerEvent: {}
+[27.281422] (-) TimerEvent: {}
+[27.289098] (mavs-ros2) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking CXX executable mavs_pose_aggregator_node\x1b[0m\n'}
+[27.381576] (-) TimerEvent: {}
+[27.481882] (-) TimerEvent: {}
+[27.582189] (-) TimerEvent: {}
+[27.682496] (-) TimerEvent: {}
+[27.782808] (-) TimerEvent: {}
+[27.883124] (-) TimerEvent: {}
+[27.953315] (mavs-ros2) StdoutLine: {'line': b'[ 66%] Built target mavs_pose_aggregator_node\n'}
+[27.983259] (-) TimerEvent: {}
+[28.083530] (-) TimerEvent: {}
+[28.183837] (-) TimerEvent: {}
+[28.284139] (-) TimerEvent: {}
+[28.384451] (-) TimerEvent: {}
+[28.484760] (-) TimerEvent: {}
+[28.585074] (-) TimerEvent: {}
+[28.685381] (-) TimerEvent: {}
+[28.785692] (-) TimerEvent: {}
+[28.886012] (-) TimerEvent: {}
+[28.986330] (-) TimerEvent: {}
+[29.086643] (-) TimerEvent: {}
+[29.186961] (-) TimerEvent: {}
+[29.287286] (-) TimerEvent: {}
+[29.387609] (-) TimerEvent: {}
+[29.487945] (-) TimerEvent: {}
+[29.588283] (-) TimerEvent: {}
+[29.688621] (-) TimerEvent: {}
+[29.706469] (mavs-ros2) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX executable mavs_lidar_node\x1b[0m\n'}
+[29.788786] (-) TimerEvent: {}
+[29.889143] (-) TimerEvent: {}
+[29.989485] (-) TimerEvent: {}
+[30.089827] (-) TimerEvent: {}
+[30.190195] (-) TimerEvent: {}
+[30.218600] (mavs-ros2) StdoutLine: {'line': b'[ 83%] \x1b[32m\x1b[1mLinking CXX executable mavs_vehicle_node\x1b[0m\n'}
+[30.243834] (mavs-ros2) StdoutLine: {'line': b'[ 91%] \x1b[32m\x1b[1mLinking CXX executable mavs_localization_node\x1b[0m\n'}
+[30.290339] (-) TimerEvent: {}
+[30.390652] (-) TimerEvent: {}
+[30.491013] (-) TimerEvent: {}
+[30.543948] (mavs-ros2) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable mavs_camera_node\x1b[0m\n'}
+[30.591170] (-) TimerEvent: {}
+[30.691506] (-) TimerEvent: {}
+[30.732565] (mavs-ros2) StdoutLine: {'line': b'[100%] Built target mavs_lidar_node\n'}
+[30.791664] (-) TimerEvent: {}
+[30.892004] (-) TimerEvent: {}
+[30.992389] (-) TimerEvent: {}
+[31.044206] (mavs-ros2) StdoutLine: {'line': b'[100%] Built target mavs_vehicle_node\n'}
+[31.092534] (-) TimerEvent: {}
+[31.186143] (mavs-ros2) StdoutLine: {'line': b'[100%] Built target mavs_localization_node\n'}
+[31.192699] (-) TimerEvent: {}
+[31.293138] (-) TimerEvent: {}
+[31.393543] (-) TimerEvent: {}
+[31.462861] (mavs-ros2) StdoutLine: {'line': b'[100%] Built target mavs_camera_node\n'}
+[31.493706] (-) TimerEvent: {}
+[31.495709] (mavs-ros2) CommandEnded: {'returncode': 0}
+[31.501676] (mavs-ros2) JobProgress: {'identifier': 'mavs-ros2', 'progress': 'install'}
+[31.516727] (mavs-ros2) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2'], 'cwd': '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2', 'env': OrderedDict([('LESSOPEN', '||/usr/bin/lesspipe.sh %s'), ('HISTFILESIZE', '0'), ('LMOD_DIR', '/apps/other/lmod/lmod/libexec'), ('USER', 'jdj688'), ('SSH_CLIENT', '130.18.14.251 60942 22'), ('__LMOD_REF_COUNT_CMAKE_PREFIX_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic:1;/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp:1;/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih:1;/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp:1'), ('HOSTNAME', 'mavs-2.hpc.msstate.edu'), ('XDG_SESSION_TYPE', 'tty'), ('LMOD_PKG', '/apps/other/lmod/lmod'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/lib:/usr/lib:/usr/local/lib:/.singularity.d/libs'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jdj688'), ('__LMOD_REF_COUNT_GOPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic:1'), ('OLDPWD', '/home/jdj688/mavs_ros2/src'), ('SSH_TTY', '/dev/pts/9'), ('USER_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/bin:/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp/bin:/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/bin:/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/bin:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/bin:/usr/sbin:/usr/bin:/apps/sbin:/apps/bin:/home/jdj688/mavs/install/lib64:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin'), ('__LMOD_REF_COUNT_PKG_CONFIG_PATH', '/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/lib/pkgconfig:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/lib/pkgconfig:1'), ('ROS_PYTHON_VERSION', '3'), ('PS1', 'Singularity>'), ('_LMFILES_', '/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/pcre2/10.39.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/zlib/1.2.13.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/perl/5.36.0.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/git/2.38.1.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/go/1.18.lua:/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core/apptainer/1.0.2.lua'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/9880/bus'), ('APPTAINER_ENVIRONMENT', '/.singularity.d/env/91-environment.sh'), ('__LMOD_REF_COUNT_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/bin:1;/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp/bin:1;/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/bin:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/bin:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/bin:1;/usr/sbin:1;/usr/bin:1;/apps/sbin:1;/apps/bin:1;/home/jdj688/mavs/install/lib64:1'), ('LMOD_sys', 'Linux'), ('LMOD_SHELL_PRGM', 'bash'), ('DEBUGINFOD_URLS', 'https://debuginfod.centos.org/'), ('which_declare', 'declare -f'), ('ROS_DISTRO', 'humble'), ('SINGULARITY_ENVIRONMENT', '/.singularity.d/env/91-environment.sh'), ('LOGNAME', 'jdj688'), ('LMOD_VERSION', '8.7.14'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/lib/pkgconfig:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/lib/pkgconfig'), ('PERL_ROOT', '/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '925'), ('PCRE2_ROOT', '/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp'), ('ZLIB_ROOT', '/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignoredups'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('APPTAINER_COMMAND', 'shell'), ('LMOD_SETTARG_FULL_SUPPORT', 'no'), ('__LMOD_REF_COUNT_LD_LIBRARY_PATH', '/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp/lib:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/lib:1;/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/lib:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/lib:1;/home/jdj688/.local/lib:1;/usr/lib64:1;/usr/lib:1;/home/jdj688/mavs/install/lib64:1'), ('XDG_RUNTIME_DIR', '/run/user/9880'), ('DISPLAY', 'localhost:12.0'), ('LMOD_SYSTEM_NAME', 'desktop-rh9.x'), ('HISTSIZE', '100'), ('APPTAINER_APPNAME', ''), ('LANG', 'en_US.UTF-8'), ('LMOD_ROOT', '/apps/other/lmod'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('MODULEPATH_ROOT', '/apps/other/modulefiles'), ('GOPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic'), ('GO_ROOT', '/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp'), ('GIT_ROOT', '/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e'), ('APPTAINER_CONTAINER', '/scratch/cgoodin/containers/mavs-ros2-ctg.sif'), ('APPTAINER_BIND', '/home/jdj688/mavs_ros2,/cavs,/cci,/ccs,/gri,/hpc,/igbb,/ngi'), ('LMOD_CMD', '/apps/other/lmod/lmod/libexec/lmod'), ('_ModuleTable_Sz_', '6'), ('SINGULARITY_CONTAINER', '/scratch/cgoodin/containers/mavs-ros2-ctg.sif'), ('BASH_ENV', '/apps/other/lmod/lmod/init/bash'), ('SINGULARITY_BIND', '/home/jdj688/mavs_ros2,/cavs,/cci,/ccs,/gri,/hpc,/igbb,/ngi'), ('_ModuleTable001_', 'X01vZHVsZVRhYmxlXyA9IHsKTVR2ZXJzaW9uID0gMywKY19yZWJ1aWxkVGltZSA9IGZhbHNlLApjX3Nob3J0VGltZSA9IGZhbHNlLApkZXB0aFQgPSB7fSwKZmFtaWx5ID0ge30sCm1UID0gewphcHB0YWluZXIgPSB7CmZuID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL2FwcHRhaW5lci8xLjAuMi5sdWEiLApmdWxsTmFtZSA9ICJhcHB0YWluZXIvMS4wLjIiLApsb2FkT3JkZXIgPSA2LApwcm9wVCA9IHt9LApzdGFja0RlcHRoID0gMCwKc3RhdHVzID0gImFjdGl2ZSIsCnVzZXJOYW1lID0gImFwcHRhaW5lciIsCndWID0gIjAwMDAwMDAwMS4wMDAwMDAwMDAuMDAwMDAwMDAyLip6ZmluYWwiLAp9LApnaXQgPSB7CmZu'), ('_ModuleTable002_', 'ID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL2dpdC8yLjM4LjEubHVhIiwKZnVsbE5hbWUgPSAiZ2l0LzIuMzguMSIsCmxvYWRPcmRlciA9IDQsCnByb3BUID0ge30sCnJlZl9jb3VudCA9IDEsCnN0YWNrRGVwdGggPSAyLApzdGF0dXMgPSAiYWN0aXZlIiwKdXNlck5hbWUgPSAiZ2l0LzIuMzguMSIsCndWID0gIjAwMDAwMDAwMi4wMDAwMDAwMzguMDAwMDAwMDAxLip6ZmluYWwiLAp9LApnbyA9IHsKZm4gPSAiL2FwcHMvc3BhY2stbWFuYWdlZC9tb2R1bGVmaWxlcy9saW51eC1yb2NreTkteDg2XzY0L0NvcmUvZ28vMS4xOC5sdWEiLApmdWxsTmFtZSA9ICJnby8xLjE4IiwKbG9hZE9yZGVyID0gNSwKcHJvcFQgPSB7'), ('PWD', '/home/jdj688/mavs_ros2/src/mavs-ros2/build/mavs-ros2'), ('LOADEDMODULES', 'pcre2/10.39:zlib/1.2.13:perl/5.36.0:git/2.38.1:go/1.18:apptainer/1.0.2'), ('APPTAINER_NAME', 'mavs-ros2-ctg.sif'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '130.18.14.251 60942 130.18.14.170 22'), ('_ModuleTable003_', 'fSwKcmVmX2NvdW50ID0gMSwKc3RhY2tEZXB0aCA9IDEsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJnby8xLjE4IiwKd1YgPSAiMDAwMDAwMDAxLjAwMDAwMDAxOC4qemZpbmFsIiwKfSwKcGNyZTIgPSB7CmZuID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL3BjcmUyLzEwLjM5Lmx1YSIsCmZ1bGxOYW1lID0gInBjcmUyLzEwLjM5IiwKbG9hZE9yZGVyID0gMSwKcHJvcFQgPSB7fSwKcmVmX2NvdW50ID0gMSwKc3RhY2tEZXB0aCA9IDMsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJwY3JlMi8xMC4zOSIsCndWID0gIjAwMDAwMDAxMC4wMDAwMDAwMzkuKnpmaW5hbCIsCn0sCnBlcmwgPSB7CmZu'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('_ModuleTable004_', 'ID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL3BlcmwvNS4zNi4wLmx1YSIsCmZ1bGxOYW1lID0gInBlcmwvNS4zNi4wIiwKbG9hZE9yZGVyID0gMywKcHJvcFQgPSB7fSwKcmVmX2NvdW50ID0gMSwKc3RhY2tEZXB0aCA9IDMsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJwZXJsLzUuMzYuMCIsCndWID0gIjAwMDAwMDAwNS4wMDAwMDAwMzYuKnpmaW5hbCIsCn0sCnpsaWIgPSB7CmZuID0gIi9hcHBzL3NwYWNrLW1hbmFnZWQvbW9kdWxlZmlsZXMvbGludXgtcm9ja3k5LXg4Nl82NC9Db3JlL3psaWIvMS4yLjEzLmx1YSIsCmZ1bGxOYW1lID0gInpsaWIvMS4yLjEzIiwKbG9hZE9yZGVyID0gMiwKcHJvcFQg'), ('SINGULARITY_NAME', 'mavs-ros2-ctg.sif'), ('_ModuleTable005_', 'PSB7fSwKcmVmX2NvdW50ID0gMiwKc3RhY2tEZXB0aCA9IDQsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJ6bGliLzEuMi4xMyIsCndWID0gIjAwMDAwMDAwMS4wMDAwMDAwMDIuMDAwMDAwMDEzLip6ZmluYWwiLAp9LAp9LAptcGF0aEEgPSB7CiIvYXBwcy9zcGFjay1tYW5hZ2VkL21vZHVsZWZpbGVzL2xpbnV4LXJvY2t5OS14ODZfNjQvQ29yZSIKLCAiL2FwcHMvb3RoZXIvbW9kdWxlZmlsZXMiLCAiL2FwcHMvY29udGFpbmVycy9tb2R1bGVmaWxlcyIsICIvYXBwcy9saWNlbnNlZC9tb2R1bGVmaWxlcyIsCn0sCnN5c3RlbUJhc2VNUEFUSCA9ICIvYXBwcy9zcGFjay1tYW5hZ2VkL21vZHVsZWZpbGVzL2xpbnV4LXJvY2t5OS14ODZfNjQvQ29yZTovYXBwcy9vdGhl'), ('CONTAINERS', '/apps/containers/'), ('COLCON', '1'), ('__LMOD_REF_COUNT_MODULEPATH', '/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core:1;/apps/other/modulefiles:1;/apps/containers/modulefiles:1;/apps/licensed/modulefiles:1'), ('MANPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/share/man:/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/share/man:/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/man:/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/share/man:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/share/man:/apps/other/lmod/lmod/share/man:/usr/share/man:/apps/share/man:/apps/man'), ('_ModuleTable006_', 'ci9tb2R1bGVmaWxlczovYXBwcy9jb250YWluZXJzL21vZHVsZWZpbGVzOi9hcHBzL2xpY2Vuc2VkL21vZHVsZWZpbGVzIiwKfQo='), ('__LMOD_REF_COUNT_MANPATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic/share/man:1;/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e/share/man:1;/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih/man:1;/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn/share/man:1;/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp/share/man:1;/apps/other/lmod/lmod/share/man:1;/usr/share/man:1;/apps/share/man:1;/apps/man:1'), ('MODULEPATH', '/apps/spack-managed/modulefiles/linux-rocky9-x86_64/Core:/apps/other/modulefiles:/apps/containers/modulefiles:/apps/licensed/modulefiles'), ('MODULESHOME', '/apps/other/lmod/lmod'), ('CMAKE_PREFIX_PATH', '/apps/spack-managed/gcc-11.3.1/apptainer-1.0.2-sly2h7brp2pnfvoo2atzfjl7cjnydnic:/apps/spack-managed/gcc-11.3.1/go-1.18-alznydijxhxcjhrs6gv4ewrkzfpbekcp:/apps/spack-managed/gcc-11.3.1/git-2.38.1-y5mypep4s26jrmydtbcscxbtjm2ttk3e:/apps/spack-managed/gcc-11.3.1/perl-5.36.0-vu5twd3fz7fqbfo2sesaounbstcoycih:/apps/spack-managed/gcc-11.3.1/zlib-1.2.13-iliwgto55zekyo2bdhemxjz2bu54u2kn:/apps/spack-managed/gcc-11.3.1/pcre2-10.39-mzli5r4utmxlbz6lxj4kyaujoibgixwp:/opt/ros/humble')]), 'shell': False}
+[31.528406] (mavs-ros2) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[31.542671] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/library_path.sh\n'}
+[31.559559] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/library_path.dsv\n'}
+[31.586120] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/libmavs-ros2.a\n'}
+[31.593889] (-) TimerEvent: {}
+[31.618520] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_vehicle_node\n'}
+[31.694081] (-) TimerEvent: {}
+[31.746517] (mavs-ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_vehicle_node" to ""\n'}
+[31.749870] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_camera_node\n'}
+[31.794249] (-) TimerEvent: {}
+[31.842600] (mavs-ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_camera_node" to ""\n'}
+[31.846043] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_lidar_node\n'}
+[31.894374] (-) TimerEvent: {}
+[31.990808] (mavs-ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_lidar_node" to ""\n'}
+[31.994159] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_localization_node\n'}
+[31.994439] (-) TimerEvent: {}
+[32.074548] (mavs-ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_localization_node" to ""\n'}
+[32.078551] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_pose_aggregator_node\n'}
+[32.094581] (-) TimerEvent: {}
+[32.189201] (mavs-ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/lib/mavs-ros2/mavs_pose_aggregator_node" to ""\n'}
+[32.191278] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch\n'}
+[32.194763] (-) TimerEvent: {}
+[32.202455] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/launch_vehicle.py\n'}
+[32.224971] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/launch_vehicle_and_camera.py\n'}
+[32.246155] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/launch_vehicle_and_camera_and_lidar.py\n'}
+[32.268073] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2//launch/mavs_config.txt\n'}
+[32.288419] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2\n'}
+[32.294921] (-) TimerEvent: {}
+[32.300695] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_camera_node.h\n'}
+[32.320667] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_lidar_node.h\n'}
+[32.341676] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_localization_node.h\n'}
+[32.362493] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_node.h\n'}
+[32.382000] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_ros_utils.h\n'}
+[32.395078] (-) TimerEvent: {}
+[32.401877] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_sensor_node.h\n'}
+[32.420907] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/include/mavs-ros2/mavs_vehicle_node.h\n'}
+[32.451081] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Targets.cmake\n'}
+[32.472876] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Targets-noconfig.cmake\n'}
+[32.495235] (-) TimerEvent: {}
+[32.507291] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/ament_index/resource_index/package_run_dependencies/mavs-ros2\n'}
+[32.537540] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/ament_index/resource_index/parent_prefix_path/mavs-ros2\n'}
+[32.558684] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/ament_prefix_path.sh\n'}
+[32.575242] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/ament_prefix_path.dsv\n'}
+[32.595066] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/path.sh\n'}
+[32.595300] (-) TimerEvent: {}
+[32.611058] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/environment/path.dsv\n'}
+[32.631145] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.bash\n'}
+[32.651506] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.sh\n'}
+[32.674520] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.zsh\n'}
+[32.694750] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/local_setup.dsv\n'}
+[32.695389] (-) TimerEvent: {}
+[32.714361] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.dsv\n'}
+[32.743762] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/ament_index/resource_index/packages/mavs-ros2\n'}
+[32.762947] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Export.cmake\n'}
+[32.785511] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Export-noconfig.cmake\n'}
+[32.795554] (-) TimerEvent: {}
+[32.805711] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[32.825506] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[32.845367] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Config.cmake\n'}
+[32.866582] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/cmake/mavs-ros2Config-version.cmake\n'}
+[32.887988] (mavs-ros2) StdoutLine: {'line': b'-- Installing: /home/jdj688/mavs_ros2/src/mavs-ros2/install/mavs-ros2/share/mavs-ros2/package.xml\n'}
+[32.895708] (-) TimerEvent: {}
+[32.912989] (mavs-ros2) CommandEnded: {'returncode': 0}
+[32.995884] (-) TimerEvent: {}
+[33.096283] (-) TimerEvent: {}
+[33.120112] (mavs-ros2) JobEnded: {'identifier': 'mavs-ros2', 'rc': 0}
+[33.137191] (-) EventReactorShutdown: {}

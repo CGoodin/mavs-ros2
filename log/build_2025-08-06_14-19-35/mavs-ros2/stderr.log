@@ -1,0 +1,7 @@
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:[m[K In member function ‘[01m[Kvoid MavsVehicleNode::SetupTerrain(float, float, float)[m[K’:
+[01m[K/home/jdj688/mavs_ros2/src/mavs-ros2/src/mavs_vehicle_node_scene_creator.cpp:134:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass mavs::terraingen::TerrainCreator[m[K’ has no member named ‘[01m[KAddTrapezoidalFeature[m[K’
+  134 |     terrain.[01;31m[KAddTrapezoidalFeature[m[K(top_width, base_width, depth, 20.0f);
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/mavs_vehicle_node_scene_creator.dir/build.make:79: CMakeFiles/mavs_vehicle_node_scene_creator.dir/src/mavs_vehicle_node_scene_creator.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:363: CMakeFiles/mavs_vehicle_node_scene_creator.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
