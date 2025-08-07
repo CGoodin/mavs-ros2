@@ -89,8 +89,13 @@ private:
 		mavs::MavsDataPath mdp;
 		std::string mavs_data_path = mdp.GetPath();
 		
-		terrain_creator_.AddTrapezoid(6.0f, 12.0f, 2.0f, 20.0f);
-		terrain_creator_.AddTrapezoid(6.0f, 12.0f, -2.0f, 30.0f);
+
+		float top_width = GetFloatParam("terrain_feature.top_width", 12.0f);
+		float bottom_width = GetFloatParam("terrain_feature.bottom_width", 6.0f);
+		float ditch_depth = GetFloatParam("terrain_feature.depth", 2.0f);
+		float ditch_location = GetFloatParam("terrain_feature.location", 20.0f);
+		//terrain_creator_.AddTrapezoid(6.0f, 12.0f, 2.0f, 20.0f);
+		terrain_creator_.AddTrapezoid(bottom_width, top_width, ditch_depth, ditch_location);
 		terrain_creator_.CreateTerrain(-25.0f, -25.0f, 200.0f, 25.0f, 0.5f);
 		scene_ptr_ = terrain_creator_.GetScenePointer();
 		scene_ptr_->TurnOffLabeling();
@@ -137,7 +142,12 @@ private:
 		nav_msgs::msg::Odometry true_odom = mavs_ros_utils::CopyFromMavsVehicleState(veh_state);
 
 		if (render_debug_ && nsteps_ % render_steps_ == 0){
-			camera_.SetPose(veh_state);
+			glm::vec3 pos = veh_state.pose.position;
+			glm::quat ori = veh_state.pose.quaternion;
+			ori.x = 0.0f;
+			ori.y = 0.0f;
+			ori = glm::normalize(ori);
+			camera_.SetPose(pos, ori);
 			camera_.Update(&env_, 0.1);
 			camera_.Display();
 			nsteps_=0;
