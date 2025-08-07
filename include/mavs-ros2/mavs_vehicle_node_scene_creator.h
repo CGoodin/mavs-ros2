@@ -13,6 +13,13 @@
 #include "raytracers/embree_tracer/embree_tracer.h"
 #include "sensors/mavs_sensors.h"
 #include "mavs_core/terrain_generator/terrain_elevation_functions.h"
+// c++ includes 
+#include <fstream>
+#include <cmath>
+#include <filesystem>
+#include <numeric>      
+#include <iomanip>      
+#include <ctime> 
 
 class MavsVehicleNodeSceneCreator : public MavsNode
 {
@@ -21,6 +28,7 @@ public:
 		dt_ = 0.01;
 		nsteps_ = 0;
 		elapsed_time_ = 0.0f;
+		current_iteration_ = 0;
 
 		twist_sub_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 1, std::bind(&MavsVehicleNodeSceneCreator::TwistCallback, this, std::placeholders::_1));
 		odom_true_pub_ = this->create_publisher<nav_msgs::msg::Odometry>("odometry_true", 10);
@@ -32,8 +40,9 @@ public:
 		render_steps_ = std::max(1,(int)(0.1f/dt_));
 	}
 
-	~MavsVehicleNodeSceneCreator(){}
+	~MavsVehicleNodeSceneCreator() { LogResults(); }
 
+	void SetCurrentIteration(int curr_iter) { current_iteration_ = curr_iter; }
 private:
 	rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr twist_sub_;
 	rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_true_pub_;
@@ -56,6 +65,14 @@ private:
 	int nsteps_;
 	int render_steps_;
 	float elapsed_time_;
+
+	// ditch parameters
+	float ditch_depth_;
+	float ditch_width_;
+	// logging parameters
+	int current_iteration_;
+	std::string results_path_;
+	std::vector<float> logged_speeds_;
 
 	void TwistCallback(const geometry_msgs::msg::Twist::SharedPtr rcv_msg){
 		throttle_ = rcv_msg->linear.x;
@@ -91,11 +108,11 @@ private:
 		
 
 		float top_width = GetFloatParam("terrain_feature.top_width", 12.0f);
-		float bottom_width = GetFloatParam("terrain_feature.bottom_width", 6.0f);
-		float ditch_depth = GetFloatParam("terrain_feature.depth", 2.0f);
+		ditch_width_ = GetFloatParam("terrain_feature.bottom_width", 6.0f);
+		ditch_depth_ = GetFloatParam("terrain_feature.depth", 2.0f);
 		float ditch_location = GetFloatParam("terrain_feature.location", 20.0f);
 		//terrain_creator_.AddTrapezoid(6.0f, 12.0f, 2.0f, 20.0f);
-		terrain_creator_.AddTrapezoid(bottom_width, top_width, ditch_depth, ditch_location);
+		terrain_creator_.AddTrapezoid(ditch_width_, top_width, ditch_depth_, ditch_location);
 		terrain_creator_.CreateTerrain(-25.0f, -25.0f, 200.0f, 25.0f, 0.5f);
 		scene_ptr_ = terrain_creator_.GetScenePointer();
 		scene_ptr_->TurnOffLabeling();
@@ -111,6 +128,37 @@ private:
 		camera_.Initialize(640, 480, 0.0046667, 0.0035, 0.0035);
 		camera_.SetRenderShadows(true);
 		camera_.SetRelativePose(glm::vec3(-9.0, 0.0, 2.5), glm::quat(1.0f, 0.0f, 0.0f, 0.0f));
+
+		results_path_ = GetStringParam("results_path", "/tmp/mavs_results");
+		// Ensure results directory exists
+		if (!std::filesystem::is_directory(results_path_)) {
+			std::filesystem::create_directories(results_path_);
+		}
+	}
+
+	void LogResults(){
+		float avg_speed = 0.0f;
+		if (!logged_speeds_.empty()) {
+			avg_speed = std::accumulate(logged_speeds_.begin(), logged_speeds_.end(), 0.0f) / logged_speeds_.size();
+		}
+
+		std::string filename = results_path_ + "/run_" + std::to_string(current_iteration_) + ".json";
+
+		std::ofstream file(filename);
+		if (file.is_open()) {
+			file << "{\n";
+			//file << "  \"iteration\": " << current_iteration_ << ",\n";
+			file << "  \"ditch_depth\": " << ditch_depth_ << ",\n";
+			file << "  \"ditch_width\": " << ditch_width_ << ",\n";
+			file << "  \"average_speed\": " << avg_speed << ",\n";
+			file << "  \"timestamp\": " << std::time(nullptr) << "\n";
+			file << "}\n";
+
+			RCLCPP_INFO(this->get_logger(), "Saved results to %s", filename.c_str());
+		}
+		else {
+			RCLCPP_WARN(this->get_logger(), "Failed to open file for saving results: %s", filename.c_str());
+		}
 	}
 
 	void UpdateHumanDrivingCommands(){
@@ -138,8 +186,11 @@ private:
 
 		mavs_veh_.Update(&env_, throttle_, steering_, -braking_, dt_);
 		mavs::VehicleState veh_state = mavs_veh_.GetState();
-
+		
 		nav_msgs::msg::Odometry true_odom = mavs_ros_utils::CopyFromMavsVehicleState(veh_state);
+
+		float veh_speed = sqrtf(veh_state.twist.linear.x * veh_state.twist.linear.x + veh_state.twist.linear.y * veh_state.twist.linear.y);
+		logged_speeds_.push_back(veh_speed);
 
 		if (render_debug_ && nsteps_ % render_steps_ == 0){
 			glm::vec3 pos = veh_state.pose.position;
