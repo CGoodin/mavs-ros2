@@ -23,10 +23,10 @@
 #include <string>
 #include <vector>
 
-class MavsVehicleNode : public MavsNode
+class MavsVehicleNodeSceneCreator : public MavsNode
 {
 public:
-    MavsVehicleNode();
+    MavsVehicleNodeSceneCreator();
 
 private:
     // ROS interfaces

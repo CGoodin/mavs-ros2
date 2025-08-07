@@ -9,9 +9,9 @@
 #include <iomanip>      // for std::setw
 #include <ctime>        // for std::time
 
-namespace fs = std::filesystem;
+//namespace fs = std::filesystem;
 
-MavsVehicleNode::MavsVehicleNode() : MavsNode()
+MavsVehicleNodeSceneCreator::MavsVehicleNodeSceneCreator() : MavsNode()
 {
     dt_ = GetFloatParam("dt", 0.01f);
     nsteps_ = 0;
@@ -33,10 +33,12 @@ MavsVehicleNode::MavsVehicleNode() : MavsNode()
     results_path_ = GetStringParam("results_path", "/tmp/mavs_results");
 
     // Ensure results directory exists
-    fs::create_directories(results_path_);
+    if (!std::filesystem::is_directory(results_path_)) {
+        std::filesystem::create_directories(results_path_);
+    }
 
     twist_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
-        "cmd_vel", 1, std::bind(&MavsVehicleNode::TwistCallback, this, std::placeholders::_1));
+        "cmd_vel", 1, std::bind(&MavsVehicleNodeSceneCreator::TwistCallback, this, std::placeholders::_1));
 
     odom_true_pub_ = this->create_publisher<nav_msgs::msg::Odometry>("odometry_true", 10);
     anim_poses_pub_ = this->create_publisher<geometry_msgs::msg::PoseArray>("anim_poses", 10);
@@ -52,10 +54,10 @@ MavsVehicleNode::MavsVehicleNode() : MavsNode()
     render_steps_ = std::max(1, (int)(0.1f / dt_));
     timer_ = this->create_wall_timer(
         std::chrono::milliseconds(static_cast<int>(dt_ * 1000.0f)),
-        std::bind(&MavsVehicleNode::TimerCallback, this));
+        std::bind(&MavsVehicleNodeSceneCreator::TimerCallback, this));
 }
 
-void MavsVehicleNode::TwistCallback(const geometry_msgs::msg::Twist::SharedPtr msg)
+void MavsVehicleNodeSceneCreator::TwistCallback(const geometry_msgs::msg::Twist::SharedPtr msg)
 {
     // Map Twist message to throttle, steering, braking
     throttle_ = msg->linear.x;
@@ -63,25 +65,28 @@ void MavsVehicleNode::TwistCallback(const geometry_msgs::msg::Twist::SharedPtr m
     braking_ = msg->linear.y;
 }
 
-void MavsVehicleNode::LoadVehicleAndScene()
+void MavsVehicleNodeSceneCreator::LoadVehicleAndScene()
 {
-    const char* env_p = std::getenv("MAVS_DATA_PATH");
-    if (!env_p) {
-        throw std::runtime_error("MAVS_DATA_PATH environment variable not set!");
-    }
-    std::string data_path(env_p);
+    //const char* env_p = std::getenv("MAVS_DATA_PATH");
+    //if (!env_p) {
+    //    throw std::runtime_error("MAVS_DATA_PATH environment variable not set!");
+    //}
+    //std::string data_path(env_p);
+    mavs::MavsDataPath dp;
+    std::string data_path = dp.GetPath();
 
     // Load the vehicle
-    mavs_veh_.Load(data_path + "/vehicles/rp3d_veh/sample_vehicle.json");
+    std::string rp3d_vehicle_file = GetStringParam("rp3d_vehicle_file", "mrzr4_tires_low_gear.json");
+    mavs_veh_.Load(data_path + "vehicles/rp3d_vehicles/"+rp3d_vehicle_file);
 
     // Load a default scene (update path if different)
-    scene_.Load(data_path + "/scenes/sample_scene.json");
+    //scene_.Load(data_path + "/scenes/sample_scene.json");
 
-    env_.SetRaytracer(&scene_);
+    //env_.SetRaytracer(&scene_);
 }
 
 
-void MavsVehicleNode::PrepareSimulationParams()
+void MavsVehicleNodeSceneCreator::PrepareSimulationParams()
 {
     ditch_depths_ = GenerateRange(0.0f, 4.0f, 0.2f);
     top_widths_ = GenerateRange(2.5f, 9.0f, 0.5f);
@@ -111,7 +116,7 @@ void MavsVehicleNode::PrepareSimulationParams()
     LoadVehicleAndScene();
 }
 
-std::vector<float> MavsVehicleNode::GenerateRange(float start, float end, float step)
+std::vector<float> MavsVehicleNodeSceneCreator::GenerateRange(float start, float end, float step)
 {
     std::vector<float> vals;
     for (float v = start; v <= end + 1e-4f; v += step)
@@ -119,7 +124,7 @@ std::vector<float> MavsVehicleNode::GenerateRange(float start, float end, float 
     return vals;
 }
 
-void MavsVehicleNode::TimerCallback()
+void MavsVehicleNodeSceneCreator::TimerCallback()
 {
     if (current_iteration_ >= max_iterations_) {
         RCLCPP_INFO(this->get_logger(), "Completed all iterations (%d). Shutting down.", max_iterations_);
@@ -148,7 +153,7 @@ void MavsVehicleNode::TimerCallback()
     }
 }
 
-void MavsVehicleNode::SetupTerrain(float top_width, float base_width, float depth)
+void MavsVehicleNodeSceneCreator::SetupTerrain(float top_width, float base_width, float depth)
 {
     mavs::terraingen::TerrainCreator terrain;
     terrain.AddTrapezoid(top_width, base_width, depth, 20.0f);
@@ -159,7 +164,7 @@ void MavsVehicleNode::SetupTerrain(float top_width, float base_width, float dept
     env_.SetGlobalSurfaceProperties("dry", 6894.76f * 250.0f);
 }
 
-void MavsVehicleNode::ResetVehicleState()
+void MavsVehicleNodeSceneCreator::ResetVehicleState()
 {
     glm::vec3 initial_position(0.0f, 0.0f, scene_.GetSurfaceHeight(0.0f, 0.0f) + 0.25f);
     glm::quat initial_orientation(1.0f, 0.0f, 0.0f, 0.0f);
@@ -176,31 +181,31 @@ void MavsVehicleNode::ResetVehicleState()
     nsteps_ = 0;
 }
 
-std::vector<float> MavsVehicleNode::RunSimulation()
+std::vector<float> MavsVehicleNodeSceneCreator::RunSimulation()
 {
     constexpr float sim_duration = 15.0f;
     float local_elapsed = 0.0f;
     int local_steps = 0;
 
     std::vector<float> speed_history;
-    bool ditch_entered = false;
-    float desired_speed = 2.0f;
+    //bool ditch_entered = false;
+    //float desired_speed = 2.0f;
 
-    float prev_z = mavs_veh_.GetPosition().z;
+    //float prev_z = mavs_veh_.GetPosition().z;
 
     while (local_elapsed < sim_duration)
     {
         mavs_veh_.Update(&env_, throttle_, steering_, braking_, dt_);
 
         if (local_steps % 4 == 0) {
-            glm::vec3 pos = mavs_veh_.GetPosition();
-
-            if (!ditch_entered && pos.z < prev_z - 0.01f) {
-                ditch_entered = true;
-                desired_speed = 4.0f;
-                throttle_ = 0.8f;
-            }
-            prev_z = pos.z;
+            //glm::vec3 pos = mavs_veh_.GetPosition();
+            // CTG: need to figure out how we want to manage vehicle control
+            //if (!ditch_entered && pos.z < prev_z - 0.01f) {
+            //    ditch_entered = true;
+            //    desired_speed = 4.0f;
+            //    throttle_ = 0.8f;
+            //}
+            //prev_z = pos.z;
 
             float speed = mavs_veh_.GetSpeed();
             speed_history.push_back(speed);
@@ -213,7 +218,7 @@ std::vector<float> MavsVehicleNode::RunSimulation()
     return speed_history;
 }
 
-void MavsVehicleNode::LogResults(float ditch_depth, float ditch_width, const std::vector<float>& speeds)
+void MavsVehicleNodeSceneCreator::LogResults(float ditch_depth, float ditch_width, const std::vector<float>& speeds)
 {
     float avg_speed = 0.0f;
     if (!speeds.empty()) {
@@ -241,7 +246,7 @@ void MavsVehicleNode::LogResults(float ditch_depth, float ditch_width, const std
 int main(int argc, char* argv[])
 {
     rclcpp::init(argc, argv);
-    auto node = std::make_shared<MavsVehicleNode>();
+    auto node = std::make_shared<MavsVehicleNodeSceneCreator>();
     rclcpp::spin(node);
     rclcpp::shutdown();
     return 0;
