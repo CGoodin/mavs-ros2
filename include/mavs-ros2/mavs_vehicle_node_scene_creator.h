@@ -89,7 +89,7 @@ private:
 		}
 
 		// load parameters
-		std::string scene_file = GetStringParam("scene_file", "cube_scene.json");
+		//std::string scene_file = GetStringParam("scene_file", "cube_scene.json");
 		std::string rp3d_vehicle_file = GetStringParam("rp3d_vehicle_file", "l200.json");
 		float soil_strength = GetFloatParam("soil_strength", 250.0f);
 		std::string surface_type = GetStringParam("surface_type", "dry");
