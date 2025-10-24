@@ -103,8 +103,8 @@ private:
 		mavs_veh_.SetOrientation(initial_orientation.w, initial_orientation.x, initial_orientation.y, initial_orientation.z);
 		mavs_veh_.Update(&env_, throttle_, steering_, braking_, 0.00001);
 
-		camera_.Initialize(256, 256, 0.0035, 0.0035, 0.0035);
-		camera_.SetRenderShadows(false);
+		camera_.Initialize(960, 540, 0.0062222222, 0.0035, 0.0035);
+		camera_.SetRenderShadows(true);
 		camera_.SetRelativePose(glm::vec3(-10.0, 0.0, 2.0), glm::quat(1.0f, 0.0f, 0.0f, 0.0f));
 
 		// imu settings

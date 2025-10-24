@@ -29,6 +29,7 @@ public:
 		nsteps_ = 0;
 		elapsed_time_ = 0.0f;
 		current_iteration_ = 0;
+		use_side_camera_ = false;
 
 		twist_sub_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 1, std::bind(&MavsVehicleNodeSceneCreator::TwistCallback, this, std::placeholders::_1));
 		odom_true_pub_ = this->create_publisher<nav_msgs::msg::Odometry>("odometry_true", 10);
@@ -59,12 +60,14 @@ private:
 	bool render_debug_;
 	bool use_human_driver_;
 	bool use_sim_time_;
-	mavs::sensor::camera::RgbCamera camera_;
+	mavs::sensor::camera::RgbCamera rear_camera_;
+	mavs::sensor::camera::RgbCamera side_camera_;
 	mavs::vehicle::Rp3dVehicle mavs_veh_;
 	double dt_;
 	int nsteps_;
 	int render_steps_;
 	float elapsed_time_;
+	bool use_side_camera_;
 
 	// ditch parameters
 	float ditch_depth_;
@@ -97,6 +100,7 @@ private:
 		float y_init = GetFloatParam("Initial_Y_Position", 0.0f);
 		float heading_init = GetFloatParam("Initial_Heading", 0.0f);
 		render_debug_ = GetBoolParam("debug_camera", false);
+		use_side_camera_ = GetBoolParam("use_side_camera", false);
 		use_human_driver_ = GetBoolParam("use_human_driver", false);
 		dt_ = GetFloatParam("dt",0.01f);
 
@@ -125,9 +129,14 @@ private:
 		mavs_veh_.SetOrientation(initial_orientation.w, initial_orientation.x, initial_orientation.y, initial_orientation.z);
 		mavs_veh_.Update(&env_, throttle_, steering_, braking_, 0.00001);
 
-		camera_.Initialize(640, 480, 0.0046667, 0.0035, 0.0035);
-		camera_.SetRenderShadows(true);
-		camera_.SetRelativePose(glm::vec3(-9.0, 0.0, 2.5), glm::quat(1.0f, 0.0f, 0.0f, 0.0f));
+		rear_camera_.Initialize(800, 600, 0.0046667, 0.0035, 0.0035);
+		rear_camera_.SetRenderShadows(true);
+		rear_camera_.SetRelativePose(glm::vec3(-9.0, 0.0, 2.5), glm::quat(1.0f, 0.0f, 0.0f, 0.0f));
+
+		side_camera_.Initialize(960, 540, 0.006222, 0.0035, 0.0035);
+		side_camera_.SetRenderShadows(true);
+		float angle = -acosf(-1.0) / 4;
+		side_camera_.SetRelativePose(glm::vec3(0.0, 5.0, 0.25), glm::quat(cosf(angle), 0.0f, 0.0f, sinf(angle)));
 
 		results_path_ = GetStringParam("results_path", "/tmp/mavs_results");
 		// Ensure results directory exists
@@ -165,7 +174,13 @@ private:
 		throttle_ = 0.0;
 		steering_ = 0.0;
 		braking_ = 0.0;
-		std::vector<bool> driving_commands = camera_.GetKeyCommands();
+		std::vector<bool> driving_commands;
+		if (use_side_camera_) {
+			driving_commands = side_camera_.GetKeyCommands();
+		} 
+		else {
+			driving_commands = rear_camera_.GetKeyCommands();
+		}
 		if (driving_commands[0]){
 			throttle_ = 1.0;
 		}
@@ -198,9 +213,16 @@ private:
 			ori.x = 0.0f;
 			ori.y = 0.0f;
 			ori = glm::normalize(ori);
-			camera_.SetPose(pos, ori);
-			camera_.Update(&env_, 0.1);
-			camera_.Display();
+			if (use_side_camera_) {
+				side_camera_.SetPose(pos, ori);
+				side_camera_.Update(&env_, 0.1);
+				side_camera_.Display();
+			}
+			else {
+				rear_camera_.SetPose(pos, ori);
+				rear_camera_.Update(&env_, 0.1);
+				rear_camera_.Display();
+			}
 			nsteps_=0;
 		}
 
