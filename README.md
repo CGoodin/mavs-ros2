@@ -2,9 +2,7 @@
 ROS-2 interfaces to the MSU Autonomous Vehicle Simulator (MAVS).
 
 ## Description
-The MAVS-ROS2 ius a ROS-2 interface to the [MAVS](https://www.cavs.msstate.edu/capabilities/mavs.php). MAVS is an open, flexible simulation library for autonomous ground vehicles that features tools for off-road environments.
-
-[Request MAVS access](https://www.cavs.msstate.edu/capabilities/mavs_request.php)
+The MAVS-ROS2 ius a ROS-2 interface to the [MAVS]([https://www.cavs.msstate.edu/capabilities/mavs.php](https://github.com/Mississippi-State-University-OTM/MAVS)). MAVS is an open, flexible simulation library for autonomous ground vehicles that features tools for off-road environments.
 
 MAVS is a stand-alone library that can be built on Windows or Linux/Unix. The MAVS-ROS2 package provides a ROS2 interface to MAVS functions. These include:
 
