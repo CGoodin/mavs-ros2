@@ -74,6 +74,18 @@ ament_target_dependencies(mavs_camera_node
   rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs
   tf2_geometry_msgs visualization_msgs rosgraph_msgs)
 
+add_executable(mavs_depth_camera_node src/mavs_depth_camera_node.cpp)
+target_link_libraries(mavs_depth_camera_node
+  X11
+  gomp
+  MAVS::mavs 
+  ${EMBREE_LIBRARY}
+  mavs-ros2
+)
+ament_target_dependencies(mavs_depth_camera_node rclcpp std_msgs geometry_msgs nav_msgs tf2 sensor_msgs tf2_ros tf2_msgs tf2_geometry_msgs visualization_msgs rosgraph_msgs)
+
+
+
 add_executable(mavs_lidar_node src/mavs_lidar_node.cpp)
 target_link_libraries(mavs_lidar_node
   X11
@@ -153,6 +165,7 @@ ament_target_dependencies(mavs_vehicle_node_scene_creator
 install(TARGETS
   mavs_vehicle_node
   mavs_camera_node
+  mavs_depth_camera_node
   mavs_lidar_node
   mavs_radar_node
   mavs_gps_node
