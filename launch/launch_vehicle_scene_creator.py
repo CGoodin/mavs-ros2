@@ -17,7 +17,8 @@ def generate_launch_description():
                     'depth': 2.0,
                     'top_width': 12.0,
                     'bottom_width': 6.0,
-                    'location': 20.0
+                    'location': 20.0,
+                    'num_trees': 150
                     }
          }
         

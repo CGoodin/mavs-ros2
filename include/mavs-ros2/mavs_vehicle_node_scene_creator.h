@@ -115,15 +115,36 @@ private:
 		ditch_width_ = GetFloatParam("terrain_feature.bottom_width", 6.0f);
 		ditch_depth_ = GetFloatParam("terrain_feature.depth", 2.0f);
 		float ditch_location = GetFloatParam("terrain_feature.location", 20.0f);
+		int num_trees = GetIntParam("terrain_feature.num_trees", 0);
+
 		//terrain_creator_.AddTrapezoid(6.0f, 12.0f, 2.0f, 20.0f);
 		terrain_creator_.AddTrapezoid(ditch_width_, top_width, ditch_depth_, ditch_location);
+		mavs::terraingen::VegPolygon veg_poly_right, veg_poly_left;
+		veg_poly_right.polygon.push_back(glm::vec2(-20.0f, -20.0f));
+		veg_poly_right.polygon.push_back(glm::vec2(-20.0f, -10.0f));
+		veg_poly_right.polygon.push_back(glm::vec2(195.0f, -10.0f));
+		veg_poly_right.polygon.push_back(glm::vec2(195.0f, -20.0f));
+		veg_poly_right.number = int(num_trees/2.0f);
+		veg_poly_right.scale_low = 0.25f;
+		veg_poly_right.scale_high = 0.5f;
+		veg_poly_right.meshfile = mavs_data_path + "/scenes/meshes/vegetation/pine_tree/pine_tree.obj";
+		terrain_creator_.AddMeshes(veg_poly_right);
+		veg_poly_left.polygon.push_back(glm::vec2(-20.0f, 10.0f));
+		veg_poly_left.polygon.push_back(glm::vec2(-20.0f, 20.0f));
+		veg_poly_left.polygon.push_back(glm::vec2(195.0f, 20.0f));
+		veg_poly_left.polygon.push_back(glm::vec2(195.0f, 10.0f));
+		veg_poly_left.number = int(num_trees / 2.0f);
+		veg_poly_left.scale_low = 0.25f;
+		veg_poly_left.scale_high = 0.5f;
+		veg_poly_left.meshfile = mavs_data_path + "/scenes/meshes/vegetation/pine_tree/pine_tree.obj";
+		terrain_creator_.AddMeshes(veg_poly_left);
+
 		terrain_creator_.CreateTerrain(-25.0f, -25.0f, 200.0f, 25.0f, 0.5f);
 		scene_ptr_ = terrain_creator_.GetScenePointer();
 		scene_ptr_->TurnOffLabeling();
 
 		env_.SetRaytracer(scene_ptr_);
 		env_.SetGlobalSurfaceProperties(surface_type, 6894.76f * soil_strength);
-
 		mavs_veh_.Load(mavs_data_path + "/vehicles/rp3d_vehicles/" + rp3d_vehicle_file);
 		mavs_veh_.SetPosition(initial_position.x, initial_position.y, initial_position.z);
 		mavs_veh_.SetOrientation(initial_orientation.w, initial_orientation.x, initial_orientation.y, initial_orientation.z);
@@ -137,7 +158,6 @@ private:
 		side_camera_.SetRenderShadows(true);
 		float angle = -acosf(-1.0) / 4;
 		side_camera_.SetRelativePose(glm::vec3(0.0, 5.0, 0.25), glm::quat(cosf(angle), 0.0f, 0.0f, sinf(angle)));
-
 		results_path_ = GetStringParam("results_path", "/tmp/mavs_results");
 		// Ensure results directory exists
 		if (!std::filesystem::is_directory(results_path_)) {
