@@ -64,20 +64,34 @@ class MavsDepthCameraNode : public MavsSensorNode{
 		right_cam_.SetRenderShadows(render_shadows);
 		right_cam_.SetName("Right Camera");
 
+		float pixdim = px / (float)nx;
 		left_cam_info_.height = ny;
 		left_cam_info_.width = nx;
+		float flen_pixels = flen / pixdim;
+		float cx = 0.5f * nx;
+		float cy = 0.5f * ny;
+		float baseline_pixels = baseline / pixdim;
+		float fx = flen_pixels;
+		float fy = flen_pixels;
+
+		left_cam_info_.header.frame_id = "stereo_right_optical_frame";
 		left_cam_info_.d = { 0.0, 0.0, 0.0, 0.0, 0.0 };
 		left_cam_info_.r = { 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0 };
-		left_cam_info_.k = { flen, px, 0.0, 0.0, flen, py, 0.0, 0.0, 1.0 };
-		left_cam_info_.p = { flen, 0.0, px, 0.0, 0.0, flen, py, 0.5*baseline, 0.0, 0.0, 1.0, 0.0};
+		//left_cam_info_.k = { flen/pixdim, px / pixdim, 0.0, 0.0, flen / pixdim, py / pixdim, 0.0, 0.0, 1.0 };
+		left_cam_info_.k = { fx, 0.0, cx, 0.0, fy, cy, 0.0, 0.0, 1.0 };
+		//left_cam_info_.p = { flen / pixdim, 0.0, px / pixdim, 0.0, 0.0, flen / pixdim, py / pixdim, 0.5*baseline / pixdim, 0.0, 0.0, 1.0, 0.0};
+		left_cam_info_.p = { fx, 0.0, cx, 0.0, 0.0, fy, cy, 0.0, 0.0, 0.0, 1.0, 0.0 };
 		left_cam_info_.distortion_model = "plumb_bob";
 
+		right_cam_info_.header.frame_id = "stereo_right_optical_frame";
 		right_cam_info_.height = ny;
 		right_cam_info_.width = nx;
 		right_cam_info_.d = { 0.0, 0.0, 0.0, 0.0, 0.0 };
 		right_cam_info_.r = { 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0 };
-		right_cam_info_.k = { flen, px, 0.0, 0.0, flen, py, 0.0, 0.0, 1.0 };
-		right_cam_info_.p = { flen, 0.0, px, 0.0, 0.0, flen, py, -0.5 * baseline, 0.0, 0.0, 1.0, 0.0 };
+		//right_cam_info_.k = { flen / pixdim, px / pixdim, 0.0, 0.0, flen / pixdim, py / pixdim, 0.0, 0.0, 1.0 };
+		right_cam_info_.k = { fx, 0.0, cx, 0.0, fy, cy, 0.0, 0.0, 1.0 };
+		//right_cam_info_.p = { flen / pixdim, 0.0, px / pixdim, 0.0, 0.0, flen / pixdim, py / pixdim, -0.5 * baseline / pixdim, 0.0, 0.0, 1.0, 0.0 };
+		right_cam_info_.p = { fx, 0.0, cx, -fx * baseline_pixels, 0.0, fy, cy, 0.0, 0.0, 0.0, 1.0, 0.0 };
 		right_cam_info_.distortion_model = "plumb_bob";
 	}
 
