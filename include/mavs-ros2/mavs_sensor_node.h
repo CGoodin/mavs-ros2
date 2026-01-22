@@ -53,7 +53,18 @@ class MavsSensorNode : public MavsNode {
 		scene_.Load(mavs_data_path+"/scenes/"+scene_file);
 		scene_.TurnOffLabeling();
 		env_.SetRaytracer(&scene_);
-
+                float rain_rate = GetFloatParam("env_params.rain_rate", 0.0f);
+		float snow_rate = GetFloatParam("env_params.snow_rate", 0.0f);
+		int year = GetIntParam("env_params.year", 2026);
+		int month = GetIntParam("env_params.month", 1);
+		int date = GetIntParam("env_params.date", 22);
+		int hour = GetIntParam("env_params.hour", 12);
+		int minute = GetIntParam("env_params.minute", 0);
+		int second = GetIntParam("env_params.second", 0);
+		int time_zone = GetIntParam("env_params.time_zone", 6);
+		env_.SetRainRate(rain_rate);
+		env_.SetSnowRate(snow_rate);
+                env_.SetDateTime(year, month, date, hour, minute, second, time_zone);
 		for (int nv =0; nv<(int)vehicle_files.size();nv++){
 			mavs::vehicle::Rp3dVehicle mavs_veh;
 			mavs_veh.Load(mavs_data_path+"/vehicles/rp3d_vehicles/"+vehicle_files[nv]);

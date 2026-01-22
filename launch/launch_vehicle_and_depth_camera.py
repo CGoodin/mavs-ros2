@@ -20,7 +20,7 @@ def generate_launch_description():
 
     scene_file = "cube_scene.json"
     veh_file = "mrzr4_tires_low_gear.json"
-    env_params = {'env_params': {"rain_rate": 10.0, "snow_rate": 0.0}}
+    env_params = {'env_params': {"rain_rate": 10.0, "snow_rate": 0.0, "year":2026, "month":1, "date":22, "hour":13, "minute":29, "second":12, "time_zone":6}}
 
     mavs_vehicle = launch_ros.actions.Node(
         package='mavs-ros2',
