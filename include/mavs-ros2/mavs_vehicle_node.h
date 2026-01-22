@@ -21,7 +21,7 @@ public:
 		dt_ = 0.01;
 		nsteps_ = 0;
 		elapsed_time_ = 0.0f;
-
+                headless_ = false;
 		twist_sub_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 1, std::bind(&MavsVehicleNode::TwistCallback, this, std::placeholders::_1));
 		odom_true_pub_ = this->create_publisher<nav_msgs::msg::Odometry>("odometry_true", 10);
 		anim_poses_pub_ = this->create_publisher<geometry_msgs::msg::PoseArray>("anim_poses", 10);
@@ -52,6 +52,7 @@ private:
 	bool use_human_driver_;
 	bool use_sim_time_;
 	bool publish_imu_;
+        bool headless_;
 	mavs::sensor::camera::RgbCamera camera_;
 	mavs::sensor::imu::ImuSimple imu_;
 	mavs::vehicle::Rp3dVehicle mavs_veh_;
@@ -85,7 +86,7 @@ private:
 		render_debug_ = GetBoolParam("debug_camera", false);
 		use_human_driver_ = GetBoolParam("use_human_driver", false);
 		dt_ = GetFloatParam("dt",0.01f);
-
+                headless_ = GetBoolParam("headless", false);
 		glm::vec3 initial_position(x_init, y_init, 1.0f);
 		glm::quat initial_orientation(cos(0.5 * heading_init), 0.0f, 0.0f, sin(0.5 * heading_init));
 
@@ -141,7 +142,7 @@ private:
 
 	void TimerCallback(){
 		// vehicle state update
-		if (use_human_driver_) UpdateHumanDrivingCommands();
+		if (use_human_driver_ && !headless_) UpdateHumanDrivingCommands();
 
 		mavs_veh_.Update(&env_, throttle_, steering_, -braking_, dt_);
 		mavs::VehicleState veh_state = mavs_veh_.GetState();
@@ -173,7 +174,7 @@ private:
 
 		nav_msgs::msg::Odometry true_odom = mavs_ros_utils::CopyFromMavsVehicleState(veh_state);
 
-		if (render_debug_ && nsteps_ % render_steps_ == 0){
+		if (render_debug_ && nsteps_ % render_steps_ == 0 && !headless_){
 			camera_.SetPose(veh_state);
 			camera_.Update(&env_, 0.1);
 			camera_.Display();

@@ -28,6 +28,7 @@ def generate_launch_description():
             {'Initial_Heading': 0.0},
             {'dt': 0.01},
             {'debug_camera': True},
+            {'headless': False},
             {'use_human_driver': True},
             {'publish_imu': False},
             env_params
