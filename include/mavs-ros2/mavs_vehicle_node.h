@@ -21,7 +21,9 @@ public:
 		dt_ = 0.01;
 		nsteps_ = 0;
 		elapsed_time_ = 0.0f;
-                headless_ = false;
+        headless_ = false;
+		use_sim_time_ = false;
+
 		twist_sub_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 1, std::bind(&MavsVehicleNode::TwistCallback, this, std::placeholders::_1));
 		odom_true_pub_ = this->create_publisher<nav_msgs::msg::Odometry>("odometry_true", 10);
 		anim_poses_pub_ = this->create_publisher<geometry_msgs::msg::PoseArray>("anim_poses", 10);
