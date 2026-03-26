@@ -21,7 +21,12 @@ class MavsGpsNode : public MavsSensorNode{
 
 		fix_pub_ = this->create_publisher<sensor_msgs::msg::NavSatFix>("gps_fix", 10);
 
-		timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsGpsNode::TimerCallback, this));
+		//timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsGpsNode::TimerCallback, this));
+
+		timer_ = this->create_timer(
+			std::chrono::milliseconds((int)(1000.0 / update_rate_hz_)),
+			std::bind(&MavsGpsNode::TimerCallback, this)
+		);
 
 		dt_ = 1.0/update_rate_hz_;
 	}

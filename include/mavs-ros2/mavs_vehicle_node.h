@@ -32,6 +32,12 @@ public:
 		LoadVehicleParams();
 
 		timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0 / (1.0/dt_))), std::bind(&MavsVehicleNode::TimerCallback, this));
+
+		//timer_ = this->create_timer(
+		//	std::chrono::milliseconds((int)(1000.0 / (1.0 / dt_))),
+		//	std::bind(&MavsVehicleNode::TimerCallback, this)
+		//);
+
 		render_steps_ = std::max(1,(int)(0.1f/dt_));
 	}
 
@@ -145,10 +151,10 @@ private:
 	void TimerCallback(){
 		// vehicle state update
 		if (use_human_driver_ && !headless_) UpdateHumanDrivingCommands();
-
+		
 		mavs_veh_.Update(&env_, throttle_, steering_, -braking_, dt_);
 		mavs::VehicleState veh_state = mavs_veh_.GetState();
-
+		
 		// update imu
 		if (publish_imu_) {
 			imu_.SetPose(veh_state);

@@ -19,13 +19,20 @@ class MavsLidarNode : public MavsSensorNode{
 	MavsLidarNode(): MavsSensorNode(){
 		lidar_ = NULL;
 
-		LoadLidarParams();
-
 		lidar_pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("lidar", 10);
 
-		timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsLidarNode::TimerCallback, this));
+		//timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsLidarNode::TimerCallback, this));
 
 		dt_ = 1.0/update_rate_hz_;
+
+		lidar_frame_ = "lidar";
+
+		LoadLidarParams();
+
+		timer_ = this->create_timer(
+			std::chrono::milliseconds((int)(1000.0 / update_rate_hz_)),
+			std::bind(&MavsLidarNode::TimerCallback, this)
+		);
 	}
 
 	~MavsLidarNode(){
@@ -37,11 +44,13 @@ class MavsLidarNode : public MavsSensorNode{
 	mavs::sensor::lidar::Lidar *lidar_;
 	rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr lidar_pub_;
 	bool register_points_;
+	std::string lidar_frame_;
 
 	// class member functions
 	void LoadLidarParams(){
 		//Options are: HDL-32E', 'HDL-64E', 'M8','OS1', 'OS1-16', 'OS2', 'LMS-291', 'VLP-16', 'RS32
 		std::string lidar_type = GetStringParam("lidar_type", "OS1");
+		lidar_frame_ = GetStringParam("lidar_frame", "lidar");
 		register_points_ = GetBoolParam("register_points",true);
 
 		if (lidar_type == "HDL-32E"){
@@ -97,13 +106,15 @@ class MavsLidarNode : public MavsSensorNode{
 		if (register_points_){
 			mavs_pc2 = lidar_->GetPointCloud2Registered();
 			pc2 = mavs_ros_utils::CopyFromMavsPc2(mavs_pc2); 
-			pc2.header.frame_id = "map";
+			pc2.header.frame_id = lidar_frame_;
 		}
 		else{
 			mavs_pc2 = lidar_->GetPointCloud2();
 			pc2 = mavs_ros_utils::CopyFromMavsPc2(mavs_pc2);
-			pc2.header.frame_id = "map";
+			pc2.header.frame_id = lidar_frame_;
 		}
+
+		pc2.header.stamp = this->get_clock()->now();
 
 		lidar_pub_->publish(pc2);
     }
