@@ -45,6 +45,28 @@ sensor_msgs::msg::PointCloud2 CopyFromMavsPc2(mavs::PointCloud2 mavs_pc){
     return pc;
 }
 
+sensor_msgs::msg::PointCloud2 CopyFromMavsPc2FullyAttributed(mavs::PointCloud2FullyAttributed mavs_pc) {
+    sensor_msgs::msg::PointCloud2 pc;
+    pc.height = mavs_pc.height;
+    pc.width = mavs_pc.width;
+    pc.is_bigendian = mavs_pc.is_bigendian;
+    pc.point_step = mavs_pc.point_step;
+    pc.row_step = mavs_pc.row_step;
+    pc.is_dense = mavs_pc.is_dense;
+    for (int i = 0; i < (int)mavs_pc.fields.size(); i++) {
+        sensor_msgs::msg::PointField field;
+        field.name = mavs_pc.fields[i].name;
+        field.offset = mavs_pc.fields[i].offset;
+        field.datatype = mavs_pc.fields[i].datatype;
+        field.count = mavs_pc.fields[i].count;
+        pc.fields.push_back(field);
+    }
+    int data_size = pc.row_step * mavs_pc.height;
+    pc.data.resize(data_size);
+    memcpy(&pc.data[0], &mavs_pc.data[0], data_size);
+    return pc;
+}
+
 void CopyFromMavsImage(sensor_msgs::msg::Image &image, mavs::Image &mavs_image){
     image.height = mavs_image.height;
     image.width = mavs_image.width;

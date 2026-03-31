@@ -35,31 +35,6 @@ def generate_launch_description():
         emulate_tty=True
     )
 
-    mavs_camera = launch_ros.actions.Node(
-        package='mavs-ros2',
-        namespace='mavs',
-        executable='mavs_camera_node',
-        name='mavs_camera_node',
-        parameters=[
-            {'scene_file': scene_file},
-             {'vehicle_files': [veh_file]},
-            {'camera_type': "rgb"},
-            {'num_horizontal_pix': 480},
-            {'num_vertical_pix': 270},
-            {'horizontal_pixel_plane_size': 0.006222},
-            {'vertical_pixel_plane_size': 0.0035},
-            {'focal_length': 0.0035},
-            {'offset': [-10.0,0.0,1.0]},
-            {'orientation': [1.0, 0.0, 0.0, 0.0]},
-            {'render_shadows': True},
-            {'display': True},
-            {'update_rate_hz': 5.0},
-            env_params
-        ],
-        output='screen',
-        emulate_tty=True
-    )
-
     mavs_lidar = launch_ros.actions.Node(
             package='mavs-ros2',
             namespace='mavs',
@@ -69,12 +44,12 @@ def generate_launch_description():
                 {'scene_file': scene_file},
                 {'offset': [0.0,0.0,1.5]},
                 {'orientation': [1.0, 0.0, 0.0, 0.0]},
-                {'display': True},
+                {'display': False},
                 {'update_rate_hz': 10.0},
                 {'vehicle_files': [veh_file]},
                 {'lidar_type' : 'OS2'}, #//Options are: HDL-32E', 'HDL-64E', 'M8','OS1', 'OS1-16', 'OS2', 'LMS-291', 'VLP-16', 'RS32
-                {'register_points' : True},
-                {'attributed_points' : False},
+                {'register_points' : False},
+                {'attributed_points' : True},
                 env_params
             ],
             output='screen',
@@ -98,7 +73,6 @@ def generate_launch_description():
 
     return LaunchDescription([
         mavs_vehicle,
-        mavs_camera,
         mavs_lidar,
         mavs_aggregator
     ])

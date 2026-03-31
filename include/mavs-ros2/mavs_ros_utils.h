@@ -79,6 +79,8 @@ namespace mavs_ros_utils {
 
     sensor_msgs::msg::PointCloud2 CopyFromMavsPc2(mavs::PointCloud2 mavs_pc);
 
+    sensor_msgs::msg::PointCloud2 CopyFromMavsPc2FullyAttributed(mavs::PointCloud2FullyAttributed mavs_pc);
+
     void CopyFromMavsImage(sensor_msgs::msg::Image& image, mavs::Image& mavs_image);
 
     void CopyFromMavsFix(sensor_msgs::msg::NavSatFix& fix, mavs::NavSatFix& mavs_fix);

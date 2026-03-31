@@ -44,6 +44,7 @@ class MavsLidarNode : public MavsSensorNode{
 	mavs::sensor::lidar::Lidar *lidar_;
 	rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr lidar_pub_;
 	bool register_points_;
+	bool attributed_points_;
 	std::string lidar_frame_;
 
 	// class member functions
@@ -52,6 +53,7 @@ class MavsLidarNode : public MavsSensorNode{
 		std::string lidar_type = GetStringParam("lidar_type", "OS1");
 		lidar_frame_ = GetStringParam("lidar_frame", "lidar");
 		register_points_ = GetBoolParam("register_points",true);
+		attributed_points_ = GetBoolParam("attributed_points", false);
 
 		if (lidar_type == "HDL-32E"){
 			lidar_ = new mavs::sensor::lidar::Hdl32E;
@@ -109,8 +111,14 @@ class MavsLidarNode : public MavsSensorNode{
 			pc2.header.frame_id = lidar_frame_;
 		}
 		else{
-			mavs_pc2 = lidar_->GetPointCloud2();
-			pc2 = mavs_ros_utils::CopyFromMavsPc2(mavs_pc2);
+			if (attributed_points_) {
+				mavs::PointCloud2FullyAttributed mavs_pc2_attributed = lidar_->GetPointCloud2FullyAttributed();
+				pc2 = mavs_ros_utils::CopyFromMavsPc2FullyAttributed(mavs_pc2_attributed);
+			}
+			else {
+				mavs_pc2 = lidar_->GetPointCloud2();
+				pc2 = mavs_ros_utils::CopyFromMavsPc2(mavs_pc2);
+			}
 			pc2.header.frame_id = lidar_frame_;
 		}
 
