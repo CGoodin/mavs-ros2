@@ -52,7 +52,7 @@ class MavsSensorNode : public MavsNode {
 		offset_ = GetFloatArrayParam("offset",std::vector<float>(0));
 		relor_ = GetFloatArrayParam("orientation",std::vector<float>(0));
 		display_ = GetBoolParam("display", true);
-		sensor_position_mode_ = GetStringParam("stationary", "attached");
+		sensor_position_mode_ = GetStringParam("sensor_position_mode", "attached");
 		if (sensor_position_mode_ == "fixed" || sensor_position_mode_=="follow") {
 			fixed_position_ = offset_;
 			fixed_orientation_ = relor_;
@@ -99,7 +99,9 @@ class MavsSensorNode : public MavsNode {
 	}
 
 	void OdomCallback(const nav_msgs::msg::Odometry::SharedPtr rcv_msg){
+		std::cout << "Recieved odom for sensor " << sensor_position_mode_ << std::endl;
 		if (sensor_position_mode_ == "fixed") {
+			std::cout << "Setting fixed sensor position " << std::endl;
 			pose_.pose.pose.position.x = fixed_position_[0];
 			pose_.pose.pose.position.y = fixed_position_[1];
 			pose_.pose.pose.position.z = fixed_position_[2];
@@ -112,6 +114,7 @@ class MavsSensorNode : public MavsNode {
 
 		}
 		else { // assume "attached" is the default
+			
 			pose_ = *rcv_msg;
 		}
 	}
