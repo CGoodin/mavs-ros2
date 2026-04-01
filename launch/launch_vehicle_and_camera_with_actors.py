@@ -2,6 +2,7 @@ from launch import LaunchDescription
 import launch_ros.actions
 import launch.event_handlers
 import launch.events
+import math
 
 def generate_launch_description():
     # some "global" parameters
@@ -42,13 +43,18 @@ def generate_launch_description():
             executable='mavs_actor_manager_node',
             name='mavs_actor_manager_node',
             parameters=[
-                {'Initial_X_Position': 0.0},
-                {'Initial_Y_Position': 10.0},
-                {'Initial_Z_Position': 0.0},
-                {'Initial_QW_Position': 1.0},
-                {'Initial_QX_Position': 0.0},
-                {'Initial_QY_Position': 0.0},
-                {'Initial_QZ_Position': 0.0},
+                {'initial_position': [0.0, 10.0, 0.0]},
+                {'initial_orientation': [1.0, 0.0, 0.0, 0.0]},
+                {'final_position': [0.0, 10.0, 0.25]},
+                {'final_orientation': [math.cos(0.25*math.pi), math.sin(0.25*math.pi), 0.0, 0.0]},
+                {'trigger': {
+                    "type": "x", # can be "x", "y", or "time"
+                    "operator": ">",
+                    "threshold": -25.0} 
+                 }, # trigger
+            ],
+            remappings=[
+                (('/mavs_actor/odometry'), '/mavs/odometry_true')    
             ],
             output='screen',
             emulate_tty=True

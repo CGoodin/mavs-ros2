@@ -14,6 +14,36 @@
 #include "raytracers/embree_tracer/embree_tracer.h"
 #include "sensors/mavs_sensors.h"
 
+
+class TriggerEvent {
+public:
+	std::string type; // can be "x", "y", or "time"
+	std::string op;
+	float value;
+	bool fired;
+
+	TriggerEvent() { fired = false; type = "none"; op = "none"; value = 0.0f; }
+
+	bool Evaluate(float veh_x, float veh_y, float elapsed_time){
+		float lhs;
+		if (type == "x") lhs = veh_x;
+		if (type == "y")lhs = veh_y;
+		if (type == "time")lhs = elapsed_time;
+		bool triggered = false;
+		if (op == ">") { triggered = lhs > value; }
+		else if (op == "<") { triggered = lhs < value; }
+		else if (op == ">=") { triggered = lhs >= value; }
+		else if (op == "<=") { triggered = lhs <= value; }
+		else if (op == "==") { triggered = lhs == value; }
+		else { triggered = false; }
+		if (triggered) {
+			fired = true;
+			std::cout << "Triggered at " << type << " " << op << " " << value << std::endl;
+		}
+		return triggered;
+	}
+};
+
 class MavsActorManagerNode : public MavsNode
 {
 public:
@@ -22,6 +52,7 @@ public:
 		nsteps_ = 0;
 		elapsed_time_ = 0.0f;
 		use_sim_time_ = false;
+		odom_rcvd_ = false;
 
 		odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>("odometry", 1, std::bind(&MavsActorManagerNode::OdomCallback, this, std::placeholders::_1));
 
@@ -48,8 +79,12 @@ private:
 	double dt_;
 	int nsteps_;
 	float elapsed_time_;
+	bool odom_rcvd_;
 
 	geometry_msgs::msg::Pose current_actor_pose_;
+	geometry_msgs::msg::Pose init_pose_, final_pose_;
+	
+	TriggerEvent trigger_;
 
 	void OdomCallback(const nav_msgs::msg::Odometry::SharedPtr rcv_msg){
 		veh_x_ = rcv_msg->pose.pose.position.x;
@@ -59,6 +94,7 @@ private:
 		float qy = rcv_msg->pose.pose.orientation.y;
 		float qz = rcv_msg->pose.pose.orientation.z;
 		veh_heading_ = atan2f(2.0f * (qw * qz + qx * qy), 1.0f - 2.0f * (qy * qy + qz * qz));
+		odom_rcvd_ = true;
 	}
 
 	void LoadActorParams(){
@@ -67,25 +103,47 @@ private:
 		dt_ = GetFloatParam("dt", 0.01f);
 
 		// load parameters
-		float x_init = GetFloatParam("Initial_X_Position", 0.0f);
-		float y_init = GetFloatParam("Initial_Y_Position", 0.0f);
-		float z_init = GetFloatParam("Initial_Z_Position", 0.0f);
-		float qw_init = GetFloatParam("Initial_QW_Position", 0.0f);
-		float qx_init = GetFloatParam("Initial_QX_Position", 0.0f);
-		float qy_init = GetFloatParam("Initial_QY_Position", 0.0f);
-		float qz_init = GetFloatParam("Initial_QZ_Position", 0.0f);
+	    std::vector<float> init_pos = GetFloatArrayParam("initial_position", std::vector<float>(0));
+		std::vector<float> init_ori = GetFloatArrayParam("initial_orientation", std::vector<float>(0));
 
-		current_actor_pose_.orientation.w = qw_init;
-		current_actor_pose_.orientation.x = qx_init;
-		current_actor_pose_.orientation.y = qy_init;
-		current_actor_pose_.orientation.z = qz_init;
-		current_actor_pose_.position.x = x_init;
-		current_actor_pose_.position.y = y_init;
-		current_actor_pose_.position.z = z_init;
+		init_pose_.orientation.w = init_ori[0];
+		init_pose_.orientation.x = init_ori[1];
+		init_pose_.orientation.y = init_ori[2];
+		init_pose_.orientation.z = init_ori[3];
+		init_pose_.position.x = init_pos[0];
+		init_pose_.position.y = init_pos[1];
+		init_pose_.position.z = init_pos[2];
+
+		std::vector<float> final_pos = GetFloatArrayParam("final_position", std::vector<float>(0));
+		std::vector<float> final_ori = GetFloatArrayParam("final_orientation", std::vector<float>(0));
+
+		final_pose_.orientation.w = final_ori[0];
+		final_pose_.orientation.x = final_ori[1];
+		final_pose_.orientation.y = final_ori[2];
+		final_pose_.orientation.z = final_ori[3];
+		final_pose_.position.x = final_pos[0];
+		final_pose_.position.y = final_pos[1];
+		final_pose_.position.z = final_pos[2];
+
+		trigger_.type = GetStringParam("trigger.type", "none");
+		trigger_.op = GetStringParam("trigger.operator", "none");
+		trigger_.value = GetFloatParam("trigger.threshold", 0.0f);
+		
+	}
+
+	void SetActorPose() {
+		current_actor_pose_ = init_pose_;
 	}
 
 	void TimerCallback(){
 		
+		// Evaluate event trigger
+		if (odom_rcvd_) {
+			if (!trigger_.fired) trigger_.Evaluate(veh_x_, veh_y_, elapsed_time_);
+		}
+
+		SetActorPose();
+
 		// publish the tire poses as PoseArray Message
 		geometry_msgs::msg::PoseArray actor_poses;
 		actor_poses.poses.push_back(current_actor_pose_);

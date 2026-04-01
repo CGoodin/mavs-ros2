@@ -60,7 +60,7 @@ class MavsSensorNode : public MavsNode {
 		scene_.Load(mavs_data_path+"/scenes/"+scene_file);
 		scene_.TurnOffLabeling();
 		env_.SetRaytracer(&scene_);
-                float rain_rate = GetFloatParam("env_params.rain_rate", 0.0f);
+        float rain_rate = GetFloatParam("env_params.rain_rate", 0.0f);
 		float snow_rate = GetFloatParam("env_params.snow_rate", 0.0f);
 		int year = GetIntParam("env_params.year", 2026);
 		int month = GetIntParam("env_params.month", 1);

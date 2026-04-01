@@ -49,14 +49,12 @@ int main(int argc, char **argv){
 	std::vector< rclcpp::Subscription<geometry_msgs::msg::PoseArray>::SharedPtr > anim_subs;
 	for (int nv = 0; nv<num_veh;nv++){
 		std::string topic_name = "/mavs"+mavs::utils::ToString(nv,3)+"/anim_poses";
-		std::cout << nv << " Creating subscribption " << topic_name << std::endl;
 		auto anim_sub = n->create_subscription<geometry_msgs::msg::PoseArray>(topic_name, num_veh+25, PoseCallback);
 		anim_subs.push_back(anim_sub);
 	}
 
 	for (int na = 0; na < num_actors; na++) {
 		std::string topic_name = "/mavs" + mavs::utils::ToString(na, 3) + "/actor_poses";
-		std::cout << na <<" Creating subscribption " << topic_name << std::endl;
 		auto anim_sub = n->create_subscription<geometry_msgs::msg::PoseArray>(topic_name, num_actors + 25, PoseCallback);
 		anim_subs.push_back(anim_sub);
 	}
@@ -65,15 +63,15 @@ int main(int argc, char **argv){
 
 	while (rclcpp::ok()){
 		//if ((int)poses_map.size()==num_veh){
-			geometry_msgs::msg::PoseArray anim_poses;
-			anim_poses.header.stamp = n->now();
-			anim_poses.header.frame_id = "world";
-			for (auto const& x : poses_map){
-				for (int i=0;i<(int)x.second.poses.size();i++){
-					anim_poses.poses.push_back(x.second.poses[i]);
-				}
+		geometry_msgs::msg::PoseArray anim_poses;
+		anim_poses.header.stamp = n->now();
+		anim_poses.header.frame_id = "world";
+		for (auto const& x : poses_map){
+			for (int i=0;i<(int)x.second.poses.size();i++){
+				anim_poses.poses.push_back(x.second.poses[i]);
 			}
-			agg_poses_pub->publish(anim_poses);
+		}
+		agg_poses_pub->publish(anim_poses);
 		//}
 		rclcpp::spin_some(n);
 	} //while ros OK
