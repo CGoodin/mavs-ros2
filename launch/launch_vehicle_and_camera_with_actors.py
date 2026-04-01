@@ -47,6 +47,7 @@ def generate_launch_description():
                 {'initial_orientation': [1.0, 0.0, 0.0, 0.0]},
                 {'final_position': [0.0, 10.0, 0.25]},
                 {'final_orientation': [math.cos(0.25*math.pi), math.sin(0.25*math.pi), 0.0, 0.0]},
+                {'transition_time': 1.0},
                 {'trigger': {
                     "type": "x", # can be "x", "y", or "time"
                     "operator": ">",

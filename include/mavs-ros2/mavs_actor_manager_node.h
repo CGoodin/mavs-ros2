@@ -85,6 +85,8 @@ private:
 	geometry_msgs::msg::Pose init_pose_, final_pose_;
 	
 	TriggerEvent trigger_;
+	double trigger_time_;
+	double transition_time_;
 
 	void OdomCallback(const nav_msgs::msg::Odometry::SharedPtr rcv_msg){
 		veh_x_ = rcv_msg->pose.pose.position.x;
@@ -128,18 +130,35 @@ private:
 		trigger_.type = GetStringParam("trigger.type", "none");
 		trigger_.op = GetStringParam("trigger.operator", "none");
 		trigger_.value = GetFloatParam("trigger.threshold", 0.0f);
+
+		transition_time_ = GetFloatParam("transition_time", 0.0f);
 		
 	}
 
 	void SetActorPose() {
-		current_actor_pose_ = init_pose_;
+		if (!trigger_.fired) {
+			current_actor_pose_ = init_pose_;
+			return;
+		}
+		double delta_t = this->get_clock()->now().seconds() - trigger_time_;
+		if (delta_t >= transition_time_) {
+			current_actor_pose_ = final_pose_;
+			return;
+		}
+		double t = delta_t / transition_time_;
+		current_actor_pose_.position = mavs_ros_utils::Lerp(init_pose_.position, final_pose_.position, t);
+		current_actor_pose_.orientation = mavs_ros_utils::Slerp(init_pose_.orientation, final_pose_.orientation, t);
+		return;
 	}
 
 	void TimerCallback(){
 		
 		// Evaluate event trigger
 		if (odom_rcvd_) {
-			if (!trigger_.fired) trigger_.Evaluate(veh_x_, veh_y_, elapsed_time_);
+			if (!trigger_.fired) {
+				trigger_.Evaluate(veh_x_, veh_y_, elapsed_time_);
+				if (trigger_.fired) trigger_time_ = this->get_clock()->now().seconds();
+			}
 		}
 
 		SetActorPose();

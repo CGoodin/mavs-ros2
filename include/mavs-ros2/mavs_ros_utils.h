@@ -95,6 +95,12 @@ namespace mavs_ros_utils {
 
     double PointToSegmentDistance(glm::dvec2 ep1, glm::dvec2 ep2, glm::dvec2 p);
 
+    geometry_msgs::msg::Quaternion NormalizeQuat(const geometry_msgs::msg::Quaternion& q);
+
+    geometry_msgs::msg::Quaternion Slerp(const geometry_msgs::msg::Quaternion& q1, const geometry_msgs::msg::Quaternion& q2_raw, double t);
+
+    geometry_msgs::msg::Point Lerp(const geometry_msgs::msg::Point& p1, const geometry_msgs::msg::Point& p2, double t);
+
     inline std::string ToString(int x, int zero_padding) {
         std::stringstream ss;
         ss << std::setfill('0') << std::setw(zero_padding) << x;

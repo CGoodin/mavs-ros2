@@ -161,4 +161,69 @@ double PointToSegmentDistance(glm::dvec2 ep1, glm::dvec2 ep2, glm::dvec2 p) {
     return d0;
 }
 
+// Normalize a quaternion
+geometry_msgs::msg::Quaternion NormalizeQuat(const geometry_msgs::msg::Quaternion& q) {
+    double norm = std::sqrt(q.w * q.w + q.x * q.x + q.y * q.y + q.z * q.z);
+    if (norm < 1e-10) throw std::runtime_error("Cannot normalize zero quaternion");
+    geometry_msgs::msg::Quaternion q_out;
+    q_out.w = q.w / norm;
+    q_out.x = q.x / norm;
+    q_out.y = q.y / norm;
+    q_out.z = q.z / norm;
+    return q_out;
+}
+
+// SLERP between two quaternions
+geometry_msgs::msg::Quaternion Slerp(const geometry_msgs::msg::Quaternion& q1, const geometry_msgs::msg::Quaternion& q2_raw, double t) {
+    geometry_msgs::msg::Quaternion qa = NormalizeQuat(q1);
+    geometry_msgs::msg::Quaternion qb = NormalizeQuat(q2_raw);
+
+    double d = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z; // dot product
+
+    // Ensure shortest path by flipping qb if dot product is negative
+    if (d < 0.0) {
+        qb.w = -1.0 * qb.w;
+        qb.x = -1.0 * qb.x;
+        qb.y = -1.0 * qb.y;
+        qb.z = -1.0 * qb.z;
+        d = -d;
+    }
+
+    // If quaternions are very close, fall back to LERP to avoid division by zero
+    if (d > 0.9995) {
+        geometry_msgs::msg::Quaternion result; // = {
+        result.w = qa.w + t * (qb.w - qa.w);
+        result.x = qa.x + t * (qb.x - qa.x);
+        result.y = qa.y + t * (qb.y - qa.y);
+        result.z = qa.z + t * (qb.z - qa.z);
+        //};
+        return NormalizeQuat(result);
+    }
+
+    double theta_0 = std::acos(d);
+    double theta = theta_0 * t;
+    double sin_t = std::sin(theta);
+    double sin_t0 = std::sin(theta_0);
+
+    double s1 = std::cos(theta) - d * sin_t / sin_t0;
+    double s2 = sin_t / sin_t0;
+
+    geometry_msgs::msg::Quaternion q_out;
+    q_out.w = s1 * qa.w + s2 * qb.w;
+    q_out.x = s1 * qa.x + s2 * qb.x;
+    q_out.y = s1 * qa.y + s2 * qb.y;
+    q_out.z = s1 * qa.z + s2 * qb.z;
+    q_out = NormalizeQuat(q_out);
+    return q_out;
+}
+
+// LERP between two 3D positions
+geometry_msgs::msg::Point Lerp(const geometry_msgs::msg::Point& p1, const geometry_msgs::msg::Point& p2, double t) {
+    geometry_msgs::msg::Point v;
+    v.x = p1.x + t * (p2.x - p1.x);
+    v.y = p1.y + t * (p2.y - p1.y);
+    v.z = p1.z + t * (p2.z - p1.z); 
+    return v;
+}
+
 } //namespace mavs_ros_utils
