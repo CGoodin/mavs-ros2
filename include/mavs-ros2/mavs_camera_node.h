@@ -13,11 +13,11 @@
 #include "raytracers/embree_tracer/embree_tracer.h"
 #include "sensors/mavs_sensors.h"
 
-class MavsCameraNode : public MavsSensorNode{
-  public:
-	MavsCameraNode(): MavsSensorNode(){
+class MavsCameraNode : public MavsSensorNode {
+public:
+	MavsCameraNode() : MavsSensorNode() {
 		cam_ = NULL;
-                frame_num_ = 0;
+		frame_num_ = 0;
 		LoadCameraParams();
 
 		camera_pub_ = this->create_publisher<sensor_msgs::msg::Image>("camera", 10);
@@ -30,18 +30,18 @@ class MavsCameraNode : public MavsSensorNode{
 		);
 	}
 
-	~MavsCameraNode(){
+	~MavsCameraNode() {
 		if (cam_) delete cam_;
 	}
 
-  private:
+private:
 	// class member data
-	mavs::sensor::camera::Camera *cam_;
+	mavs::sensor::camera::Camera* cam_;
 	rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr camera_pub_;
-        int frame_num_;
-        bool save_images_;
+	int frame_num_;
+	bool save_images_;
 	// class member functions
-	void LoadCameraParams(){
+	void LoadCameraParams() {
 		std::string camera_type = GetStringParam("camera_type", "rgb");
 		int nx = GetIntParam("num_horizontal_pix", 256);
 		int ny = GetIntParam("num_vertical_pix", 256);
@@ -49,33 +49,33 @@ class MavsCameraNode : public MavsSensorNode{
 		float py = GetFloatParam("vertical_pixel_plane_size", 0.0035f);
 		float flen = GetFloatParam("focal_length", 0.0035f);
 		bool render_shadows = GetBoolParam("render_shadows", true);
-                save_images_ = GetBoolParam("save_images", false);
-		
-		if (camera_type == "rgb"){
+		save_images_ = GetBoolParam("save_images", false);
+
+		if (camera_type == "rgb") {
 			cam_ = new mavs::sensor::camera::RgbCamera;
 		}
-		else if (camera_type == "rccb"){
+		else if (camera_type == "rccb") {
 			cam_ = new mavs::sensor::camera::RccbCamera;
 		}
-		else if (camera_type == "fisheye"){
+		else if (camera_type == "fisheye") {
 			cam_ = new mavs::sensor::camera::RgbCamera;
 		}
-		else if (camera_type == "nir"){
-			cam_ = new mavs::sensor::camera::RgbCamera;	
+		else if (camera_type == "nir") {
+			cam_ = new mavs::sensor::camera::RgbCamera;
 		}
-		else if (camera_type == "lwir"){
+		else if (camera_type == "lwir") {
 			cam_ = new mavs::sensor::camera::RgbCamera;
 		}
 		else {
-			std::cerr<<"WARNING: CAMERA TYPE "<<camera_type<<" NOT RECOGNIZED, USING RGB"<<std::endl;
+			std::cerr << "WARNING: CAMERA TYPE " << camera_type << " NOT RECOGNIZED, USING RGB" << std::endl;
 			cam_ = new mavs::sensor::camera::RgbCamera;
 		}
-		cam_->Initialize(nx,ny,px,py,flen);
+		cam_->Initialize(nx, ny, px, py, flen);
 		cam_->SetRelativePose(glm::vec3(offset_[0], offset_[1], offset_[2]), glm::quat(relor_[0], relor_[1], relor_[2], relor_[3]));
 		cam_->SetRenderShadows(render_shadows);
 	}
 
-	void TimerCallback(){
+	void TimerCallback() {
 
 		MavsSensorNode::TimerCallback();
 
@@ -85,18 +85,18 @@ class MavsCameraNode : public MavsSensorNode{
 		cam_->SetPose(pos, ori);
 
 		cam_->Update(&env_, dt_);
-		
+
 		if (display_)cam_->Display();
-                if (save_images_){
-                    std::string fname = mavs::utils::ToString(frame_num_,5)+"_image.bmp";
-                    cam_->SaveImage(fname);
-                }
+		if (save_images_) {
+			std::string fname = mavs::utils::ToString(frame_num_, 5) + "_image.bmp";
+			cam_->SaveImage(fname);
+		}
 		sensor_msgs::msg::Image img;
 		mavs::Image mavs_img = cam_->GetRosImage();
 		mavs_ros_utils::CopyFromMavsImage(img, mavs_img);
 		camera_pub_->publish(img);
-                frame_num_++;
-    }
+		frame_num_++;
+	}
 
 };
 

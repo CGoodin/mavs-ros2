@@ -18,6 +18,7 @@ class MavsSensorNode : public MavsNode {
 		anim_sub = this->create_subscription<geometry_msgs::msg::PoseArray>("all_poses_pub", 10, std::bind(&MavsSensorNode::PosesCallback, this, std::placeholders::_1));
 		
 		update_rate_hz_ = 10.0f;
+		sensor_position_mode_ = "attached";
 
 		LoadParams();
 
@@ -38,17 +39,26 @@ class MavsSensorNode : public MavsNode {
 	geometry_msgs::msg::PoseArray anim_poses_;
 	mavs::environment::Environment env_;
 	mavs::raytracer::embree::EmbreeTracer scene_;
-	std::vector<float> offset_;
-	std::vector<float> relor_;
+	std::vector<float> offset_, fixed_position_;
+	std::vector<float> relor_, fixed_orientation_;
 	bool display_;
+	std::string sensor_position_mode_;
 	float update_rate_hz_;
 	float dt_;
+
 
 	void LoadParams(){
 		std::string scene_file = GetStringParam( "scene_file", "cube_scene.json");
 		offset_ = GetFloatArrayParam("offset",std::vector<float>(0));
 		relor_ = GetFloatArrayParam("orientation",std::vector<float>(0));
 		display_ = GetBoolParam("display", true);
+		sensor_position_mode_ = GetStringParam("stationary", "attached");
+		if (sensor_position_mode_ == "fixed" || sensor_position_mode_=="follow") {
+			fixed_position_ = offset_;
+			fixed_orientation_ = relor_;
+			offset_[0] = 0.0f; offset_[1] = 0.0f; offset_[2] = 0.0f;
+			relor_[0] = 1.0f; relor_[1] = 0.0f; relor_[2] = 0.0f; relor_[3] = 0.0f;
+		}
 		update_rate_hz_ = GetFloatParam("update_rate_hz", 10.0f);
 		std::vector<std::string> vehicle_files = GetStringArrayParam("vehicle_files", std::vector<std::string>(0));
 		std::vector<std::string> actor_files = GetStringArrayParam("actor_files", std::vector<std::string>(0));
@@ -71,7 +81,7 @@ class MavsSensorNode : public MavsNode {
 		int time_zone = GetIntParam("env_params.time_zone", 6);
 		env_.SetRainRate(rain_rate);
 		env_.SetSnowRate(snow_rate);
-                env_.SetDateTime(year, month, date, hour, minute, second, time_zone);
+        env_.SetDateTime(year, month, date, hour, minute, second, time_zone);
 		for (int nv =0; nv<(int)vehicle_files.size();nv++){
 			mavs::vehicle::Rp3dVehicle mavs_veh;
 			mavs_veh.Load(mavs_data_path+"/vehicles/rp3d_vehicles/"+vehicle_files[nv]);
@@ -89,7 +99,21 @@ class MavsSensorNode : public MavsNode {
 	}
 
 	void OdomCallback(const nav_msgs::msg::Odometry::SharedPtr rcv_msg){
-		pose_ = *rcv_msg;
+		if (sensor_position_mode_ == "fixed") {
+			pose_.pose.pose.position.x = fixed_position_[0];
+			pose_.pose.pose.position.y = fixed_position_[1];
+			pose_.pose.pose.position.z = fixed_position_[2];
+			pose_.pose.pose.orientation.w = fixed_orientation_[0];
+			pose_.pose.pose.orientation.x = fixed_orientation_[1];
+			pose_.pose.pose.orientation.y = fixed_orientation_[2];
+			pose_.pose.pose.orientation.z = fixed_orientation_[3];
+		}
+		else if (sensor_position_mode_ == "follow") {
+
+		}
+		else { // assume "attached" is the default
+			pose_ = *rcv_msg;
+		}
 	}
 
 	void PosesCallback(const geometry_msgs::msg::PoseArray::SharedPtr rcv_msg){

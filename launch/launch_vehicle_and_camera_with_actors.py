@@ -76,8 +76,12 @@ def generate_launch_description():
             {'horizontal_pixel_plane_size': 0.006222},
             {'vertical_pixel_plane_size': 0.0035},
             {'focal_length': 0.0035},
-            {'offset': [-10.0,0.0,1.0]},
-            {'orientation': [1.0, 0.0, 0.0, 0.0]},
+            # if "fixed", the offset and orientation will be the absolute position
+            # if "follow", the offset will be the position but the viewfinder will look at the vehicle
+            # if "attached", the offset and orientation will be relative to the vehicle
+            {'sensor_position_mode': "fixed"}, 
+            {'offset': [0.0,-20.0,1.0]},
+            {'orientation': [math.cos(0.25*math.pi), 0.0, 0.0, math.sin(0.25*math.pi)]},
             {'render_shadows': True},
             {'display': True},
             {'update_rate_hz': 5.0},
