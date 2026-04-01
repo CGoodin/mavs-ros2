@@ -40,10 +40,22 @@ int main(int argc, char **argv){
 		num_veh = n->get_parameter("num_vehicles").as_int();
 	}
 
+	int num_actors = 1;
+	n->declare_parameter("num_actors", 0);
+	if (n->has_parameter("num_actors")) {
+		num_actors = n->get_parameter("num_actors").as_int();
+	}
+
 	std::vector< rclcpp::Subscription<geometry_msgs::msg::PoseArray>::SharedPtr > anim_subs;
 	for (int nv = 0; nv<num_veh;nv++){
 		std::string topic_name = "/mavs"+mavs::utils::ToString(nv,3)+"/anim_poses";
 		auto anim_sub = n->create_subscription<geometry_msgs::msg::PoseArray>(topic_name, num_veh+25, PoseCallback);
+		anim_subs.push_back(anim_sub);
+	}
+
+	for (int na = 0; na < num_actors; na++) {
+		std::string topic_name = "/mavs" + mavs::utils::ToString(na, 3) + "/actor_poses";
+		auto anim_sub = n->create_subscription<geometry_msgs::msg::PoseArray>(topic_name, num_actors + 25, PoseCallback);
 		anim_subs.push_back(anim_sub);
 	}
 

@@ -51,6 +51,8 @@ class MavsSensorNode : public MavsNode {
 		display_ = GetBoolParam("display", true);
 		update_rate_hz_ = GetFloatParam("update_rate_hz", 10.0f);
 		std::vector<std::string> vehicle_files = GetStringArrayParam("vehicle_files", std::vector<std::string>(0));
+		std::vector<std::string> actor_files = GetStringArrayParam("actor_files", std::vector<std::string>(0));
+
 		dt_ = 1.0f/update_rate_hz_;
 
 		mavs::MavsDataPath mdp;
@@ -77,6 +79,13 @@ class MavsSensorNode : public MavsNode {
 			mavs_veh.SetOrientation(1.0f, 0.0f, 0.0f, 0.0f);
 			mavs_veh.Update(&env_, 0.0, 0.0, 0.0, 0.00001);
 		}
+
+		for (int na = 0; na < (int)actor_files.size(); na++) {
+			std::vector<int> actor_idv = env_.LoadActors(mavs_data_path + "/actors/actors/"+actor_files[na]);
+			int actor_num = (int)(actor_idv.size() - 1);
+			env_.UnsetActorUpdate(actor_num);
+		}
+
 	}
 
 	void OdomCallback(const nav_msgs::msg::Odometry::SharedPtr rcv_msg){
