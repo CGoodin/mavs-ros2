@@ -5,12 +5,12 @@ import launch.events
 
 def generate_launch_description():
     # some "global" parameters
-    scene_file = "cube_scene.json"
+    scene_file = "odoa_scene_no_trees_no_obstacle.json"
     veh_file = "mrzr4_tires_low_gear.json"
     actor_files = ["pine_tree_actor.json"]
     num_actors = len(actor_files)
     env_params = {'env_params':
-	        {"rain_rate": 10.0,
+	        {"rain_rate": 0.0,
                 "snow_rate": 0.0}
             }
 
@@ -24,7 +24,7 @@ def generate_launch_description():
             {'rp3d_vehicle_file': veh_file},
             {'soil_strength': 250.0},
             {'surface_type': "dry"},
-            {'Initial_X_Position': 0.0},
+            {'Initial_X_Position': -50.0},
             {'Initial_Y_Position': 0.0},
             {'Initial_Heading': 0.0},
             {'debug_camera': True},
@@ -38,12 +38,12 @@ def generate_launch_description():
     
     mavs_actor_manager_node = launch_ros.actions.Node(
             package='mavs-ros2',
-            namespace='mavs',
+            namespace='mavs_actor', # namespace is how different 
             executable='mavs_actor_manager_node',
             name='mavs_actor_manager_node',
             parameters=[
                 {'Initial_X_Position': 0.0},
-                {'Initial_Y_Position': 0.0},
+                {'Initial_Y_Position': 10.0},
                 {'Initial_Z_Position': 0.0},
                 {'Initial_QW_Position': 1.0},
                 {'Initial_QX_Position': 0.0},
@@ -91,7 +91,8 @@ def generate_launch_description():
                  }
             ],
         remappings=[
-                (('/mavs000/anim_poses'), '/mavs/anim_poses')
+                (('/mavs000/anim_poses'), '/mavs/anim_poses'),
+                (('/mavs000/actor_poses'), '/mavs_actor/actor_poses')    
             ],
         output='screen',
         emulate_tty=True
@@ -100,5 +101,6 @@ def generate_launch_description():
     return LaunchDescription([
         mavs_vehicle,
         mavs_camera,
-         mavs_aggregator
+        mavs_actor_manager_node,
+        mavs_aggregator
     ])

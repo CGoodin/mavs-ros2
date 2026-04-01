@@ -99,6 +99,7 @@ class MavsSensorNode : public MavsNode {
 	void TimerCallback(){
 		if (env_.GetNumberOfActors()>=(int)(anim_poses_.poses.size())){
 			for (int i=0;i<(int)anim_poses_.poses.size();i++){
+				//std::cout << "sensor node: " << i << " " << anim_poses_.poses[i].position.x << " " << anim_poses_.poses[i].position.y << std::endl;
 				glm::vec3 tpos(anim_poses_.poses[i].position.x, anim_poses_.poses[i].position.y, anim_poses_.poses[i].position.z);
 				glm::quat tori(anim_poses_.poses[i].orientation.w, anim_poses_.poses[i].orientation.x, anim_poses_.poses[i].orientation.y, anim_poses_.poses[i].orientation.z);
 				env_.SetActorPosition(i, tpos, tori, dt_, true);
