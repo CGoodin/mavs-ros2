@@ -165,6 +165,7 @@ private:
 		}
 	}
 
+<<<<<<< HEAD
 	// void LogResults(){
 	// 	float avg_speed = 0.0f;
 	// 	if (!logged_speeds_.empty()) {
@@ -190,6 +191,8 @@ private:
 	// 	}
 	// }
 
+=======
+>>>>>>> automatic_testing
 	void UpdateHumanDrivingCommands(){
 		throttle_ = 0.0;
 		steering_ = 0.0;
