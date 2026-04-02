@@ -98,10 +98,26 @@ class MavsSensorNode : public MavsNode {
 
 	}
 
+	geometry_msgs::msg::Quaternion GetSensorLookTo(geometry_msgs::msg::Point camPos, geometry_msgs::msg::Point targetPos) {
+		glm::vec3 c(camPos.x, camPos.y, camPos.z);
+		glm::vec3 v(targetPos.x, targetPos.y, targetPos.z);
+		glm::vec3 look_to = v - c;
+		look_to = glm::normalize(look_to);
+		glm::vec3 world_up(0.0f, 0.0f, 1.0f);
+		glm::vec3 look_side = glm::cross(world_up, look_to);
+		look_side = glm::normalize(look_side);
+		glm::vec3 look_up = glm::cross(look_to, look_side);
+		look_up = glm::normalize(look_up);
+		glm::mat3 R(look_to, look_side, look_up);
+		glm::quat q = glm::quat_cast(R);
+		geometry_msgs::msg::Quaternion q_out;
+		q = glm::normalize(q);
+		q_out.w = q.w; q_out.x = q.x; q_out.y = q.y; q_out.z = q.z;
+		return q_out;
+	}
+
 	void OdomCallback(const nav_msgs::msg::Odometry::SharedPtr rcv_msg){
-		std::cout << "Recieved odom for sensor " << sensor_position_mode_ << std::endl;
 		if (sensor_position_mode_ == "fixed") {
-			std::cout << "Setting fixed sensor position " << std::endl;
 			pose_.pose.pose.position.x = fixed_position_[0];
 			pose_.pose.pose.position.y = fixed_position_[1];
 			pose_.pose.pose.position.z = fixed_position_[2];
@@ -111,10 +127,14 @@ class MavsSensorNode : public MavsNode {
 			pose_.pose.pose.orientation.z = fixed_orientation_[3];
 		}
 		else if (sensor_position_mode_ == "follow") {
-
+			pose_.pose.pose.position.x = fixed_position_[0];
+			pose_.pose.pose.position.y = fixed_position_[1];
+			pose_.pose.pose.position.z = fixed_position_[2];
+			geometry_msgs::msg::Point cam_pos; 
+			cam_pos.x = fixed_position_[0]; cam_pos.y = fixed_position_[1]; cam_pos.z = fixed_position_[2];
+			pose_.pose.pose.orientation = GetSensorLookTo(cam_pos, rcv_msg->pose.pose.position);
 		}
 		else { // assume "attached" is the default
-			
 			pose_ = *rcv_msg;
 		}
 	}
@@ -126,7 +146,6 @@ class MavsSensorNode : public MavsNode {
 	void TimerCallback(){
 		if (env_.GetNumberOfActors()>=(int)(anim_poses_.poses.size())){
 			for (int i=0;i<(int)anim_poses_.poses.size();i++){
-				//std::cout << "sensor node: " << i << " " << anim_poses_.poses[i].position.x << " " << anim_poses_.poses[i].position.y << std::endl;
 				glm::vec3 tpos(anim_poses_.poses[i].position.x, anim_poses_.poses[i].position.y, anim_poses_.poses[i].position.z);
 				glm::quat tori(anim_poses_.poses[i].orientation.w, anim_poses_.poses[i].orientation.x, anim_poses_.poses[i].orientation.y, anim_poses_.poses[i].orientation.z);
 				env_.SetActorPosition(i, tpos, tori, dt_, true);

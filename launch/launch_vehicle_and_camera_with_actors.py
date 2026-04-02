@@ -68,20 +68,32 @@ def generate_launch_description():
         name='mavs_camera_node',
         parameters=[
             {'scene_file': scene_file},
-             {'vehicle_files': [veh_file]},
-             {'actor_files': [actor_files]},
+            {'vehicle_files': [veh_file]},
+            {'actor_files': [actor_files]},
             {'camera_type': "rgb"},
             {'num_horizontal_pix': 480},
             {'num_vertical_pix': 270},
             {'horizontal_pixel_plane_size': 0.006222},
             {'vertical_pixel_plane_size': 0.0035},
             {'focal_length': 0.0035},
+            
             # if "fixed", the offset and orientation will be the absolute position
-            # if "follow", the offset will be the position but the viewfinder will look at the vehicle
+            
             # if "attached", the offset and orientation will be relative to the vehicle
             {'sensor_position_mode': "fixed"}, 
-            {'offset': [0.0,-20.0,1.0]},
+            {'offset': [0.0,-15.0,1.0]},
             {'orientation': [math.cos(0.25*math.pi), 0.0, 0.0, math.sin(0.25*math.pi)]},
+            
+            # if "fixed", the offset and orientation will be the absolute position
+            #{'sensor_position_mode': "attached"}, 
+            #{'offset': [-8.0,0.0, 2.0]},
+            #{'orientation': [1.0, 0.0, 0.0, 0.0]},
+            
+            # if "follow", the offset will be the position but the viewfinder will look at the vehicle
+            #{'sensor_position_mode': "follow"},
+            #{'offset': [0.0,-10.0,2.0]},
+            #{'orientation': [1.0, 0.0, 0.0, 0.0]},
+            
             {'render_shadows': True},
             {'display': True},
             {'update_rate_hz': 5.0},

@@ -161,16 +161,36 @@ double PointToSegmentDistance(glm::dvec2 ep1, glm::dvec2 ep2, glm::dvec2 p) {
     return d0;
 }
 
+// Cross product
+geometry_msgs::msg::Point PointCross(const geometry_msgs::msg::Point& a, const geometry_msgs::msg::Point& b ) {
+    geometry_msgs::msg::Point c;
+    c.x = a.y * b.z - a.z * b.y;
+    c.y = a.z * b.x - a.x * b.z;
+    c.z = a.x * b.y - a.y * b.x;
+    return c;
+}
+
 // Normalize a quaternion
 geometry_msgs::msg::Quaternion NormalizeQuat(const geometry_msgs::msg::Quaternion& q) {
     double norm = std::sqrt(q.w * q.w + q.x * q.x + q.y * q.y + q.z * q.z);
-    if (norm < 1e-10) throw std::runtime_error("Cannot normalize zero quaternion");
+    if (norm < 1e-10) return q;
     geometry_msgs::msg::Quaternion q_out;
     q_out.w = q.w / norm;
     q_out.x = q.x / norm;
     q_out.y = q.y / norm;
     q_out.z = q.z / norm;
     return q_out;
+}
+
+// Normalize a Point
+geometry_msgs::msg::Point NormalizePoint(const geometry_msgs::msg::Point& p) {
+    double norm = std::sqrt(p.x * p.x + p.y * p.y + p.z * p.z);
+    if (norm < 1e-10) return p;
+    geometry_msgs::msg::Point p_out;
+    p_out.x = p.x / norm;
+    p_out.y = p.y / norm;
+    p_out.z = p.z / norm;
+    return p_out;
 }
 
 // SLERP between two quaternions

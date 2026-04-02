@@ -95,7 +95,13 @@ namespace mavs_ros_utils {
 
     double PointToSegmentDistance(glm::dvec2 ep1, glm::dvec2 ep2, glm::dvec2 p);
 
+    inline double PointDot(const geometry_msgs::msg::Point& a, const geometry_msgs::msg::Point& b) { return (a.x * b.x + a.y * b.y + a.z * b.z); }
+
+    geometry_msgs::msg::Point PointCross(const geometry_msgs::msg::Point& a, const geometry_msgs::msg::Point& b);
+
     geometry_msgs::msg::Quaternion NormalizeQuat(const geometry_msgs::msg::Quaternion& q);
+
+    geometry_msgs::msg::Point NormalizePoint(const geometry_msgs::msg::Point& p);
 
     geometry_msgs::msg::Quaternion Slerp(const geometry_msgs::msg::Quaternion& q1, const geometry_msgs::msg::Quaternion& q2_raw, double t);
 
