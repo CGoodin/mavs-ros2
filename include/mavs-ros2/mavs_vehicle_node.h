@@ -105,7 +105,7 @@ private:
 		std::string mavs_data_path = mdp.GetPath();
 
 		std::string scene_file_path;
-		if (use_full_file_path_) {
+		if (!use_full_file_path_) {
 			scene_file_path = mavs_data_path + "/scenes/" + scene_file;
 		}
 		else {
@@ -120,7 +120,7 @@ private:
 		env_.SetGlobalSurfaceProperties(surface_type, 6894.76f * soil_strength);
 
 		std::string veh_file_path;
-		if (use_full_file_path_) {
+		if (!use_full_file_path_) {
 			veh_file_path = mavs_data_path + "/vehicles/rp3d_vehicles/" + rp3d_vehicle_file;
 		}
 		else {

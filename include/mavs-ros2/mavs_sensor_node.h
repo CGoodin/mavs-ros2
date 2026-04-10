@@ -69,7 +69,7 @@ class MavsSensorNode : public MavsNode {
 		mavs::MavsDataPath mdp;
 		std::string mavs_data_path = mdp.GetPath();
 		std::string scene_file_path;
-		if (use_full_file_path_) {
+		if (!use_full_file_path_) {
 			scene_file_path = mavs_data_path + "/scenes/" + scene_file;
 		}
 		else {
@@ -94,7 +94,7 @@ class MavsSensorNode : public MavsNode {
 		for (int nv =0; nv<(int)vehicle_files.size();nv++){
 			mavs::vehicle::Rp3dVehicle mavs_veh;
 			std::string veh_file_path;
-			if (use_full_file_path_) {
+			if (!use_full_file_path_) {
 				veh_file_path = mavs_data_path + "/vehicles/rp3d_vehicles/" + vehicle_files[nv];
 			}
 			else {
@@ -109,7 +109,7 @@ class MavsSensorNode : public MavsNode {
 
 		for (int na = 0; na < (int)actor_files.size(); na++) {
 			std::string actor_file_path;
-			if (use_full_file_path_) {
+			if (!use_full_file_path_) {
 				actor_file_path = mavs_data_path + "/actors/actors/" + actor_files[na];
 			}
 			else {
