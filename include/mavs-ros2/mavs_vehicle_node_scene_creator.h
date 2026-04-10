@@ -192,7 +192,7 @@ private:
 
 	void TimerCallback(){
 		// vehicle state update
-		if (use_human_driver_) UpdateHumanDrivingCommands();
+		// if (use_human_driver_) UpdateHumanDrivingCommands();
 
 		mavs_veh_.Update(&env_, throttle_, steering_, -braking_, dt_);
 		mavs::VehicleState veh_state = mavs_veh_.GetState();

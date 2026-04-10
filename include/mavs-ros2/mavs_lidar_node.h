@@ -21,7 +21,7 @@ class MavsLidarNode : public MavsSensorNode{
 
 		lidar_pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("lidar", 10);
 
-		//timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsLidarNode::TimerCallback, this));
+		timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsLidarNode::TimerCallback, this));
 
 		dt_ = 1.0/update_rate_hz_;
 
@@ -29,10 +29,10 @@ class MavsLidarNode : public MavsSensorNode{
 
 		LoadLidarParams();
 
-		timer_ = this->create_timer(
-			std::chrono::milliseconds((int)(1000.0 / update_rate_hz_)),
-			std::bind(&MavsLidarNode::TimerCallback, this)
-		);
+		// timer_ = this->create_timer(
+		// 	std::chrono::milliseconds((int)(1000.0 / update_rate_hz_)),
+		// 	std::bind(&MavsLidarNode::TimerCallback, this)
+		// );
 	}
 
 	~MavsLidarNode(){

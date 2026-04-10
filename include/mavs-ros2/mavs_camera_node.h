@@ -22,12 +22,12 @@ public:
 
 		camera_pub_ = this->create_publisher<sensor_msgs::msg::Image>("camera", 10);
 
-		//timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsCameraNode::TimerCallback, this));
+		timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsCameraNode::TimerCallback, this));
 
-		timer_ = this->create_timer(
-			std::chrono::milliseconds((int)(1000.0 / update_rate_hz_)),
-			std::bind(&MavsCameraNode::TimerCallback, this)
-		);
+		// timer_ = this->create_timer(
+		// 	std::chrono::milliseconds((int)(1000.0 / update_rate_hz_)),
+		// 	std::bind(&MavsCameraNode::TimerCallback, this)
+		// );
 	}
 
 	~MavsCameraNode() {

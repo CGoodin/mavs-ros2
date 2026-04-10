@@ -27,12 +27,12 @@ class MavsDepthCameraNode : public MavsSensorNode{
 		left_camera_info_pub_ = this->create_publisher<sensor_msgs::msg::CameraInfo>("left/camera_info", 10);
 		right_camera_info_pub_ = this->create_publisher<sensor_msgs::msg::CameraInfo>("right/camera_info", 10);
 
-		//timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsDepthCameraNode::TimerCallback, this));
+		timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsDepthCameraNode::TimerCallback, this));
 
-		timer_ = this->create_timer(
-			std::chrono::milliseconds((int)(1000.0 / update_rate_hz_)),
-			std::bind(&MavsDepthCameraNode::TimerCallback, this)
-		);
+		// timer_ = this->create_timer(
+		// 	std::chrono::milliseconds((int)(1000.0 / update_rate_hz_)),
+		// 	std::bind(&MavsDepthCameraNode::TimerCallback, this)
+		// );
 	}
 
 	~MavsDepthCameraNode(){

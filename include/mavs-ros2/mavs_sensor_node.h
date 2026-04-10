@@ -22,12 +22,12 @@ class MavsSensorNode : public MavsNode {
 		use_full_file_path_ = false;
 		LoadParams();
 
-		//timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsSensorNode::TimerCallback, this));
+		timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsSensorNode::TimerCallback, this));
 
-		timer_ = this->create_timer(
-			std::chrono::milliseconds((int)(1000.0 / update_rate_hz_)),
-			std::bind(&MavsSensorNode::TimerCallback, this)
-		);
+		// timer_ = this->create_timer(
+		// 	std::chrono::milliseconds((int)(1000.0 / update_rate_hz_)),
+		// 	std::bind(&MavsSensorNode::TimerCallback, this)
+		// );
 	}
 
   protected:
