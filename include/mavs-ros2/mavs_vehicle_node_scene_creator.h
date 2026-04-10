@@ -165,34 +165,6 @@ private:
 		}
 	}
 
-<<<<<<< HEAD
-	// void LogResults(){
-	// 	float avg_speed = 0.0f;
-	// 	if (!logged_speeds_.empty()) {
-	// 		avg_speed = std::accumulate(logged_speeds_.begin(), logged_speeds_.end(), 0.0f) / logged_speeds_.size();
-	// 	}
-
-	// 	std::string filename = results_path_ + "/run_" + std::to_string(current_iteration_) + ".json";
-
-	// 	std::ofstream file(filename);
-	// 	if (file.is_open()) {
-	// 		file << "{\n";
-	// 		//file << "  \"iteration\": " << current_iteration_ << ",\n";
-	// 		file << "  \"ditch_depth\": " << ditch_depth_ << ",\n";
-	// 		file << "  \"ditch_width\": " << ditch_width_ << ",\n";
-	// 		file << "  \"average_speed\": " << avg_speed << ",\n";
-	// 		file << "  \"timestamp\": " << std::time(nullptr) << "\n";
-	// 		file << "}\n";
-
-	// 		RCLCPP_INFO(this->get_logger(), "Saved results to %s", filename.c_str());
-	// 	}
-	// 	else {
-	// 		RCLCPP_WARN(this->get_logger(), "Failed to open file for saving results: %s", filename.c_str());
-	// 	}
-	// }
-
-=======
->>>>>>> automatic_testing
 	void UpdateHumanDrivingCommands(){
 		throttle_ = 0.0;
 		steering_ = 0.0;

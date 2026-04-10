@@ -19,7 +19,7 @@ class MavsSensorNode : public MavsNode {
 		
 		update_rate_hz_ = 10.0f;
 		sensor_position_mode_ = "attached";
-
+		use_full_file_path_ = false;
 		LoadParams();
 
 		//timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0/update_rate_hz_)),std::bind(&MavsSensorNode::TimerCallback, this));
@@ -45,13 +45,14 @@ class MavsSensorNode : public MavsNode {
 	std::string sensor_position_mode_;
 	float update_rate_hz_;
 	float dt_;
-
+	bool use_full_file_path_;
 
 	void LoadParams(){
 		std::string scene_file = GetStringParam( "scene_file", "cube_scene.json");
 		offset_ = GetFloatArrayParam("offset",std::vector<float>(0));
 		relor_ = GetFloatArrayParam("orientation",std::vector<float>(0));
 		display_ = GetBoolParam("display", true);
+		use_full_file_path_ = GetBoolParam("use_full_file_path", false);
 		sensor_position_mode_ = GetStringParam("sensor_position_mode", "attached");
 		if (sensor_position_mode_ == "fixed" || sensor_position_mode_=="follow") {
 			fixed_position_ = offset_;
@@ -67,7 +68,15 @@ class MavsSensorNode : public MavsNode {
 
 		mavs::MavsDataPath mdp;
 		std::string mavs_data_path = mdp.GetPath();
-		scene_.Load(mavs_data_path+"/scenes/"+scene_file);
+		std::string scene_file_path;
+		if (use_full_file_path_) {
+			scene_file_path = mavs_data_path + "/scenes/" + scene_file;
+		}
+		else {
+			scene_file_path = scene_file;
+		}
+		scene_.Load(scene_file_path);
+
 		scene_.TurnOffLabeling();
 		env_.SetRaytracer(&scene_);
         float rain_rate = GetFloatParam("env_params.rain_rate", 0.0f);
@@ -84,14 +93,30 @@ class MavsSensorNode : public MavsNode {
         env_.SetDateTime(year, month, date, hour, minute, second, time_zone);
 		for (int nv =0; nv<(int)vehicle_files.size();nv++){
 			mavs::vehicle::Rp3dVehicle mavs_veh;
-			mavs_veh.Load(mavs_data_path+"/vehicles/rp3d_vehicles/"+vehicle_files[nv]);
+			std::string veh_file_path;
+			if (use_full_file_path_) {
+				veh_file_path = mavs_data_path + "/vehicles/rp3d_vehicles/" + vehicle_files[nv];
+			}
+			else {
+				veh_file_path = vehicle_files[nv];
+			}
+			mavs_veh.Load(veh_file_path);
+			//mavs_veh.Load(mavs_data_path+"/vehicles/rp3d_vehicles/"+vehicle_files[nv]);
 			mavs_veh.SetPosition(-10000.0f, -10000.0f, -10000.0f);
 			mavs_veh.SetOrientation(1.0f, 0.0f, 0.0f, 0.0f);
 			mavs_veh.Update(&env_, 0.0, 0.0, 0.0, 0.00001);
 		}
 
 		for (int na = 0; na < (int)actor_files.size(); na++) {
-			std::vector<int> actor_idv = env_.LoadActors(mavs_data_path + "/actors/actors/"+actor_files[na]);
+			std::string actor_file_path;
+			if (use_full_file_path_) {
+				actor_file_path = mavs_data_path + "/actors/actors/" + actor_files[na];
+			}
+			else {
+				actor_file_path = actor_files[na];
+			}
+			std::vector<int> actor_idv = env_.LoadActors(actor_file_path);
+			//std::vector<int> actor_idv = env_.LoadActors(mavs_data_path + "/actors/actors/"+actor_files[na]);
 			int actor_num = (int)(actor_idv.size() - 1);
 			env_.UnsetActorUpdate(actor_num);
 		}

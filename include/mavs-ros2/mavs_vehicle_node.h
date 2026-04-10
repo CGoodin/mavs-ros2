@@ -23,12 +23,13 @@ public:
 		elapsed_time_ = 0.0f;
 		headless_ = false;
 		use_sim_time_ = false;
+		use_full_file_path_ = false;
 
 		twist_sub_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 1, std::bind(&MavsVehicleNode::TwistCallback, this, std::placeholders::_1));
 		odom_true_pub_ = this->create_publisher<nav_msgs::msg::Odometry>("odometry_true", 10);
 		anim_poses_pub_ = this->create_publisher<geometry_msgs::msg::PoseArray>("anim_poses", 10);
 		imu_pub_ = this->create_publisher<sensor_msgs::msg::Imu>("imu", 100);
-
+		
 		LoadVehicleParams();
 
 		timer_ = this->create_wall_timer(std::chrono::milliseconds((int)(1000.0 / (1.0 / dt_))), std::bind(&MavsVehicleNode::TimerCallback, this));
@@ -68,6 +69,7 @@ private:
 	int nsteps_;
 	int render_steps_;
 	float elapsed_time_;
+	bool use_full_file_path_;
 
 	void TwistCallback(const geometry_msgs::msg::Twist::SharedPtr rcv_msg) {
 		throttle_ = rcv_msg->linear.x;
@@ -93,6 +95,7 @@ private:
 		float heading_init = GetFloatParam("Initial_Heading", 0.0f);
 		render_debug_ = GetBoolParam("debug_camera", false);
 		use_human_driver_ = GetBoolParam("use_human_driver", false);
+		use_full_file_path_ = GetBoolParam("use_full_file_path", false);
 		dt_ = GetFloatParam("dt", 0.01f);
 		headless_ = GetBoolParam("headless", false);
 		glm::vec3 initial_position(x_init, y_init, 1.0f);
@@ -101,13 +104,31 @@ private:
 		mavs::MavsDataPath mdp;
 		std::string mavs_data_path = mdp.GetPath();
 
-		scene_.Load(mavs_data_path + "/scenes/" + scene_file);
+		std::string scene_file_path;
+		if (use_full_file_path_) {
+			scene_file_path = mavs_data_path + "/scenes/" + scene_file;
+		}
+		else {
+			scene_file_path = scene_file;
+		}
+		scene_.Load(scene_file_path);
+
+		//scene_.Load(mavs_data_path + "/scenes/" + scene_file);
 		scene_.TurnOffLabeling();
 
 		env_.SetRaytracer(&scene_);
 		env_.SetGlobalSurfaceProperties(surface_type, 6894.76f * soil_strength);
 
-		mavs_veh_.Load(mavs_data_path + "/vehicles/rp3d_vehicles/" + rp3d_vehicle_file);
+		std::string veh_file_path;
+		if (use_full_file_path_) {
+			veh_file_path = mavs_data_path + "/vehicles/rp3d_vehicles/" + rp3d_vehicle_file;
+		}
+		else {
+			veh_file_path = rp3d_vehicle_file;
+		}
+		mavs_veh_.Load(veh_file_path);
+		//mavs_veh_.Load(mavs_data_path + "/vehicles/rp3d_vehicles/" + rp3d_vehicle_file);
+
 		mavs_veh_.SetPosition(initial_position.x, initial_position.y, initial_position.z);
 		mavs_veh_.SetOrientation(initial_orientation.w, initial_orientation.x, initial_orientation.y, initial_orientation.z);
 		mavs_veh_.Update(&env_, throttle_, steering_, braking_, 0.00001);
