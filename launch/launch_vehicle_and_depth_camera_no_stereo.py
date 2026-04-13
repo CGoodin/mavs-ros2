@@ -61,6 +61,7 @@ def generate_launch_description():
             {'orientation': [1.0, 0.0, 0.0, 0.0]},
             {'render_shadows': True},
             {'display': True},
+            {'publish_true_ranges': True},
             {'update_rate_hz': 10.0},
             {'use_full_path': False},
             env_params

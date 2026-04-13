@@ -23,6 +23,35 @@ double GetHeadingFromOrientation(geometry_msgs::msg::Quaternion orientation){
     return yaw;
 }
 
+std_msgs::msg::Float32MultiArray ToFloat32MultiArray(const std::vector<std::vector<float>>& data_in){
+    std_msgs::msg::Float32MultiArray msg;
+
+    int nx = (int)data_in.size();
+    int ny = 0;
+    if (nx > 0)ny = (int)data_in[0].size();
+
+    // Set layout dimensions
+    msg.layout.dim.resize(2);
+
+    msg.layout.dim[0].label = "x";
+    msg.layout.dim[0].size = nx;
+    msg.layout.dim[0].stride = nx * ny;  // total elements from this dim onward
+
+    msg.layout.dim[1].label = "y";
+    msg.layout.dim[1].size = ny;
+    msg.layout.dim[1].stride = ny;       // elements from this dim onward
+
+    msg.layout.data_offset = 0;
+
+    // Flatten row-major into the data vector
+    msg.data.reserve(nx * ny);
+    for (int i = 0; i < nx; ++i)
+        for (int j = 0; j < ny; ++j)
+            msg.data.push_back(data_in[i][j]);
+
+    return msg;
+}
+
 sensor_msgs::msg::PointCloud2 CopyFromMavsPc2(mavs::PointCloud2 mavs_pc){
     sensor_msgs::msg::PointCloud2 pc;
     pc.height = mavs_pc.height;

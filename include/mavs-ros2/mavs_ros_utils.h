@@ -14,6 +14,7 @@
 
 // C++ includes
 #include <iostream>
+#include <vector>
 // ROS2 includes
 #include <rclcpp/rclcpp.hpp>
 #include <geometry_msgs/msg/quaternion.hpp>
@@ -26,6 +27,7 @@
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <tf2/LinearMath/Vector3.h>
 #include <sensor_msgs/msg/point_field.hpp>
+#include <std_msgs/msg/float32_multi_array.hpp>
 // mavs includes
 #include <mavs_core/messages.h>
 #include "CImg.h"
@@ -74,6 +76,8 @@ namespace mavs_ros_utils {
             }
         }
     }
+
+    std_msgs::msg::Float32MultiArray ToFloat32MultiArray(const std::vector<std::vector<float>>& data_in);
 
     double GetHeadingFromOrientation(geometry_msgs::msg::Quaternion orientation);
 
