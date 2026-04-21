@@ -44,7 +44,8 @@ class MavsGpsNode : public MavsSensorNode{
 		std::string gps_type = GetStringParam("gps_type", "normal");
 		gps_.SetType(gps_type);
 		gps_.SetRelativePose(glm::vec3(offset_[0], offset_[1], offset_[2]), glm::quat(relor_[0], relor_[1], relor_[2], relor_[3]));
-		
+		std::vector<float> lla = GetFloatArrayParam("origin_lla", std::vector<float>(0));
+		env_.SetLocalOrigin(lla[0], lla[1], lla[2]);
 	}
 
 	void TimerCallback(){
@@ -68,9 +69,13 @@ class MavsGpsNode : public MavsSensorNode{
 		sat_fix.status.status = mavs_sat_status.status;
 		sat_fix.status.service = mavs_sat_status.service;
 		sat_fix.latitude = mavs_sat_fix.latitude;
-		sat_fix.longitude = mavs_sat_fix.longitude;
+		// not sure why this has to be negated, maybe a problem with MAVS
+		sat_fix.longitude = -mavs_sat_fix.longitude;
 		sat_fix.altitude = mavs_sat_fix.altitude;
-
+		sat_fix.position_covariance[0] = 4.0;
+		sat_fix.position_covariance[4] = 4.0;
+		sat_fix.position_covariance[8] = 8.0;
+		sat_fix.position_covariance_type = 1;
 		sat_fix.header.stamp = this->now();
 		sat_fix.header.frame_id = "gps_link";
 		fix_pub_->publish(sat_fix);
