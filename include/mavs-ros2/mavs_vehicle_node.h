@@ -93,6 +93,7 @@ private:
 		float x_init = GetFloatParam("Initial_X_Position", 0.0f);
 		float y_init = GetFloatParam("Initial_Y_Position", 0.0f);
 		float heading_init = GetFloatParam("Initial_Heading", 0.0f);
+		int scene_seed = GetIntParam("scene_seed", -1);
 		render_debug_ = GetBoolParam("debug_camera", false);
 		use_human_driver_ = GetBoolParam("use_human_driver", false);
 		use_full_file_path_ = GetBoolParam("use_full_file_path", false);
@@ -111,7 +112,13 @@ private:
 		else {
 			scene_file_path = scene_file;
 		}
-		scene_.Load(scene_file_path);
+
+		if (scene_seed > 0) {
+			scene_.Load(scene_file_path, scene_seed);
+		}
+		else {
+			scene_.Load(scene_file_path);
+		}
 
 		//scene_.Load(mavs_data_path + "/scenes/" + scene_file);
 		scene_.TurnOffLabeling();

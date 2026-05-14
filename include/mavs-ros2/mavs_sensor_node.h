@@ -52,6 +52,7 @@ class MavsSensorNode : public MavsNode {
 		offset_ = GetFloatArrayParam("offset",std::vector<float>(0));
 		relor_ = GetFloatArrayParam("orientation",std::vector<float>(0));
 		display_ = GetBoolParam("display", true);
+		int scene_seed = GetIntParam("scene_seed", -1);
 		use_full_file_path_ = GetBoolParam("use_full_file_path", false);
 		sensor_position_mode_ = GetStringParam("sensor_position_mode", "attached");
 		if (sensor_position_mode_ == "fixed" || sensor_position_mode_=="follow") {
@@ -75,8 +76,13 @@ class MavsSensorNode : public MavsNode {
 		else {
 			scene_file_path = scene_file;
 		}
-		scene_.Load(scene_file_path);
 
+		if (scene_seed > 0) {
+			scene_.Load(scene_file_path, scene_seed);
+		}
+		else {
+			scene_.Load(scene_file_path);
+		}
 		scene_.TurnOffLabeling();
 		env_.SetRaytracer(&scene_);
         float rain_rate = GetFloatParam("env_params.rain_rate", 0.0f);
