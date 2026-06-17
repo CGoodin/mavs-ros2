@@ -57,7 +57,7 @@ private:
 		float px = GetFloatParam("horizontal_pixel_plane_size", 0.0035f);
 		float py = GetFloatParam("vertical_pixel_plane_size", 0.0035f);
 		float flen = GetFloatParam("focal_length", 0.0035f);
-		altitude_ = GetFloatParam("Altitude", 100.0f);
+		altitude_ = GetFloatParam("altitude", 100.0f);
 		bool render_shadows = GetBoolParam("render_shadows", true);
 		save_images_ = GetBoolParam("save_images", false);
 
@@ -126,6 +126,10 @@ private:
 		sensor_msgs::msg::Image img;
 		mavs::Image mavs_img = cam_->GetRosImage();
 		mavs_ros_utils::CopyFromMavsImage(img, mavs_img);
+
+		img.header.stamp = this->get_clock()->now();
+		img.header.frame_id = "base_link";
+
 		camera_pub_->publish(img);
 		frame_num_++;
 	}

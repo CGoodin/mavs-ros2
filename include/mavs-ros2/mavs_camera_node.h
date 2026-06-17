@@ -94,6 +94,10 @@ private:
 		sensor_msgs::msg::Image img;
 		mavs::Image mavs_img = cam_->GetRosImage();
 		mavs_ros_utils::CopyFromMavsImage(img, mavs_img);
+
+		img.header.stamp = this->get_clock()->now();
+        img.header.frame_id = "base_link";
+
 		camera_pub_->publish(img);
 		frame_num_++;
 	}

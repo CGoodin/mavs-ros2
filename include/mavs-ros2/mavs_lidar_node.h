@@ -108,7 +108,7 @@ class MavsLidarNode : public MavsSensorNode{
 		if (register_points_){
 			mavs_pc2 = lidar_->GetPointCloud2Registered();
 			pc2 = mavs_ros_utils::CopyFromMavsPc2(mavs_pc2); 
-			pc2.header.frame_id = lidar_frame_;
+			pc2.header.frame_id = "odom";
 		}
 		else{
 			if (attributed_points_) {
