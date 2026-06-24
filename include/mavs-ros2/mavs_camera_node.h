@@ -41,7 +41,8 @@ private:
     // stored for CameraInfo construction
     int nx_, ny_;
     float px_, py_, flen_;
-
+    int pix_sample_factor_;
+    float color_temp_, color_saturation_;
     void LoadCameraParams() {
         std::string camera_type = GetStringParam("camera_type", "rgb");
         nx_ = GetIntParam("num_horizontal_pix", 256);
@@ -49,6 +50,9 @@ private:
         px_ = GetFloatParam("horizontal_pixel_plane_size", 0.0035f);
         py_ = GetFloatParam("vertical_pixel_plane_size", 0.0035f);
         flen_ = GetFloatParam("focal_length", 0.0035f);
+        pix_sample_factor_ = GetIntParam("pixel_sample_factor", -1);
+        color_temp_ = GetFloatParam("color_temp", 6500.0f);
+        color_saturation_ = GetFloatParam("color_saturation", 1.0);
         bool render_shadows = GetBoolParam("render_shadows", true);
         save_images_ = GetBoolParam("save_images", false);
 
@@ -73,6 +77,14 @@ private:
         }
 
         cam_->Initialize(nx_, ny_, px_, py_, flen_);
+        pix_sample_factor_ = std::min(3, pix_sample_factor_); // don't let someone set this too high
+        if (pix_sample_factor_ > 0) {
+            cam_->SetAntiAliasing("oversampled");
+            cam_->SetPixelSampleFactor(pix_sample_factor_);
+        }
+        cam_->SetGamma(0.9f);
+        cam_->SetSaturationAndTemperature(color_saturation_, color_temp_);
+
         cam_->SetRelativePose(
             glm::vec3(offset_[0], offset_[1], offset_[2]),
             glm::quat(relor_[0], relor_[1], relor_[2], relor_[3])
